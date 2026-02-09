@@ -8,7 +8,8 @@
                 "hp": 45,
                 "attack": 49,
                 "defense": 49,
-                "speed": 45
+                "speed": 45,
+                "found": false
             }
         },
         {
@@ -19,7 +20,8 @@
                 "hp": 60,
                 "attack": 62,
                 "defense": 63,
-                "speed": 60
+                "speed": 60,
+                "found": false
             }
         },
         {
@@ -30,7 +32,8 @@
                 "hp": 80,
                 "attack": 82,
                 "defense": 83,
-                "speed": 80
+                "speed": 80,
+                "found": false
             }
         },
         {
@@ -41,7 +44,8 @@
                 "hp": 39,
                 "attack": 52,
                 "defense": 43,
-                "speed": 65
+                "speed": 65,
+                "found": false
             }
         },
         {
@@ -52,7 +56,8 @@
                 "hp": 58,
                 "attack": 64,
                 "defense": 58,
-                "speed": 80
+                "speed": 80,
+                "found": false
             }
         },
         {
@@ -63,7 +68,8 @@
                 "hp": 78,
                 "attack": 84,
                 "defense": 78,
-                "speed": 100
+                "speed": 100,
+                "found": false
             }
         },
         {
@@ -74,7 +80,8 @@
                 "hp": 44,
                 "attack": 48,
                 "defense": 65,
-                "speed": 43
+                "speed": 43,
+                "found": false
             }
         },
         {
@@ -85,7 +92,8 @@
                 "hp": 59,
                 "attack": 63,
                 "defense": 80,
-                "speed": 58
+                "speed": 58,
+                "found": false
             }
         },
         {
@@ -96,7 +104,8 @@
                 "hp": 79,
                 "attack": 83,
                 "defense": 100,
-                "speed": 78
+                "speed": 78,
+                "found": false
             }
         },
         {
@@ -107,7 +116,8 @@
                 "hp": 45,
                 "attack": 30,
                 "defense": 35,
-                "speed": 45
+                "speed": 45,
+                "found": false
             }
         },
         {
@@ -118,7 +128,8 @@
                 "hp": 50,
                 "attack": 20,
                 "defense": 55,
-                "speed": 30
+                "speed": 30,
+                "found": false
             }
         },
         {
@@ -129,7 +140,8 @@
                 "hp": 60,
                 "attack": 45,
                 "defense": 50,
-                "speed": 70
+                "speed": 70,
+                "found": false
             }
         },
         {
@@ -140,7 +152,8 @@
                 "hp": 40,
                 "attack": 35,
                 "defense": 30,
-                "speed": 50
+                "speed": 50,
+                "found": false
             }
         },
         {
@@ -151,7 +164,8 @@
                 "hp": 45,
                 "attack": 25,
                 "defense": 50,
-                "speed": 35
+                "speed": 35,
+                "found": false
             }
         },
         {
@@ -162,7 +176,8 @@
                 "hp": 65,
                 "attack": 90,
                 "defense": 40,
-                "speed": 75
+                "speed": 75,
+                "found": false
             }
         },
         {
@@ -173,7 +188,8 @@
                 "hp": 40,
                 "attack": 45,
                 "defense": 40,
-                "speed": 56
+                "speed": 56,
+                "found": false
             }
         },
         {
@@ -184,7 +200,8 @@
                 "hp": 63,
                 "attack": 60,
                 "defense": 55,
-                "speed": 71
+                "speed": 71,
+                "found": false
             }
         },
         {
@@ -195,7 +212,8 @@
                 "hp": 83,
                 "attack": 80,
                 "defense": 75,
-                "speed": 101
+                "speed": 101,
+                "found": false
             }
         },
         {
@@ -206,7 +224,8 @@
                 "hp": 30,
                 "attack": 56,
                 "defense": 35,
-                "speed": 72
+                "speed": 72,
+                "found": false
             }
         },
         {
@@ -217,7 +236,8 @@
                 "hp": 55,
                 "attack": 81,
                 "defense": 60,
-                "speed": 97
+                "speed": 97,
+                "found": false
             }
         },
         {
@@ -228,7 +248,8 @@
                 "hp": 40,
                 "attack": 55,
                 "defense": 30,
-                "speed": 60
+                "speed": 60,
+                "found": false
             }
         },
         {
@@ -239,7 +260,8 @@
                 "hp": 65,
                 "attack": 90,
                 "defense": 65,
-                "speed": 100
+                "speed": 100,
+                "found": false
             }
         },
         {
@@ -250,7 +272,8 @@
                 "hp": 35,
                 "attack": 60,
                 "defense": 44,
-                "speed": 55
+                "speed": 55,
+                "found": false
             }
         },
         {
@@ -261,7 +284,8 @@
                 "hp": 60,
                 "attack": 95,
                 "defense": 69,
-                "speed": 80
+                "speed": 80,
+                "found": false
             }
         },
         {
@@ -272,7 +296,8 @@
                 "hp": 35,
                 "attack": 55,
                 "defense": 40,
-                "speed": 90
+                "speed": 90,
+                "found": false
             }
         },
         {
@@ -283,7 +308,8 @@
                 "hp": 60,
                 "attack": 90,
                 "defense": 55,
-                "speed": 110
+                "speed": 110,
+                "found": false
             }
         },
         {
@@ -294,7 +320,8 @@
                 "hp": 50,
                 "attack": 75,
                 "defense": 85,
-                "speed": 40
+                "speed": 40,
+                "found": false
             }
         },
         {
@@ -305,7 +332,8 @@
                 "hp": 75,
                 "attack": 100,
                 "defense": 110,
-                "speed": 65
+                "speed": 65,
+                "found": false
             }
         },
         {
@@ -316,7 +344,8 @@
                 "hp": 46,
                 "attack": 57,
                 "defense": 40,
-                "speed": 50
+                "speed": 50,
+                "found": false
             }
         },
         {
@@ -327,9 +356,9 @@
                 "hp":61,
                 "attack":72,
                 "defense":57,
-                "speed":65
+                "speed":65,
+                "found": false
             }
-
         },
         {
             "id":31,
@@ -339,9 +368,9 @@
                 "hp":81,
                 "attack":102,
                 "defense":77,
-                "speed":85
+                "speed":85,
+                "found": false
             }
-
         },
         {
             "id":32,
@@ -351,7 +380,8 @@
                 "hp":70,
                 "attack":45,
                 "defense":48,
-                "speed":35
+                "speed":35,
+                "found": false
             }
         },
         {
@@ -362,7 +392,8 @@
                 "hp":95,
                 "attack":70,
                 "defense":73,
-                "speed":60
+                "speed":60,
+                "found": false
             }
         },
         {
@@ -373,7 +404,8 @@
                 "hp":38,
                 "attack":41,
                 "defense":40,
-                "speed":65
+                "speed":65,
+                "found": false
             }
         },
         {
@@ -384,7 +416,8 @@
                 "hp":73,
                 "attack":76,
                 "defense":75,
-                "speed":100
+                "speed":100,
+                "found": false
             }
         },
         {
@@ -395,9 +428,9 @@
                 "hp":115,
                 "attack":45,
                 "defense":20,
-                "speed":20
+                "speed":20,
+                "found": false
             }
-
         },
         {
             "id":37,
@@ -407,8 +440,8 @@
                 "hp":140,
                 "attack":70,
                 "defense":45,
-                "speed":45
-
+                "speed":45,
+                "found": false
             }
         },
         {
@@ -419,9 +452,9 @@
                 "hp":40,
                 "attack":45,
                 "defense":35,
-                "speed":55
+                "speed":55,
+                "found": false
             }
-
         },
         {
             "id":39,
@@ -431,7 +464,8 @@
                 "hp":75,
                 "attack":80,
                 "defense":70,
-                "speed":90
+                "speed":90,
+                "found": false
             }
         },
         {
@@ -442,7 +476,8 @@
                 "hp":45,
                 "attack":50,
                 "defense":55,
-                "speed":30
+                "speed":30,
+                "found": false
             }
         },
         {
@@ -453,7 +488,8 @@
                 "hp":60,
                 "attack":65,
                 "defense":70,
-                "speed":40
+                "speed":40,
+                "found": false
             }
         },
         {
@@ -464,7 +500,8 @@
                 "hp":75,
                 "attack":80,
                 "defense":85,
-                "speed":50
+                "speed":50,
+                "found": false
             }
         },
         {
@@ -475,7 +512,8 @@
                 "hp":35,
                 "attack":70,
                 "defense":55,
-                "speed":25
+                "speed":25,
+                "found": false
             }
         },
         {
@@ -486,7 +524,8 @@
                 "hp":60,
                 "attack":95,
                 "defense":80,
-                "speed":30
+                "speed":30,
+                "found": false
             }
         },
         {
@@ -497,7 +536,8 @@
                 "hp":60,
                 "attack":55,
                 "defense":50,
-                "speed":45
+                "speed":45,
+                "found": false
             }
         },
         {
@@ -508,7 +548,8 @@
                 "hp":70,
                 "attack":65,
                 "defense":60,
-                "speed":90
+                "speed":90,
+                "found": false
             }
         },
         {
@@ -519,7 +560,8 @@
                 "hp":10,
                 "attack":55,
                 "defense":25,
-                "speed":95
+                "speed":95,
+                "found": false
             }
         },
         {
@@ -530,7 +572,8 @@
                 "hp":35,
                 "attack":100,
                 "defense":50,
-                "speed":120
+                "speed":120,
+                "found": false
             }
         },
         {
@@ -541,7 +584,8 @@
                 "hp":40,
                 "attack":45,
                 "defense":35,
-                "speed":90
+                "speed":90,
+                "found": false
             }
         },
         {
@@ -552,7 +596,8 @@
                 "hp":65,
                 "attack":70,
                 "defense":60,
-                "speed":115
+                "speed":115,
+                "found": false
             }
         },
         {
@@ -563,7 +608,8 @@
                 "hp":50,
                 "attack":52,
                 "defense":48,
-                "speed":55
+                "speed":55,
+                "found": false
             }
         },
         {
@@ -574,7 +620,8 @@
                 "hp":80,
                 "attack":82,
                 "defense":78,
-                "speed":85
+                "speed":85,
+                "found": false
             }
         },
         {
@@ -585,7 +632,8 @@
                 "hp":40,
                 "attack":80,
                 "defense":35,
-                "speed":70
+                "speed":70,
+                "found": false
             }
         },
         {
@@ -596,7 +644,8 @@
                 "hp":65,
                 "attack":105,
                 "defense":60,
-                "speed":95
+                "speed":95,
+                "found": false
             }
         },
         {
@@ -607,7 +656,8 @@
                 "hp":55,
                 "attack":70,
                 "defense":45,
-                "speed":60
+                "speed":60,
+                "found": false
             }
         },
         {
@@ -618,8 +668,22 @@
                 "hp":90,
                 "attack":110,
                 "defense":80, 
-                "speed":95
+                "speed":95,
+                "found": false
+            }
+        },
+        {
+            "id":57,
+            "name":"Ptitard",
+            "type":["Eau"],
+            "stats":{
+                "hp":40,
+                "attack":50,
+                "defense":40,
+                "speed":90,
+                "found":false
             }
         }    
     ]
+
 }
