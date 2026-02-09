@@ -3,6 +3,7 @@ import sys
 from pokedex import charger_pokedex
 from CustumizerPokedex import CustomizerPokedex
 
+
 def main():
     # Initialisation de Pygame
     pygame.init()
@@ -11,11 +12,11 @@ def main():
     LARGEUR = 1200
     HAUTEUR = 800
     screen = pygame.display.set_mode((LARGEUR, HAUTEUR))
-    pygame.display.set_caption("Pokédex Ultime - Génération 1")
+    pygame.display.set_caption("Pokédex Ultime ")
     
-    # Icône (optionnel)
+    
     # pygame.display.set_icon(pygame.image.load("icon.png"))
-    
+    pygame.display.set_icon(pygame.image.load("./assets/icon.ico"))
     # Charger le Pokédex
     try:
         pokedex = charger_pokedex("pokedex.json")
