@@ -1,0 +1,323 @@
+{
+    "pokemon": [
+        {
+            "id": 1,
+            "name": "Bulbizarre",
+            "type": ["Plante", "Poison"],
+            "stats": {
+                "hp": 45,
+                "attack": 49,
+                "defense": 49,
+                "speed": 45
+            }
+        },
+        {
+            "id": 2,
+            "name": "Herbizarre",
+            "type": ["Plante", "Poison"],
+            "stats": {
+                "hp": 60,
+                "attack": 62,
+                "defense": 63,
+                "speed": 60
+            }
+        },
+        {
+            "id": 3,
+            "name": "Florizarre",
+            "type": ["Plante", "Poison"],
+            "stats": {
+                "hp": 80,
+                "attack": 82,
+                "defense": 83,
+                "speed": 80
+            }
+        },
+        {
+            "id": 4,
+            "name": "Salamèche",
+            "type": ["Feu"],
+            "stats": {
+                "hp": 39,
+                "attack": 52,
+                "defense": 43,
+                "speed": 65
+            }
+        },
+        {
+            "id": 5,
+            "name": "Reptincel",
+            "type": ["Feu"],
+            "stats": {
+                "hp": 58,
+                "attack": 64,
+                "defense": 58,
+                "speed": 80
+            }
+        },
+        {
+            "id": 6,
+            "name": "Dracaufeu",
+            "type": ["Feu", "Vol"],
+            "stats": {
+                "hp": 78,
+                "attack": 84,
+                "defense": 78,
+                "speed": 100
+            }
+        },
+        {
+            "id": 7,
+            "name": "Carapuce",
+            "type": ["Eau"],
+            "stats": {
+                "hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "speed": 43
+            }
+        },
+        {
+            "id": 8,
+            "name": "Carabaffe",
+            "type": ["Eau"],
+            "stats": {
+                "hp": 59,
+                "attack": 63,
+                "defense": 80,
+                "speed": 58
+            }
+        },
+        {
+            "id": 9,
+            "name": "Tortank",
+            "type": ["Eau"],
+            "stats": {
+                "hp": 79,
+                "attack": 83,
+                "defense": 100,
+                "speed": 78
+            }
+        },
+        {
+            "id": 10,
+            "name": "Chenipan",
+            "type": ["Insecte"],
+            "stats": {
+                "hp": 45,
+                "attack": 30,
+                "defense": 35,
+                "speed": 45
+            }
+        },
+        {
+            "id": 11,
+            "name": "Chrysacier",
+            "type": ["Insecte"],
+            "stats": {
+                "hp": 50,
+                "attack": 20,
+                "defense": 55,
+                "speed": 30
+            }
+        },
+        {
+            "id": 12,
+            "name": "Papilusion",
+            "type": ["Insecte", "Vol"],
+            "stats": {
+                "hp": 60,
+                "attack": 45,
+                "defense": 50,
+                "speed": 70
+            }
+        },
+        {
+            "id": 13,
+            "name": "Aspicot",
+            "type": ["Insecte", "Poison"],
+            "stats": {
+                "hp": 40,
+                "attack": 35,
+                "defense": 30,
+                "speed": 50
+            }
+        },
+        {
+            "id": 14,
+            "name": "Coconfort",
+            "type": ["Insecte", "Poison"],
+            "stats": {
+                "hp": 45,
+                "attack": 25,
+                "defense": 50,
+                "speed": 35
+            }
+        },
+        {
+            "id": 15,
+            "name": "Dardargnan",
+            "type": ["Insecte", "Poison"],
+            "stats": {
+                "hp": 65,
+                "attack": 90,
+                "defense": 40,
+                "speed": 75
+            }
+        },
+        {
+            "id": 16,
+            "name": "Roucool",
+            "type": ["Normal", "Vol"],
+            "stats": {
+                "hp": 40,
+                "attack": 45,
+                "defense": 40,
+                "speed": 56
+            }
+        },
+        {
+            "id": 17,
+            "name": "Roucoups",
+            "type": ["Normal", "Vol"],
+            "stats": {
+                "hp": 63,
+                "attack": 60,
+                "defense": 55,
+                "speed": 71
+            }
+        },
+        {
+            "id": 18,
+            "name": "Roucarnage",
+            "type": ["Normal", "Vol"],
+            "stats": {
+                "hp": 83,
+                "attack": 80,
+                "defense": 75,
+                "speed": 101
+            }
+        },
+        {
+            "id": 19,
+            "name": "Rattata",
+            "type": ["Normal"],
+            "stats": {
+                "hp": 30,
+                "attack": 56,
+                "defense": 35,
+                "speed": 72
+            }
+        },
+        {
+            "id": 20,
+            "name": "Rattatac",
+            "type": ["Normal"],
+            "stats": {
+                "hp": 55,
+                "attack": 81,
+                "defense": 60,
+                "speed": 97
+            }
+        },
+        {
+            "id": 21,
+            "name": "Piafabec",
+            "type": ["Normal", "Vol"],
+            "stats": {
+                "hp": 40,
+                "attack": 55,
+                "defense": 30,
+                "speed": 60
+            }
+        },
+        {
+            "id": 22,
+            "name": "Rapasdepic",
+            "type": ["Normal", "Vol"],
+            "stats": {
+                "hp": 65,
+                "attack": 90,
+                "defense": 65,
+                "speed": 100
+            }
+        },
+        {
+            "id": 23,
+            "name": "Abo",
+            "type": ["Poison"],
+            "stats": {
+                "hp": 35,
+                "attack": 60,
+                "defense": 44,
+                "speed": 55
+            }
+        },
+        {
+            "id": 24,
+            "name": "Arbok",
+            "type": ["Poison"],
+            "stats": {
+                "hp": 60,
+                "attack": 95,
+                "defense": 69,
+                "speed": 80
+            }
+        },
+        {
+            "id": 25,
+            "name": "Pikachu",
+            "type": ["Electrik"],
+            "stats": {
+                "hp": 35,
+                "attack": 55,
+                "defense": 40,
+                "speed": 90
+            }
+        },
+        {
+            "id": 26,
+            "name": "Raichu",
+            "type": ["Electrik"],
+            "stats": {
+                "hp": 60,
+                "attack": 90,
+                "defense": 55,
+                "speed": 110
+            }
+        },
+        {
+            "id": 27,
+            "name": "Sabelette",
+            "type": ["Sol"],
+            "stats": {
+                "hp": 50,
+                "attack": 75,
+                "defense": 85,
+                "speed": 40
+            }
+        },
+        {
+            "id": 28,
+            "name": "Sablaireau",
+            "type": ["Sol"],
+            "stats": {
+                "hp": 75,
+                "attack": 100,
+                "defense": 110,
+                "speed": 65
+            }
+        },
+        {
+            "id": 29,
+            "name": "Nidoran",
+            "type": ["Poison"],
+            "stats": {
+                "hp": 46,
+                "attack": 57,
+                "defense": 40,
+                "speed": 50
+            }
+        }
+    ]
+}
