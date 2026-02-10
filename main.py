@@ -15,7 +15,7 @@ def main():
     pygame.display.set_caption("Pokédex Ultime ")
     
     
-    # pygame.display.set_icon(pygame.image.load("icon.png"))
+    
     pygame.display.set_icon(pygame.image.load("./assets/icon.ico"))
     # Charger le Pokédex
     try:
