@@ -22,4 +22,4 @@ class Map:
 
     def update(self):
         self.group.draw(self.screen.get_display())
-        #\pokemon_\assets\map\map0.tmx
+        
