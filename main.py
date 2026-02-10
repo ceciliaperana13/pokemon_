@@ -1,7 +1,7 @@
 import pygame
 import sys
-from pokedex import Pokedex
-from CustumizerPokedex import CustomizerPokedex
+from data.pokedex import Pokedex
+from data.CustumizerPokedex import CustomizerPokedex
 
 def main():
     # Initialisation de Pygame
@@ -19,9 +19,9 @@ def main():
     except:
         print("⚠️ Icône non trouvée, continuation sans icône")
     
-    # Charger le Pokédex
+    # Charger le Pokédex (le fichier JSON est dans le dossier data)
     try:
-        pokedex = Pokedex("pokedex.json")
+        pokedex = Pokedex("data/pokedex.json")  # ← CORRECTION ICI
         print(f"✅ {pokedex.nombre_pokemon()} Pokémon chargés avec succès !")
     except FileNotFoundError:
         print("❌ Erreur: Fichier pokedex.json non trouvé!")
@@ -41,11 +41,11 @@ def main():
                 running = False
             
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:  
+                if event.button == 1:  # Clic gauche
                     interface.est_clique(event.pos)
-                elif event.button == 4:  
+                elif event.button == 4:  # Molette haut
                     interface.defiler(-1)
-                elif event.button == 5:  
+                elif event.button == 5:  # Molette bas
                     interface.defiler(1)
             
             elif event.type == pygame.MOUSEMOTION:
