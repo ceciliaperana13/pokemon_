@@ -1,8 +1,7 @@
 import pygame
 import sys
-from pokedex import charger_pokedex
+from pokedex import Pokedex
 from CustumizerPokedex import CustomizerPokedex
-
 
 def main():
     # Initialisation de Pygame
@@ -12,22 +11,24 @@ def main():
     LARGEUR = 1200
     HAUTEUR = 800
     screen = pygame.display.set_mode((LARGEUR, HAUTEUR))
-    pygame.display.set_caption("Pokédex Ultime ")
+    pygame.display.set_caption("Pokédex Ultime")
     
+    # Charger l'icône
+    try:
+        pygame.display.set_icon(pygame.image.load("assets/icon.ico"))
+    except:
+        print("⚠️ Icône non trouvée, continuation sans icône")
     
-    
-    pygame.display.set_icon(pygame.image.load("./assets/icon.ico"))
     # Charger le Pokédex
     try:
-        pokedex = charger_pokedex("pokedex.json")
-        print(f" {len(pokedex)} Pokémon chargés avec succès !")
+        pokedex = Pokedex("pokedex.json")
+        print(f"✅ {pokedex.nombre_pokemon()} Pokémon chargés avec succès !")
     except FileNotFoundError:
-        print(" Erreur: Fichier pokemon_data.json non trouvé!")
+        print("❌ Erreur: Fichier pokedex.json non trouvé!")
         sys.exit(1)
     
     # Créer l'interface
     interface = CustomizerPokedex(pokedex, LARGEUR, HAUTEUR)
-    
     
     clock = pygame.time.Clock()
     FPS = 60
@@ -35,7 +36,6 @@ def main():
     # Boucle principale
     running = True
     while running:
-        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -72,9 +72,9 @@ def main():
 
 if __name__ == "__main__":
     print("=" * 50)
-    print(" POKÉDEX ULTIME ")
+    print("🔴 POKÉDEX ULTIME 🔴")
     print("=" * 50)
-    print("\n Contrôles:")
+    print("\n📋 Contrôles:")
     print("  • Clic sur un Pokémon pour voir ses stats")
     print("  • Molette / Flèches pour défiler")
     print("  • ESC pour quitter")

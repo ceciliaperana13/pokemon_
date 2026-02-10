@@ -2,6 +2,7 @@
     "pokemon": [
         {
             "id": 1,
+            "sprite": "./assets/imagePokedex/Spr_1b_001.png",
             "name": "Bulbizarre",
             "type": ["Plante", "Poison"],
             "stats": {
