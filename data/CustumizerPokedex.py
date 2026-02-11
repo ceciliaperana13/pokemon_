@@ -29,7 +29,7 @@ class CustomizerPokedex:
         self.taille_carte = 180
         self.marge = 25
         
-        # Couleurs Pokémon (rouge et blanc)
+        # Couleurs Pokémon 
         self.couleurs = {
             'fond': (220, 220, 230),
             'rouge_pokemon': (220, 30, 30),
@@ -103,7 +103,7 @@ class CustomizerPokedex:
             try:
                 sprite = pygame.image.load(chemin_sprite).convert_alpha()
             except pygame.error as e:
-                print(f"⚠️ Erreur lors du chargement du sprite {chemin_sprite}: {e}")
+                print(f" Erreur lors du chargement du sprite {chemin_sprite}: {e}")
         else:
             # Si le fichier n'existe pas, essayer d'autres formats possibles
             chemins_alternatifs = [
