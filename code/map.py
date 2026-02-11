@@ -11,7 +11,7 @@ class Map:
         self.map_layer: pyscroll.BufferedRenderer | None = None
         self.group: pyscroll.PyscrollGroup | None = None
 
-        self.switch_map("map0")
+        self.switch_map("map_0")
         self.player: Player | None = None
 
     def switch_map(self, map: str) -> None:
