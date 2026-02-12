@@ -1,0 +1,122 @@
+import pygame
+import sys
+import random
+
+# Importation des classes depuis les différents dossiers
+from UIElement import UIElement
+from BattleButton import BattleButton
+from hpBarre import HPBar
+
+class InterfaceFight:
+    def __init__(self):
+        pygame.init()
+        
+        # Configuration fenêtre
+        self.width, self.height = 800, 600
+        self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption("Pokémon Battle Engine")
+        self.clock = pygame.time.Clock()
+        
+        # Police et Couleurs
+        self.font = pygame.font.SysFont("Arial", 20, bold=True)
+        self.message = "Que doit faire Dracaufeu ?"
+
+        # 1. Chargement du Background
+        try:
+            self.bg = pygame.image.load("./assets/background/bg_pokemon.jpg")
+            self.bg = pygame.transform.scale(self.bg, (self.width, 480))
+        except:
+            self.bg = None
+            print("Image 'background.png' manquante, affichage d'un fond de secours.")
+
+        
+        # Position et Max HP selon tes variables initiales
+        self.player_hp_bar = HPBar(120, 420, 200, 15, 159)
+        self.enemy_hp_bar = HPBar(480, 100, 200, 15, 40)
+
+        # 3. Initialisation des Boutons 
+        self.buttons = [
+            # Colonne 1
+            BattleButton("ATTAQUE", 450, 490, 150, 40, (255, 100, 100), (255, 150, 150), self.font),
+            BattleButton("POKÉMON", 450, 540, 150, 40, (100, 255, 100), (180, 255, 180), self.font),
+            
+            # Colonne 2
+            BattleButton("SAC À DOS", 610, 490, 150, 40, (255, 165, 0), (255, 200, 100), self.font),
+            BattleButton("FUITE", 610, 540, 150, 40, (100, 200, 255), (180, 230, 255), self.font)
+        ]
+
+    def gerer_attaque(self):
+        """Logique d'attaque avec probabilité de réussite."""
+        precision = 80 # 80% de chance de réussir
+        if random.randint(1, 100) <= precision:
+            degats = 15
+            self.enemy_hp_bar.hp -= degats
+            if self.enemy_hp_bar.hp < 0:
+                self.enemy_hp_bar.hp = 0
+            self.message = f"L'attaque réussit ! Dracaufeu inflige {degats} dégâts."
+        else:
+            self.message = "L'attaque a échoué..."
+
+    def run(self):
+        running = True
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            
+            # --- Gestion des Événements ---
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1: # Clic gauche
+                        for btn in self.buttons:
+                            if btn.rect.collidepoint(mouse_pos):
+                                if btn.text == "ATTAQUE":
+                                    self.gerer_attaque()
+                                elif btn.text == "FUITE":
+                                    running = False
+                                elif btn.text == "SAC À DOS":
+                                    self.message = "Le sac est vide !"
+                                elif btn.text == "POKÉMON":
+                                    self.message = "Vous n'avez pas d'autre Pokémon."
+
+            # --- Mise à jour de la logique ---
+            self.player_hp_bar.update()
+            self.enemy_hp_bar_bar.update() if hasattr(self, 'enemy_hp_bar_bar') else self.enemy_hp_bar.update()
+            
+            # Mise à jour du survol des boutons
+            for btn in self.buttons:
+                btn.is_hovered = btn.rect.collidepoint(mouse_pos)
+
+            # --- Rendu Visuel ---
+            # 1. Dessiner le fond
+            if self.bg:
+                self.screen.blit(self.bg, (0, 0))
+            else:
+                self.screen.fill((120, 200, 255))
+
+            # 2. Zone de texte et menu (bas de l'écran)
+            pygame.draw.rect(self.screen, (240, 240, 240), (0, 480, self.width, 120))
+            pygame.draw.rect(self.screen, (50, 50, 50), (0, 480, self.width, 120), 4) # Bordure menu
+            
+            # Affichage du message
+            txt_surf = self.font.render(self.message, True, (0, 0, 0))
+            self.screen.blit(txt_surf, (30, 520))
+
+            # 3. Dessiner les barres de vie
+            self.player_hp_bar.draw(self.screen)
+            self.enemy_hp_bar.draw(self.screen)
+
+            # 4. Dessiner les boutons
+            for btn in self.buttons:
+                btn.draw(self.screen)
+
+            pygame.display.flip()
+            self.clock.tick(60)
+
+        pygame.quit()
+        sys.exit()
+
+if __name__ == "__main__":
+    game = InterfaceFight()
+    game.run()
