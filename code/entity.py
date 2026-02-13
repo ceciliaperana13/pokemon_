@@ -13,7 +13,7 @@ class Entity(pygame.sprite.Sprite):
         self.image: pygame.image = Tool.split_image(self.spritesheet, 0, 0, 24, 32)
         self.position: pygame.math.Vector2 = pygame.math.Vector2(x, y)
         self.rect: pygame.Rect = self.image.get_rect()
-        self.all_images: dict[str, list[pygame.image]] = self.get_all_images(self.spritesheet)
+        self.all_images: dict[str, list[pygame.image]] = self.get_all_images(self.spritesheet) # type: ignore
         self.index_image: int = 0
         self.image_part: int = 0
         self.reset_animation: bool = False
