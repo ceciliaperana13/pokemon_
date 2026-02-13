@@ -1147,27 +1147,26 @@
             }
         }
     },
-    "dpsl": {
+    "jojo": {
         "bag": {
             "potions": 10,
             "pokeball": 15
         },
         "pokemons": {
             "Jean-Luc": {
-                "name": "Bulbasaur",
-                "original_name": "Bulbasaur",
+                "name": "Charmander",
+                "original_name": "Charmander",
                 "pet_name": "Jean-Luc",
-                "hp_max": 34,
-                "hp": 34,
-                "xp": 158,
-                "strength": 22,
-                "defense": 30,
+                "hp_max": 40,
+                "hp": 40,
+                "xp": 211,
+                "strength": 38,
+                "defense": 24,
                 "type": [
-                    "grass",
-                    "poison"
+                    "fire"
                 ],
                 "level": 5,
-                "speed": 26,
+                "speed": 17,
                 "stage": 1,
                 "ev": {
                     "hp": 0,
@@ -1175,6 +1174,38 @@
                     "defense": 0,
                     "speed": 0,
                     "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "jojo2": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Squirtle",
+                "original_name": "Squirtle",
+                "pet_name": "Jean-Luc",
+                "hp_max": 43,
+                "hp": 43,
+                "xp": 177,
+                "strength": 58,
+                "defense": 41,
+                "type": [
+                    "water"
+                ],
+                "level": 6,
+                "speed": 39,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 4
                 },
                 "state": "domesticated"
             }

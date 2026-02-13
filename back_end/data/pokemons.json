@@ -1,54 +1,5 @@
 [
     {
-        "name": "Rhyhorn",
-        "original_name": "Rhyhorn",
-        "pet_name": "Jean-Charles 1740524070.6775284",
-        "hp_max": 19,
-        "hp": 19,
-        "xp": 7,
-        "strength": 20,
-        "defense": 9,
-        "type": [
-            "ground",
-            "rock"
-        ],
-        "level": 1,
-        "speed": 30,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
-        "name": "Growlithe",
-        "original_name": "Growlithe",
-        "pet_name": "Jean-Alicia 1740524070.6775653",
-        "hp_max": 57,
-        "hp": 57,
-        "xp": 836,
-        "strength": 54,
-        "defense": 43,
-        "type": [
-            "fire"
-        ],
-        "level": 9,
-        "speed": 43,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Meowth",
         "original_name": "Meowth",
         "pet_name": "Jean-Daniel 1740524070.677536",
@@ -86,31 +37,6 @@
         ],
         "level": 8,
         "speed": 47,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
-        "name": "Geodude",
-        "original_name": "Geodude",
-        "pet_name": "Jean-Marcel 1740524070.677591",
-        "hp_max": 42,
-        "hp": 42,
-        "xp": 338,
-        "strength": 35,
-        "defense": 28,
-        "type": [
-            "rock",
-            "ground"
-        ],
-        "level": 6,
-        "speed": 27,
         "stage": 1,
         "ev": {
             "hp": 0,
@@ -171,25 +97,49 @@
         "state": "wild"
     },
     {
+        "name": "Growlithe",
+        "original_name": "Growlithe",
+        "pet_name": "Jean-Alicia 1740524070.6775653",
+        "hp_max": 68,
+        "hp": 68,
+        "xp": 970,
+        "strength": 65,
+        "defense": 57,
+        "type": [
+            "fire"
+        ],
+        "level": 10,
+        "speed": 59,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 3,
+            "defense": 0,
+            "speed": 2,
+            "xp": 3
+        },
+        "state": "wild"
+    },
+    {
         "name": "Ditto",
         "original_name": "Ditto",
         "pet_name": "Jean-Marie 1740524070.6775324",
-        "hp_max": 40,
-        "hp": 40,
-        "xp": 148,
-        "strength": 45,
-        "defense": 35,
+        "hp_max": 69,
+        "hp": 69,
+        "xp": 298,
+        "strength": 69,
+        "defense": 55,
         "type": [
             "normal"
         ],
-        "level": 5,
-        "speed": 36,
+        "level": 7,
+        "speed": 63,
         "stage": 1,
         "ev": {
             "hp": 0,
             "strength": 0,
-            "defense": 0,
-            "speed": 0,
+            "defense": 2,
+            "speed": 2,
             "xp": 0
         },
         "state": "wild"

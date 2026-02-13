@@ -4,7 +4,7 @@ from .util_tool import UtilTool
 from .display_pokemon_stat import PokemonStat
 from back_end.controller import get_starter_pokemons, create_player
 
-class   SelectPokemon():
+class SelectPokemon():
     def __init__(self, player_name, screen, pokemon_list=[]):
         self.player_name = player_name
         self.screen = screen
@@ -48,7 +48,6 @@ class   SelectPokemon():
             self.screen.display.fill((173, 216, 230))
             self.screen.display.blit(self.image_background, (0, 0))
 
-
             for index, p in enumerate(pokemons):
                 self.screen.display.blit(p, pokemons_rect[index].topleft)
 
@@ -67,7 +66,6 @@ class   SelectPokemon():
             pygame.display.flip()
             pygame.time.delay(30)
     
-
     def draw_text(self, text, x, y, color=(255, 255, 255)):
         surface = self.font.render(text, True, color)
         rect = surface.get_rect(center=(x, y))
@@ -85,12 +83,14 @@ class   SelectPokemon():
                     option.get_rect(center= (self.screen.width // 3 * 0.5+i, self.screen.height // 5*2.5))
                     self.screen.display.blit(option, self.options_rect[i])
                     self.util.draw_text(self.pokemons[i].name, REGULAR_FONT, font_size, self.screen, (self.screen.width // 2, self.screen.height // 5*1.5), "white")
-                  
                 else:
-
                     option = pygame.transform.smoothscale(pygame.image.load(self.pokemons[i].get_image()), (self.screen.width // 6, self.screen.width //  6))
                     option.get_rect(center= (self.screen.width // 3 * 0.5+i, self.screen.height // 5*2.5))
                     self.screen.display.blit(option, self.options_rect[i])
+
+            # Afficher les instructions
+            instructions = "Flèches: Choisir | ENTRÉE: Confirmer le starter"
+            self.util.draw_text(instructions, REGULAR_FONT, self.screen.height // 35, self.screen, (self.screen.width // 2, self.screen.height - 50), "yellow")
 
             pygame.display.flip()
 
@@ -106,13 +106,18 @@ class   SelectPokemon():
                     elif event.key == pygame.K_UP or event.key == pygame.K_LEFT:
                         self.selected_index = (self.selected_index - 1) % len(self.options)
 
+                    # MODIFIÉ : ENTRÉE lance directement le jeu
                     elif event.key == pygame.K_RETURN:
-                        for index in range(len(self.options)):
-                            if self.selected_index == index:
-                                pokemon_enemy = None
-                                pokemon = PokemonStat(self.player_name, self.pokemons, self.pokemons[index], pokemon_enemy, self.screen, self.background, "pokemon_choice").display()
-                                
-                    if event.key == pygame.K_LSHIFT:
+                        # Créer le joueur avec le starter choisi
                         create_player(self.player_name, self.pokemons[self.selected_index])
-                        self.capturePokemon(self.options[self.selected_index], self.options_rect[self.selected_index], self.options, self.options_rect)
+                        
+                        # Jouer l'animation de capture 
+                        self.capturePokemon(
+                            self.options[self.selected_index], 
+                            self.options_rect[self.selected_index], 
+                            self.options, 
+                            self.options_rect
+                        )
+                        
+                        # Retourner le Pokémon choisi pour lancer le jeu
                         return self.pokemons[self.selected_index]
