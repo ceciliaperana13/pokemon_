@@ -92,7 +92,7 @@ class CustomizerPokedex:
         sprite = None
         
         # Option 1: Chemin depuis le JSON
-        chemin_sprite = pokemon.get('sprite')
+        chemin_sprite = pokemon.get('spritePokedex')
         
         # Option 2: Générer le chemin automatiquement si non présent dans le JSON
         if not chemin_sprite:
