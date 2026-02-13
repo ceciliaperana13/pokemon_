@@ -2,8 +2,8 @@ import pygame
 import sys
 import random
 
-# Importation des classes depuis les différents dossiers
-from UIElement import UIElement
+
+from UIElement import *
 from BattleButton import BattleButton
 from hpBarre import HPBar
 
@@ -11,7 +11,7 @@ class InterfaceFight:
     def __init__(self):
         pygame.init()
         
-        # Configuration fenêtre
+        # A modifier car cela a rien a faire ici
         self.width, self.height = 800, 600
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Pokémon Battle Engine")
