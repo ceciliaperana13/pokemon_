@@ -9,23 +9,23 @@
                 "name": "Sandslash",
                 "original_name": "Sandshrew",
                 "pet_name": "Jean-Marie",
-                "hp_max": 476,
-                "hp": 476,
-                "xp": 8469,
-                "strength": 438,
-                "defense": 408,
+                "hp_max": 480,
+                "hp": 480,
+                "xp": 8599,
+                "strength": 440,
+                "defense": 413,
                 "type": [
                     "ground"
                 ],
                 "level": 21,
-                "speed": 453,
+                "speed": 458,
                 "stage": 2,
                 "ev": {
                     "hp": 3,
-                    "strength": 0,
-                    "defense": 3,
+                    "strength": 1,
+                    "defense": 2,
                     "speed": 1,
-                    "xp": 2
+                    "xp": 3
                 },
                 "state": "domesticated"
             },
@@ -1874,6 +1874,38 @@
                 ],
                 "level": 8,
                 "speed": 47,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "cecilia": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Michel 1740524070.6775126": {
+                "name": "Magikarp",
+                "original_name": "Magikarp",
+                "pet_name": "Jean-Michel 1740524070.6775126",
+                "hp_max": 45,
+                "hp": 45,
+                "xp": 214,
+                "strength": 22,
+                "defense": 26,
+                "type": [
+                    "water"
+                ],
+                "level": 5,
+                "speed": 23,
                 "stage": 1,
                 "ev": {
                     "hp": 0,
