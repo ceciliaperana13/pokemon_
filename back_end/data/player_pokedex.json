@@ -1057,27 +1057,27 @@
                 "state": "domesticated"
             },
             "Jean-Emile 1740524070.6776013": {
-                "name": "Weedle",
+                "name": "Kakuna",
                 "original_name": "Weedle",
                 "pet_name": "Jean-Emile 1740524070.6776013",
-                "hp_max": 45,
-                "hp": 45,
-                "xp": 918,
-                "strength": 38,
-                "defense": 40,
+                "hp_max": 56,
+                "hp": 56,
+                "xp": 941,
+                "strength": 47,
+                "defense": 50,
                 "type": [
                     "bug",
                     "poison"
                 ],
-                "level": 9,
-                "speed": 53,
-                "stage": 1,
+                "level": 10,
+                "speed": 62,
+                "stage": 2,
                 "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
+                    "hp": 2,
+                    "strength": 1,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 2
                 },
                 "state": "domesticated"
             }
@@ -1103,6 +1103,71 @@
                 ],
                 "level": 5,
                 "speed": 20,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "mel": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Morgan 1740524070.677564": {
+                "name": "Psyduck",
+                "original_name": "Psyduck",
+                "pet_name": "Jean-Morgan 1740524070.677564",
+                "hp_max": 65,
+                "hp": 65,
+                "xp": 682,
+                "strength": 64,
+                "defense": 62,
+                "type": [
+                    "water"
+                ],
+                "level": 9,
+                "speed": 68,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 0,
+                    "defense": 2,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "dpsl": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Bulbasaur",
+                "original_name": "Bulbasaur",
+                "pet_name": "Jean-Luc",
+                "hp_max": 34,
+                "hp": 34,
+                "xp": 158,
+                "strength": 22,
+                "defense": 30,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 5,
+                "speed": 26,
                 "stage": 1,
                 "ev": {
                     "hp": 0,
