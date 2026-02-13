@@ -1,0 +1,1889 @@
+{
+    "Billy": {
+        "bag": {
+            "potions": 0,
+            "pokeball": 4
+        },
+        "pokemons": {
+            "Jean-Marie": {
+                "name": "Sandslash",
+                "original_name": "Sandshrew",
+                "pet_name": "Jean-Marie",
+                "hp_max": 476,
+                "hp": 476,
+                "xp": 8469,
+                "strength": 438,
+                "defense": 408,
+                "type": [
+                    "ground"
+                ],
+                "level": 21,
+                "speed": 453,
+                "stage": 2,
+                "ev": {
+                    "hp": 3,
+                    "strength": 0,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Luc": {
+                "name": "Raichu",
+                "original_name": "Pikachu",
+                "pet_name": "Jean-Luc",
+                "hp_max": 162,
+                "hp": 162,
+                "xp": 5460,
+                "strength": 156,
+                "defense": 144,
+                "type": [
+                    "electric",
+                    "psychic"
+                ],
+                "level": 18,
+                "speed": 148,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 1,
+                    "defense": 1,
+                    "speed": 1,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Pierre": {
+                "name": "Wartortle",
+                "original_name": "Squirtle",
+                "pet_name": "Jean-Pierre",
+                "hp_max": 107,
+                "hp": 1,
+                "xp": 1417,
+                "strength": 105,
+                "defense": 76,
+                "type": [
+                    "water"
+                ],
+                "level": 12,
+                "speed": 111,
+                "stage": 2,
+                "ev": {
+                    "hp": 3,
+                    "strength": 4,
+                    "defense": 3,
+                    "speed": 2,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Henri": {
+                "name": "Rhyhorn",
+                "original_name": "Rhyhorn",
+                "pet_name": "Jean-Henri",
+                "hp_max": 90,
+                "hp": 90,
+                "xp": 596,
+                "strength": 80,
+                "defense": 91,
+                "type": [
+                    "ground",
+                    "rock"
+                ],
+                "level": 9,
+                "speed": 78,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Thierry": {
+                "name": "Kingler",
+                "original_name": "Krabby",
+                "pet_name": "Jean-Thierry",
+                "hp_max": 372,
+                "hp": 372,
+                "xp": 5271,
+                "strength": 361,
+                "defense": 352,
+                "type": [
+                    "water"
+                ],
+                "level": 18,
+                "speed": 354,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 3,
+                    "defense": 3,
+                    "speed": 2,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Louis": {
+                "name": "Weedle",
+                "original_name": "Weedle",
+                "pet_name": "Jean-Louis",
+                "hp_max": 31,
+                "hp": 31,
+                "xp": 105,
+                "strength": 23,
+                "defense": 18,
+                "type": [
+                    "bug",
+                    "poison"
+                ],
+                "level": 4,
+                "speed": 30,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Baptiste": {
+                "name": "Ivysaur",
+                "original_name": "Bulbasaur",
+                "pet_name": "Jean-Baptiste",
+                "hp_max": 91,
+                "hp": 91,
+                "xp": 1187,
+                "strength": 71,
+                "defense": 66,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 11,
+                "speed": 56,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 4,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Meriam": {
+                "name": "Psyduck",
+                "original_name": "Psyduck",
+                "pet_name": "Jean-Meriam",
+                "hp_max": 48,
+                "hp": 48,
+                "xp": 35,
+                "strength": 31,
+                "defense": 43,
+                "type": [
+                    "water"
+                ],
+                "level": 3,
+                "speed": 47,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 2,
+                    "defense": 3,
+                    "speed": 0,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Auguste": {
+                "name": "Paras",
+                "original_name": "Paras",
+                "pet_name": "Jean-Auguste",
+                "hp_max": 20,
+                "hp": 20,
+                "xp": 12,
+                "strength": 21,
+                "defense": 16,
+                "type": [
+                    "bug",
+                    "grass"
+                ],
+                "level": 2,
+                "speed": 15,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Noa": {
+        "bag": {
+            "potions": 8,
+            "pokeball": 9
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Pikachu",
+                "original_name": "Pikachu",
+                "pet_name": "Jean-Luc",
+                "hp_max": 276,
+                "hp": 276,
+                "xp": 1759,
+                "strength": 163,
+                "defense": 140,
+                "type": [
+                    "electric"
+                ],
+                "level": 13,
+                "speed": 156,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 0,
+                    "defense": 1,
+                    "speed": 2,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Alexandre": {
+                "name": "Weepinbell",
+                "original_name": "Bellsprout",
+                "pet_name": "Jean-Alexandre",
+                "hp_max": 108,
+                "hp": 92,
+                "xp": 1149,
+                "strength": 97,
+                "defense": 95,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 11,
+                "speed": 100,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 3,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Florence": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Malha": {
+                "name": "Ponyta",
+                "original_name": "Ponyta",
+                "pet_name": "Jean-Malha",
+                "hp_max": 84,
+                "hp": 84,
+                "xp": 1466,
+                "strength": 92,
+                "defense": 79,
+                "type": [
+                    "fire"
+                ],
+                "level": 12,
+                "speed": 87,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 2,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Thibault": {
+        "bag": {
+            "potions": 6,
+            "pokeball": 10
+        },
+        "pokemons": {
+            "Jean-Vanessa": {
+                "name": "Mankey",
+                "original_name": "Mankey",
+                "pet_name": "Jean-Vanessa",
+                "hp_max": 146,
+                "hp": 146,
+                "xp": 1263,
+                "strength": 144,
+                "defense": 136,
+                "type": [
+                    "fighting"
+                ],
+                "level": 11,
+                "speed": 130,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 3,
+                    "defense": 1,
+                    "speed": 2,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Eltigani": {
+                "name": "Abra",
+                "original_name": "Abra",
+                "pet_name": "Jean-Eltigani",
+                "hp_max": 92,
+                "hp": 92,
+                "xp": 576,
+                "strength": 57,
+                "defense": 70,
+                "type": [
+                    "psychic"
+                ],
+                "level": 9,
+                "speed": 75,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Georges": {
+                "name": "Clefairy",
+                "original_name": "Clefairy",
+                "pet_name": "Jean-Georges",
+                "hp_max": 94,
+                "hp": 94,
+                "xp": 1051,
+                "strength": 64,
+                "defense": 50,
+                "type": [
+                    "fairy"
+                ],
+                "level": 11,
+                "speed": 67,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Pierre": {
+                "name": "Zubat",
+                "original_name": "Zubat",
+                "pet_name": "Jean-Pierre",
+                "hp_max": 51,
+                "hp": 51,
+                "xp": 371,
+                "strength": 6,
+                "defense": 5,
+                "type": [
+                    "poison",
+                    "flying"
+                ],
+                "level": 7,
+                "speed": 57,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 3,
+                    "speed": 3,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Adeline": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 11
+        },
+        "pokemons": {
+            "Jean-Noa": {
+                "name": "Arcanine",
+                "original_name": "Growlithe",
+                "pet_name": "Jean-Noa",
+                "hp_max": 269,
+                "hp": 269,
+                "xp": 4586,
+                "strength": 253,
+                "defense": 202,
+                "type": [
+                    "fire",
+                    "rock"
+                ],
+                "level": 17,
+                "speed": 278,
+                "stage": 2,
+                "ev": {
+                    "hp": 3,
+                    "strength": 0,
+                    "defense": 2,
+                    "speed": 3,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Vincent": {
+                "name": "Shellder",
+                "original_name": "Shellder",
+                "pet_name": "Jean-Vincent",
+                "hp_max": 95,
+                "hp": 95,
+                "xp": 778,
+                "strength": 94,
+                "defense": 86,
+                "type": [
+                    "water"
+                ],
+                "level": 10,
+                "speed": 105,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 4,
+                    "defense": 0,
+                    "speed": 2,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Henri": {
+                "name": "Rhydon",
+                "original_name": "Rhyhorn",
+                "pet_name": "Jean-Henri",
+                "hp_max": 232,
+                "hp": 232,
+                "xp": 4418,
+                "strength": 216,
+                "defense": 198,
+                "type": [
+                    "ground",
+                    "rock"
+                ],
+                "level": 17,
+                "speed": 227,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 3,
+                    "defense": 3,
+                    "speed": 2,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Claude": {
+                "name": "Ponyta",
+                "original_name": "Ponyta",
+                "pet_name": "Jean-Claude",
+                "hp_max": 25,
+                "hp": 25,
+                "xp": 111,
+                "strength": 27,
+                "defense": 16,
+                "type": [
+                    "fire"
+                ],
+                "level": 4,
+                "speed": 27,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Jean": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Alicia": {
+                "name": "Geodude",
+                "original_name": "Geodude",
+                "pet_name": "Jean-Alicia",
+                "hp_max": 50,
+                "hp": 50,
+                "xp": 302,
+                "strength": 41,
+                "defense": 34,
+                "type": [
+                    "rock",
+                    "ground"
+                ],
+                "level": 7,
+                "speed": 32,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 3,
+                    "defense": 3,
+                    "speed": 2,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Jolyne": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Noa": {
+                "name": "Growlithe",
+                "original_name": "Growlithe",
+                "pet_name": "Jean-Noa",
+                "hp_max": 76,
+                "hp": 76,
+                "xp": 1010,
+                "strength": 83,
+                "defense": 55,
+                "type": [
+                    "fire"
+                ],
+                "level": 11,
+                "speed": 75,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 1,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Adrien": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 14
+        },
+        "pokemons": {
+            "Jean-Vincent": {
+                "name": "Shellder",
+                "original_name": "Shellder",
+                "pet_name": "Jean-Vincent",
+                "hp_max": 152,
+                "hp": 152,
+                "xp": 1188,
+                "strength": 169,
+                "defense": 133,
+                "type": [
+                    "water"
+                ],
+                "level": 11,
+                "speed": 155,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 3,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Lucien": {
+                "name": "Magikarp",
+                "original_name": "Magikarp",
+                "pet_name": "Jean-Lucien",
+                "hp_max": 53,
+                "hp": 53,
+                "xp": 406,
+                "strength": 31,
+                "defense": 47,
+                "type": [
+                    "water"
+                ],
+                "level": 8,
+                "speed": 48,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 3,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Thomas": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 12
+        },
+        "pokemons": {
+            "Jean-Florence": {
+                "name": "Arbok",
+                "original_name": "Ekans",
+                "pet_name": "Jean-Florence",
+                "hp_max": 269,
+                "hp": 269,
+                "xp": 4420,
+                "strength": 251,
+                "defense": 215,
+                "type": [
+                    "poison"
+                ],
+                "level": 17,
+                "speed": 252,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 2,
+                    "defense": 0,
+                    "speed": 1,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Alexandre": {
+                "name": "Pikachu",
+                "original_name": "Pikachu",
+                "pet_name": "Jean-Alexandre",
+                "hp_max": 146,
+                "hp": 146,
+                "xp": 991,
+                "strength": 121,
+                "defense": 121,
+                "type": [
+                    "electric"
+                ],
+                "level": 9,
+                "speed": 126,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-S\u00e9bastien": {
+                "name": "Bulbasaur",
+                "original_name": "Bulbasaur",
+                "pet_name": "Jean-S\u00e9bastien",
+                "hp_max": 106,
+                "hp": 106,
+                "xp": 1162,
+                "strength": 121,
+                "defense": 95,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 11,
+                "speed": 117,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 1,
+                    "speed": 0,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Ryan": {
+                "name": "Eevee",
+                "original_name": "Eevee",
+                "pet_name": "Jean-Ryan",
+                "hp_max": 36,
+                "hp": 36,
+                "xp": 81,
+                "strength": 39,
+                "defense": 20,
+                "type": [
+                    "normal"
+                ],
+                "level": 4,
+                "speed": 34,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Player6": {
+        "bag": {
+            "potions": 5,
+            "pokeball": 4
+        },
+        "pokemons": {
+            "Jean-Noa": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Noa",
+                "hp_max": 68,
+                "hp": 68,
+                "xp": 548,
+                "strength": 59,
+                "defense": 75,
+                "type": [
+                    "fire"
+                ],
+                "level": 9,
+                "speed": 79,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 3,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Adeline 1740136627.8882575": {
+                "name": "Dragonite",
+                "original_name": "Dratini",
+                "pet_name": "Jean-Adeline 1740136627.8882575",
+                "hp_max": 564,
+                "hp": 564,
+                "xp": 10533,
+                "strength": 523,
+                "defense": 485,
+                "type": [
+                    "dragon",
+                    "flying"
+                ],
+                "level": 22,
+                "speed": 496,
+                "stage": 3,
+                "ev": {
+                    "hp": 2,
+                    "strength": 1,
+                    "defense": 3,
+                    "speed": 0,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Vanessa 1740136686.2365582": {
+                "name": "Staryu",
+                "original_name": "Staryu",
+                "pet_name": "Jean-Vanessa 1740136686.2365582",
+                "hp_max": 44,
+                "hp": 44,
+                "xp": 697,
+                "strength": 35,
+                "defense": 32,
+                "type": [
+                    "water"
+                ],
+                "level": 8,
+                "speed": 34,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Malha 1740141203.2582593": {
+                "name": "Venonat",
+                "original_name": "Venonat",
+                "pet_name": "Jean-Malha 1740141203.2582593",
+                "hp_max": 29,
+                "hp": 29,
+                "xp": 49,
+                "strength": 17,
+                "defense": 11,
+                "type": [
+                    "bug",
+                    "poison"
+                ],
+                "level": 3,
+                "speed": 20,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Fernand 1740524070.6776028": {
+                "name": "Jigglypuff",
+                "original_name": "Jigglypuff",
+                "pet_name": "Jean-Fernand 1740524070.6776028",
+                "hp_max": 25,
+                "hp": 25,
+                "xp": 19,
+                "strength": 9,
+                "defense": 24,
+                "type": [
+                    "normal",
+                    "fairy"
+                ],
+                "level": 2,
+                "speed": 29,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Luc 1740524070.6775305": {
+                "name": "Vaporeon",
+                "original_name": "Eevee",
+                "pet_name": "Jean-Luc 1740524070.6775305",
+                "hp_max": 291,
+                "hp": 291,
+                "xp": 4397,
+                "strength": 249,
+                "defense": 225,
+                "type": [
+                    "water"
+                ],
+                "level": 17,
+                "speed": 253,
+                "stage": 2,
+                "ev": {
+                    "hp": 1,
+                    "strength": 3,
+                    "defense": 3,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Fran\u00e7ois 1740524070.677523": {
+                "name": "Pikachu",
+                "original_name": "Pikachu",
+                "pet_name": "Jean-Fran\u00e7ois 1740524070.677523",
+                "hp_max": 17,
+                "hp": 17,
+                "xp": 8,
+                "strength": 19,
+                "defense": 25,
+                "type": [
+                    "electric"
+                ],
+                "level": 2,
+                "speed": 16,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Vladimir 1740524070.677559": {
+                "name": "Marowak",
+                "original_name": "Cubone",
+                "pet_name": "Jean-Vladimir 1740524070.677559",
+                "hp_max": 388,
+                "hp": 388,
+                "xp": 5836,
+                "strength": 309,
+                "defense": 324,
+                "type": [
+                    "ground"
+                ],
+                "level": 19,
+                "speed": 317,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Armelle 1740524070.6775568": {
+                "name": "Paras",
+                "original_name": "Paras",
+                "pet_name": "Jean-Armelle 1740524070.6775568",
+                "hp_max": 44,
+                "hp": 44,
+                "xp": 235,
+                "strength": 31,
+                "defense": 38,
+                "type": [
+                    "bug",
+                    "grass"
+                ],
+                "level": 6,
+                "speed": 23,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Player1234": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 9
+        },
+        "pokemons": {
+            "Jean-Sarah": {
+                "name": "Wartortle",
+                "original_name": "Squirtle",
+                "pet_name": "Jean-Sarah",
+                "hp_max": 141,
+                "hp": 141,
+                "xp": 2199,
+                "strength": 151,
+                "defense": 116,
+                "type": [
+                    "water"
+                ],
+                "level": 14,
+                "speed": 130,
+                "stage": 2,
+                "ev": {
+                    "hp": 1,
+                    "strength": 0,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Victor 1740137390.9473047": {
+                "name": "Omanyte",
+                "original_name": "Omanyte",
+                "pet_name": "Jean-Victor 1740137390.9473047",
+                "hp_max": 38,
+                "hp": 38,
+                "xp": 756,
+                "strength": 55,
+                "defense": 45,
+                "type": [
+                    "rock",
+                    "water"
+                ],
+                "level": 9,
+                "speed": 42,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Ryan 1740137586.9861991": {
+                "name": "Squirtle",
+                "original_name": "Squirtle",
+                "pet_name": "Jean-Ryan 1740137586.9861991",
+                "hp_max": 45,
+                "hp": 45,
+                "xp": 953,
+                "strength": 35,
+                "defense": 29,
+                "type": [
+                    "water"
+                ],
+                "level": 9,
+                "speed": 42,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Jules 1740137586.986651": {
+                "name": "Clefairy",
+                "original_name": "Clefairy",
+                "pet_name": "Jean-Jules 1740137586.986651",
+                "hp_max": 47,
+                "hp": 47,
+                "xp": 961,
+                "strength": 62,
+                "defense": 47,
+                "type": [
+                    "fairy"
+                ],
+                "level": 10,
+                "speed": 54,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 1,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Vladimir 1740141203.258247": {
+                "name": "Psyduck",
+                "original_name": "Psyduck",
+                "pet_name": "Jean-Vladimir 1740141203.258247",
+                "hp_max": 37,
+                "hp": 37,
+                "xp": 160,
+                "strength": 28,
+                "defense": 17,
+                "type": [
+                    "water"
+                ],
+                "level": 5,
+                "speed": 39,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Morgan": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 13
+        },
+        "pokemons": {
+            "Jean-Victor 1740141203.2584493": {
+                "name": "Metapod",
+                "original_name": "Caterpie",
+                "pet_name": "Jean-Victor 1740141203.2584493",
+                "hp_max": 148,
+                "hp": 148,
+                "xp": 1039,
+                "strength": 131,
+                "defense": 131,
+                "type": [
+                    "bug"
+                ],
+                "level": 11,
+                "speed": 130,
+                "stage": 2,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 1,
+                    "speed": 3,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Baptiste 1740141203.2581463": {
+                "name": "Eevee",
+                "original_name": "Eevee",
+                "pet_name": "Jean-Baptiste 1740141203.2581463",
+                "hp_max": 84,
+                "hp": 84,
+                "xp": 1084,
+                "strength": 56,
+                "defense": 70,
+                "type": [
+                    "normal"
+                ],
+                "level": 11,
+                "speed": 82,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 3,
+                    "defense": 1,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Gustave 1740141203.2584264": {
+                "name": "Ponyta",
+                "original_name": "Ponyta",
+                "pet_name": "Jean-Gustave 1740141203.2584264",
+                "hp_max": 35,
+                "hp": 35,
+                "xp": 88,
+                "strength": 34,
+                "defense": 14,
+                "type": [
+                    "fire"
+                ],
+                "level": 4,
+                "speed": 38,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Ludo": {
+        "bag": {
+            "potions": 2,
+            "pokeball": 9
+        },
+        "pokemons": {
+            "Jean-L\u00e9on": {
+                "name": "Hypno",
+                "original_name": "Drowzee",
+                "pet_name": "Jean-L\u00e9on",
+                "hp_max": 294,
+                "hp": 293,
+                "xp": 5101,
+                "strength": 281,
+                "defense": 242,
+                "type": [
+                    "psychic"
+                ],
+                "level": 18,
+                "speed": 295,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 4
+                },
+                "state": "domesticated"
+            },
+            "Jean-Louis 1740141203.2581918": {
+                "name": "Magnemite",
+                "original_name": "Magnemite",
+                "pet_name": "Jean-Louis 1740141203.2581918",
+                "hp_max": 110,
+                "hp": 110,
+                "xp": 1365,
+                "strength": 110,
+                "defense": 79,
+                "type": [
+                    "electric",
+                    "steel"
+                ],
+                "level": 12,
+                "speed": 97,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 3,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Pierre 1740141203.2581851": {
+                "name": "Gloom",
+                "original_name": "Oddish",
+                "pet_name": "Jean-Pierre 1740141203.2581851",
+                "hp_max": 143,
+                "hp": 143,
+                "xp": 1331,
+                "strength": 126,
+                "defense": 112,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 12,
+                "speed": 99,
+                "stage": 2,
+                "ev": {
+                    "hp": 3,
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 3,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Morgan 1740141203.2582545": {
+                "name": "Ivysaur",
+                "original_name": "Bulbasaur",
+                "pet_name": "Jean-Morgan 1740141203.2582545",
+                "hp_max": 137,
+                "hp": 137,
+                "xp": 1828,
+                "strength": 126,
+                "defense": 115,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 13,
+                "speed": 105,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 3,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "bakari": {
+        "bag": {
+            "potions": 4,
+            "pokeball": 2300
+        },
+        "pokemons": {
+            "Jean-H\u00e9l\u00e8ne": {
+                "name": "Dewgong",
+                "original_name": "Seel",
+                "pet_name": "Jean-H\u00e9l\u00e8ne",
+                "hp_max": 409,
+                "hp": 409,
+                "xp": 7612,
+                "strength": 394,
+                "defense": 331,
+                "type": [
+                    "water",
+                    "ice"
+                ],
+                "level": 20,
+                "speed": 365,
+                "stage": 2,
+                "ev": {
+                    "hp": 2,
+                    "strength": 0,
+                    "defense": 1,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Joseph 1740141203.2582216": {
+                "name": "Charizard",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Joseph 1740141203.2582216",
+                "hp_max": 500,
+                "hp": 500,
+                "xp": 9553,
+                "strength": 470,
+                "defense": 438,
+                "type": [
+                    "fire",
+                    "flying"
+                ],
+                "level": 22,
+                "speed": 433,
+                "stage": 3,
+                "ev": {
+                    "hp": 0,
+                    "strength": 1,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 4
+                },
+                "state": "domesticated"
+            },
+            "Jean-Robert 1740141203.2582195": {
+                "name": "Zubat",
+                "original_name": "Zubat",
+                "pet_name": "Jean-Robert 1740141203.2582195",
+                "hp_max": 117,
+                "hp": 117,
+                "xp": 1456,
+                "strength": 93,
+                "defense": 88,
+                "type": [
+                    "poison",
+                    "flying"
+                ],
+                "level": 12,
+                "speed": 91,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Christophe 1740141203.2582011": {
+                "name": "Blastoise",
+                "original_name": "Squirtle",
+                "pet_name": "Jean-Christophe 1740141203.2582011",
+                "hp_max": 540,
+                "hp": 540,
+                "xp": 9958,
+                "strength": 516,
+                "defense": 489,
+                "type": [
+                    "water"
+                ],
+                "level": 22,
+                "speed": 496,
+                "stage": 3,
+                "ev": {
+                    "hp": 0,
+                    "strength": 2,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Alicia 1740141203.258257": {
+                "name": "Mankey",
+                "original_name": "Mankey",
+                "pet_name": "Jean-Alicia 1740141203.258257",
+                "hp_max": 76,
+                "hp": 76,
+                "xp": 841,
+                "strength": 80,
+                "defense": 53,
+                "type": [
+                    "fighting"
+                ],
+                "level": 10,
+                "speed": 52,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-H\u00e9l\u00e8ne 1740141203.25839": {
+                "name": "Slowpoke",
+                "original_name": "Slowpoke",
+                "pet_name": "Jean-H\u00e9l\u00e8ne 1740141203.25839",
+                "hp_max": 83,
+                "hp": 83,
+                "xp": 985,
+                "strength": 73,
+                "defense": 75,
+                "type": [
+                    "water",
+                    "psychic"
+                ],
+                "level": 10,
+                "speed": 81,
+                "stage": 1,
+                "ev": {
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 1,
+                    "speed": 4,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Alexandre 1740141203.2582521": {
+                "name": "Paras",
+                "original_name": "Paras",
+                "pet_name": "Jean-Alexandre 1740141203.2582521",
+                "hp_max": 103,
+                "hp": 103,
+                "xp": 1191,
+                "strength": 118,
+                "defense": 94,
+                "type": [
+                    "bug",
+                    "grass"
+                ],
+                "level": 11,
+                "speed": 105,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 1,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-S\u00e9bastien 1740141203.258212": {
+                "name": "Omanyte",
+                "original_name": "Omanyte",
+                "pet_name": "Jean-S\u00e9bastien 1740141203.258212",
+                "hp_max": 54,
+                "hp": 54,
+                "xp": 691,
+                "strength": 44,
+                "defense": 47,
+                "type": [
+                    "rock",
+                    "water"
+                ],
+                "level": 9,
+                "speed": 65,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Robert 1740524020.8166149": {
+                "name": "Vulpix",
+                "original_name": "Vulpix",
+                "pet_name": "Jean-Robert 1740524020.8166149",
+                "hp_max": 73,
+                "hp": 73,
+                "xp": 548,
+                "strength": 83,
+                "defense": 83,
+                "type": [
+                    "fire"
+                ],
+                "level": 9,
+                "speed": 92,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 2,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Florence 1740141203.2582297": {
+                "name": "Pidgey",
+                "original_name": "Pidgey",
+                "pet_name": "Jean-Florence 1740141203.2582297",
+                "hp_max": 96,
+                "hp": 96,
+                "xp": 475,
+                "strength": 92,
+                "defense": 81,
+                "type": [
+                    "normal",
+                    "flying"
+                ],
+                "level": 8,
+                "speed": 78,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 3,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Robert 1740524070.6775396": {
+                "name": "Omanyte",
+                "original_name": "Omanyte",
+                "pet_name": "Jean-Robert 1740524070.6775396",
+                "hp_max": 92,
+                "hp": 92,
+                "xp": 700,
+                "strength": 59,
+                "defense": 74,
+                "type": [
+                    "rock",
+                    "water"
+                ],
+                "level": 9,
+                "speed": 74,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 1,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Gustave 1740524070.6775994": {
+                "name": "Poliwag",
+                "original_name": "Poliwag",
+                "pet_name": "Jean-Gustave 1740524070.6775994",
+                "hp_max": 32,
+                "hp": 32,
+                "xp": 24,
+                "strength": 11,
+                "defense": 11,
+                "type": [
+                    "water"
+                ],
+                "level": 2,
+                "speed": 32,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            },
+            "Jean-Charles 1740141203.258204": {
+                "name": "Kabuto",
+                "original_name": "Kabuto",
+                "pet_name": "Jean-Charles 1740141203.258204",
+                "hp_max": 87,
+                "hp": 87,
+                "xp": 1000,
+                "strength": 76,
+                "defense": 92,
+                "type": [
+                    "rock",
+                    "water"
+                ],
+                "level": 11,
+                "speed": 99,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 0,
+                    "defense": 1,
+                    "speed": 0,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "Ausecours": {
+        "bag": {
+            "potions": 8,
+            "pokeball": 9
+        },
+        "pokemons": {
+            "Jean-H\u00e9l\u00e8ne 1740524070.677584": {
+                "name": "Ekans",
+                "original_name": "Ekans",
+                "pet_name": "Jean-H\u00e9l\u00e8ne 1740524070.677584",
+                "hp_max": 187,
+                "hp": 187,
+                "xp": 2611,
+                "strength": 192,
+                "defense": 171,
+                "type": [
+                    "poison"
+                ],
+                "level": 14,
+                "speed": 172,
+                "stage": 1,
+                "ev": {
+                    "hp": 2,
+                    "strength": 2,
+                    "defense": 1,
+                    "speed": 1,
+                    "xp": 1
+                },
+                "state": "domesticated"
+            },
+            "Jean-Thibault 1740524070.677543": {
+                "name": "Electrode",
+                "original_name": "Voltorb",
+                "pet_name": "Jean-Thibault 1740524070.677543",
+                "hp_max": 313,
+                "hp": 313,
+                "xp": 4656,
+                "strength": 319,
+                "defense": 257,
+                "type": [
+                    "electric",
+                    "grass"
+                ],
+                "level": 17,
+                "speed": 291,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Paul 1740524070.6775186": {
+                "name": "Primeape",
+                "original_name": "Mankey",
+                "pet_name": "Jean-Paul 1740524070.6775186",
+                "hp_max": 284,
+                "hp": 284,
+                "xp": 4488,
+                "strength": 266,
+                "defense": 269,
+                "type": [
+                    "fighting"
+                ],
+                "level": 17,
+                "speed": 276,
+                "stage": 2,
+                "ev": {
+                    "hp": 3,
+                    "strength": 0,
+                    "defense": 1,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            },
+            "Jean-Vincent 1740524070.6775753": {
+                "name": "Seadra",
+                "original_name": "Horsea",
+                "pet_name": "Jean-Vincent 1740524070.6775753",
+                "hp_max": 248,
+                "hp": 248,
+                "xp": 4486,
+                "strength": 250,
+                "defense": 230,
+                "type": [
+                    "water"
+                ],
+                "level": 17,
+                "speed": 246,
+                "stage": 2,
+                "ev": {
+                    "hp": 0,
+                    "strength": 2,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            },
+            "Jean-Cl\u00e9ment 1740524070.6776066": {
+                "name": "Alakazam",
+                "original_name": "Abra",
+                "pet_name": "Jean-Cl\u00e9ment 1740524070.6776066",
+                "hp_max": 466,
+                "hp": 466,
+                "xp": 9705,
+                "strength": 419,
+                "defense": 383,
+                "type": [
+                    "psychic"
+                ],
+                "level": 22,
+                "speed": 391,
+                "stage": 3,
+                "ev": {
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 2
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "adrien": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Edouard 1740524070.6775947": {
+                "name": "Slowpoke",
+                "original_name": "Slowpoke",
+                "pet_name": "Jean-Edouard 1740524070.6775947",
+                "hp_max": 100,
+                "hp": 100,
+                "xp": 1108,
+                "strength": 73,
+                "defense": 68,
+                "type": [
+                    "water",
+                    "psychic"
+                ],
+                "level": 11,
+                "speed": 64,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 3,
+                    "speed": 3,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "oui": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Joseph 1740524070.677541": {
+                "name": "Machop",
+                "original_name": "Machop",
+                "pet_name": "Jean-Joseph 1740524070.677541",
+                "hp_max": 34,
+                "hp": 34,
+                "xp": 166,
+                "strength": 21,
+                "defense": 29,
+                "type": [
+                    "fighting"
+                ],
+                "level": 5,
+                "speed": 37,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "philipe": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-L\u00e9on 1740524070.6775925": {
+                "name": "Pidgey",
+                "original_name": "Pidgey",
+                "pet_name": "Jean-L\u00e9on 1740524070.6775925",
+                "hp_max": 38,
+                "hp": 38,
+                "xp": 219,
+                "strength": 38,
+                "defense": 28,
+                "type": [
+                    "normal",
+                    "flying"
+                ],
+                "level": 6,
+                "speed": 38,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "jeremy": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Jules 1740524070.6775963": {
+                "name": "Seel",
+                "original_name": "Seel",
+                "pet_name": "Jean-Jules 1740524070.6775963",
+                "hp_max": 50,
+                "hp": 50,
+                "xp": 604,
+                "strength": 41,
+                "defense": 28,
+                "type": [
+                    "water"
+                ],
+                "level": 8,
+                "speed": 47,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    }
+}
