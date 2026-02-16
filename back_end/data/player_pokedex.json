@@ -1186,26 +1186,58 @@
         },
         "pokemons": {
             "Jean-Luc": {
-                "name": "Squirtle",
+                "name": "Wartortle",
                 "original_name": "Squirtle",
                 "pet_name": "Jean-Luc",
-                "hp_max": 43,
-                "hp": 43,
-                "xp": 177,
-                "strength": 58,
-                "defense": 41,
+                "hp_max": 124,
+                "hp": 124,
+                "xp": 1053,
+                "strength": 128,
+                "defense": 114,
                 "type": [
                     "water"
                 ],
-                "level": 6,
-                "speed": 39,
-                "stage": 1,
+                "level": 11,
+                "speed": 124,
+                "stage": 2,
                 "ev": {
                     "hp": 3,
-                    "strength": 1,
+                    "strength": 3,
                     "defense": 0,
-                    "speed": 3,
-                    "xp": 4
+                    "speed": 1,
+                    "xp": 3
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "popoe": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Luc",
+                "hp_max": 50,
+                "hp": 50,
+                "xp": 163,
+                "strength": 52,
+                "defense": 47,
+                "type": [
+                    "fire"
+                ],
+                "level": 6,
+                "speed": 52,
+                "stage": 1,
+                "ev": {
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 0,
+                    "speed": 1,
+                    "xp": 1
                 },
                 "state": "domesticated"
             }
