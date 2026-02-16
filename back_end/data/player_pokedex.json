@@ -1083,290 +1083,33 @@
             }
         }
     },
-    "toto": {
+    "popo": {
         "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Mehdi 1740524070.6775515": {
-                "name": "Goldeen",
-                "original_name": "Goldeen",
-                "pet_name": "Jean-Mehdi 1740524070.6775515",
-                "hp_max": 31,
-                "hp": 31,
-                "xp": 125,
-                "strength": 45,
-                "defense": 23,
-                "type": [
-                    "water"
-                ],
-                "level": 5,
-                "speed": 20,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "mel": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Morgan 1740524070.677564": {
-                "name": "Psyduck",
-                "original_name": "Psyduck",
-                "pet_name": "Jean-Morgan 1740524070.677564",
-                "hp_max": 65,
-                "hp": 65,
-                "xp": 682,
-                "strength": 64,
-                "defense": 62,
-                "type": [
-                    "water"
-                ],
-                "level": 9,
-                "speed": 68,
-                "stage": 1,
-                "ev": {
-                    "hp": 2,
-                    "strength": 0,
-                    "defense": 2,
-                    "speed": 1,
-                    "xp": 2
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "jojo": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
+            "potions": 9,
+            "pokeball": 12
         },
         "pokemons": {
             "Jean-Luc": {
                 "name": "Charmander",
                 "original_name": "Charmander",
                 "pet_name": "Jean-Luc",
-                "hp_max": 40,
-                "hp": 40,
-                "xp": 211,
-                "strength": 38,
-                "defense": 24,
-                "type": [
-                    "fire"
-                ],
-                "level": 5,
-                "speed": 17,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "jojo2": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Wartortle",
-                "original_name": "Squirtle",
-                "pet_name": "Jean-Luc",
-                "hp_max": 124,
-                "hp": 124,
-                "xp": 1053,
-                "strength": 128,
-                "defense": 114,
-                "type": [
-                    "water"
-                ],
-                "level": 11,
-                "speed": 124,
-                "stage": 2,
-                "ev": {
-                    "hp": 3,
-                    "strength": 3,
-                    "defense": 0,
-                    "speed": 1,
-                    "xp": 3
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "popoe": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Charmander",
-                "original_name": "Charmander",
-                "pet_name": "Jean-Luc",
-                "hp_max": 50,
-                "hp": 50,
-                "xp": 163,
-                "strength": 52,
-                "defense": 47,
+                "hp_max": 45,
+                "hp": 45,
+                "xp": 166,
+                "strength": 34,
+                "defense": 34,
                 "type": [
                     "fire"
                 ],
                 "level": 6,
-                "speed": 52,
+                "speed": 41,
                 "stage": 1,
                 "ev": {
                     "hp": 1,
-                    "strength": 2,
-                    "defense": 0,
-                    "speed": 1,
-                    "xp": 1
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "lolo": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Bulbasaur",
-                "original_name": "Bulbasaur",
-                "pet_name": "Jean-Luc",
-                "hp_max": 45,
-                "hp": 45,
-                "xp": 162,
-                "strength": 38,
-                "defense": 35,
-                "type": [
-                    "grass",
-                    "poison"
-                ],
-                "level": 5,
-                "speed": 20,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "lolo2": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Charmander",
-                "original_name": "Charmander",
-                "pet_name": "Jean-Luc",
-                "hp_max": 37,
-                "hp": 37,
-                "xp": 160,
-                "strength": 33,
-                "defense": 29,
-                "type": [
-                    "fire"
-                ],
-                "level": 5,
-                "speed": 17,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "lolo3": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Charmander",
-                "original_name": "Charmander",
-                "pet_name": "Jean-Luc",
-                "hp_max": 45,
-                "hp": 45,
-                "xp": 150,
-                "strength": 17,
-                "defense": 18,
-                "type": [
-                    "fire"
-                ],
-                "level": 5,
-                "speed": 38,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
-                },
-                "state": "domesticated"
-            }
-        }
-    },
-    "popo": {
-        "bag": {
-            "potions": 10,
-            "pokeball": 15
-        },
-        "pokemons": {
-            "Jean-Luc": {
-                "name": "Charmander",
-                "original_name": "Charmander",
-                "pet_name": "Jean-Luc",
-                "hp_max": 34,
-                "hp": 34,
-                "xp": 138,
-                "strength": 30,
-                "defense": 30,
-                "type": [
-                    "fire"
-                ],
-                "level": 5,
-                "speed": 39,
-                "stage": 1,
-                "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
+                    "strength": 3,
+                    "defense": 2,
+                    "speed": 2,
+                    "xp": 3
                 },
                 "state": "domesticated"
             }

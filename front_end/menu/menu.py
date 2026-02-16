@@ -29,11 +29,12 @@ class Menu:
         """
         Main menu loop that displays options and handles user input.
         """
+        # Charger la vidéo background une seule fois au début
+        self.screen.set_background_display("assets/wallpaper/wallpaper.mp4")  # Sans le / au début
+        
         while self.running:
-            self.screen.update()
-            self.screen.get_display().fill((0, 0, 0))
-
-            self.screen.set_background_display(MAIN_MENU_BACKGROUND1)
+            # Mettre à jour la vidéo background (nouvelle frame)
+            self.screen.update_video_background()
             
             font_size = self.screen.height // 10
             self.util.draw_text("Main Menu", POKE_FONT, font_size, self.screen,\
@@ -50,6 +51,7 @@ class Menu:
             # Handle user input
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:  # If user closes the window
+                    self.screen.cleanup()  # Libérer les ressources vidéo
                     pygame.quit()
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
@@ -81,5 +83,6 @@ class Menu:
                                 
                                 game.run()
                             case 2:  # Exit
+                                self.screen.cleanup()  # Libérer les ressources vidéo
                                 pygame.quit()
                                 sys.exit()
