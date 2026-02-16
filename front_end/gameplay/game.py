@@ -4,6 +4,7 @@ from .map import Map
 from .player import Player
 from .CustumizerPokedex import CustomizerPokedex
 from .pokedexButton import PokedexButton
+from front_end.menu.pause_menu import PauseMenu  # 🆕 Import du menu pause
 
 
 class Game:
@@ -18,6 +19,7 @@ class Game:
         self.player: Player = Player(self.keylistener, self.screen, 100, 300, player_name, pokemon)  # Create the player character
         self.map.add_player(self.player)  # Add the player to the map 
         self.pokemon = pokemon
+        self.player_name = player_name  # Nom du joueur
         self.pokedex = pokedex  # Pokédex passé depuis le menu
         
         # ========================================
@@ -137,10 +139,14 @@ class Game:
                     else:
                         self.ouvrir_pokedex()
                 
-                # 🆕 Touche ECHAP pour fermer le Pokédex
+                # 🆕 Touche ECHAP : Fermer Pokédex OU Ouvrir le menu pause
                 elif event.key == pygame.K_ESCAPE:
                     if self.pokedex_ouvert:
+                        # Si le Pokédex est ouvert, juste le fermer
                         self.fermer_pokedex()
+                    else:
+                        # Si on est dans le jeu, ouvrir le menu pause
+                        self.open_pause_menu()
                 
                 # Ne gérer les touches de jeu que si le Pokédex est fermé
                 elif not self.pokedex_ouvert:
@@ -150,6 +156,36 @@ class Game:
                 # Ne gérer les touches de jeu que si le Pokédex est fermé
                 if not self.pokedex_ouvert:
                     self.keylistener.remove_key(event.key)
+    
+    def open_pause_menu(self):
+        """
+        🆕 Ouvre le menu pause
+        """
+        print("⏸️  Menu pause ouvert")
+        
+        # Créer et afficher le menu pause
+        pause_menu = PauseMenu(
+            self.player_name,
+            self.pokemon,
+            self.screen,
+            self.pokedex
+        )
+        
+        # Afficher le menu et récupérer le résultat
+        result_player, result_pokemon = pause_menu.display()
+        
+        # Si le résultat est None, cela signifie "retour au menu principal"
+        if result_player is None and result_pokemon is None:
+            print("🔙 Retour au menu principal...")
+            self.running = False
+        else:
+            # Mettre à jour le joueur et le Pokémon si changés
+            if result_player:
+                self.player_name = result_player
+            if result_pokemon:
+                self.pokemon = result_pokemon
+            
+            print("▶️  Reprise du jeu")
     
     def _find_pygame_surface(self):
         """
@@ -172,7 +208,7 @@ class Game:
                     print(f"✓ Surface pygame trouvée via self.screen.{attr}")
                     return obj
         
-        # Essayer pygame.display.get_surface()
+        
         surface = pygame.display.get_surface()
         if surface:
             print(f"✓ Surface pygame trouvée via pygame.display.get_surface()")

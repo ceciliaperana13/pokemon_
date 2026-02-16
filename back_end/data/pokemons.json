@@ -1,29 +1,5 @@
 [
     {
-        "name": "Growlithe",
-        "original_name": "Growlithe",
-        "pet_name": "Jean-Alicia 1740524070.6775653",
-        "hp_max": 68,
-        "hp": 68,
-        "xp": 970,
-        "strength": 65,
-        "defense": 57,
-        "type": [
-            "fire"
-        ],
-        "level": 10,
-        "speed": 59,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 3,
-            "defense": 0,
-            "speed": 2,
-            "xp": 3
-        },
-        "state": "wild"
-    },
-    {
         "name": "Ditto",
         "original_name": "Ditto",
         "pet_name": "Jean-Marie 1740524070.6775324",
@@ -68,30 +44,6 @@
             "defense": 1,
             "speed": 0,
             "xp": 3
-        },
-        "state": "wild"
-    },
-    {
-        "name": "Charmander",
-        "original_name": "Charmander",
-        "pet_name": "Jean-Adeline 1740524070.6775446",
-        "hp_max": 52,
-        "hp": 52,
-        "xp": 364,
-        "strength": 40,
-        "defense": 41,
-        "type": [
-            "fire"
-        ],
-        "level": 7,
-        "speed": 47,
-        "stage": 1,
-        "ev": {
-            "hp": 3,
-            "strength": 0,
-            "defense": 1,
-            "speed": 3,
-            "xp": 2
         },
         "state": "wild"
     },
@@ -141,6 +93,54 @@
             "defense": 0,
             "speed": 0,
             "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Growlithe",
+        "original_name": "Growlithe",
+        "pet_name": "Jean-Alicia 1740524070.6775653",
+        "hp_max": 68,
+        "hp": 68,
+        "xp": 970,
+        "strength": 65,
+        "defense": 57,
+        "type": [
+            "fire"
+        ],
+        "level": 10,
+        "speed": 59,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 3,
+            "defense": 0,
+            "speed": 2,
+            "xp": 3
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Charmander",
+        "original_name": "Charmander",
+        "pet_name": "Jean-Adeline 1740524070.6775446",
+        "hp_max": 52,
+        "hp": 52,
+        "xp": 364,
+        "strength": 40,
+        "defense": 41,
+        "type": [
+            "fire"
+        ],
+        "level": 7,
+        "speed": 47,
+        "stage": 1,
+        "ev": {
+            "hp": 3,
+            "strength": 0,
+            "defense": 1,
+            "speed": 3,
+            "xp": 2
         },
         "state": "wild"
     }

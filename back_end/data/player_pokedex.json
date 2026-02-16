@@ -342,7 +342,7 @@
                 "original_name": "Drowzee",
                 "pet_name": "Jean-L\u00e9on",
                 "hp_max": 294,
-                "hp": 293,
+                "hp": 294,
                 "xp": 5101,
                 "strength": 281,
                 "defense": 242,
@@ -906,24 +906,24 @@
                 "name": "Slowpoke",
                 "original_name": "Slowpoke",
                 "pet_name": "Jean-Edouard 1740524070.6775947",
-                "hp_max": 100,
-                "hp": 100,
-                "xp": 1108,
-                "strength": 73,
-                "defense": 68,
+                "hp_max": 105,
+                "hp": 105,
+                "xp": 1310,
+                "strength": 79,
+                "defense": 75,
                 "type": [
                     "water",
                     "psychic"
                 ],
                 "level": 11,
-                "speed": 64,
+                "speed": 70,
                 "stage": 1,
                 "ev": {
-                    "hp": 1,
+                    "hp": 3,
                     "strength": 2,
-                    "defense": 3,
-                    "speed": 3,
-                    "xp": 0
+                    "defense": 2,
+                    "speed": 0,
+                    "xp": 1
                 },
                 "state": "domesticated"
             }
@@ -1328,6 +1328,38 @@
                 ],
                 "level": 5,
                 "speed": 38,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "popo": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Luc",
+                "hp_max": 34,
+                "hp": 34,
+                "xp": 138,
+                "strength": 30,
+                "defense": 30,
+                "type": [
+                    "fire"
+                ],
+                "level": 5,
+                "speed": 39,
                 "stage": 1,
                 "ev": {
                     "hp": 0,
