@@ -1545,7 +1545,7 @@
         {
             "id":129,
             "name":"Métamorph",
-            "type":["Normal"],
+            "type":["Normal","Tenebres"],
             "stats":{
                 "hp":48,
                 "attack":48,

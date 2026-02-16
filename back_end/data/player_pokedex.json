@@ -1242,5 +1242,102 @@
                 "state": "domesticated"
             }
         }
+    },
+    "lolo": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Bulbasaur",
+                "original_name": "Bulbasaur",
+                "pet_name": "Jean-Luc",
+                "hp_max": 45,
+                "hp": 45,
+                "xp": 162,
+                "strength": 38,
+                "defense": 35,
+                "type": [
+                    "grass",
+                    "poison"
+                ],
+                "level": 5,
+                "speed": 20,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "lolo2": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Luc",
+                "hp_max": 37,
+                "hp": 37,
+                "xp": 160,
+                "strength": 33,
+                "defense": 29,
+                "type": [
+                    "fire"
+                ],
+                "level": 5,
+                "speed": 17,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
+    },
+    "lolo3": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Luc",
+                "hp_max": 45,
+                "hp": 45,
+                "xp": 150,
+                "strength": 17,
+                "defense": 18,
+                "type": [
+                    "fire"
+                ],
+                "level": 5,
+                "speed": 38,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
     }
 }

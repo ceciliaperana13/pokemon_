@@ -1,10 +1,11 @@
 import pygame, sys
-from __settings__ import MAIN_MENU_BACKGROUND1, LIGHT_GREEN, REGULAR_FONT,POKE_FONT
+from __settings__ import MAIN_MENU_BACKGROUND1, LIGHT_GREEN, REGULAR_FONT, POKE_FONT
 from .util_tool import UtilTool
 from .name_input import NameInput
 from .select_player import SelectPlayer
 from front_end.sounds import Sounds
 from front_end.gameplay.game import Game
+from front_end.gameplay.pokedex_manager import Pokedex
 from back_end.controller import get_first_pokemon
 
 sounds = Sounds()
@@ -20,6 +21,9 @@ class Menu:
         self.selected_index = 0  # Index of the currently selected option
         self.running = True  # Controls the menu loop
         self.util = UtilTool()
+        
+        # 🆕 Initialiser le Pokédex avec le bon chemin
+        self.pokedex = Pokedex("back_end/data/pokedex.json")
 
     def display(self):
         """
@@ -56,25 +60,26 @@ class Menu:
                     elif event.key == pygame.K_RETURN:  # Select an option
                         match self.selected_index:
                             case 0:  # Start a new game
-                                # name_input = NameInput(self.screen)
                                 player_name, pokemon = NameInput(self.screen).get_name()
-                                # save_
-                                game = Game(self.screen, player_name, pokemon)
+                                # Passer le Pokédex au jeu
+                                game = Game(self.screen, player_name, pokemon, self.pokedex)
                                 
                                 # Stop the opening music and start the map music
-                                sounds.stop_background_music()  # Correct the method name here
-                                sounds.play_background_music()  # Play map music
+                                sounds.stop_background_music()
+                                sounds.play_background_music()
 
                                 game.run()
-                            case 1:
+                            case 1:  # Resume game
                                 select_player = SelectPlayer(self.screen).display()
                                 pokemon = get_first_pokemon(select_player)
-                                game = Game(self.screen, select_player, pokemon)
+                                # Passer le Pokédex au jeu
+                                game = Game(self.screen, select_player, pokemon, self.pokedex)
 
                                 # Stop the opening music and start the map music
-                                sounds.stop_background_music()  # Correct the method name here
-                                sounds.play_map_music()  # Play map music
+                                sounds.stop_background_music()
+                                sounds.play_map_music()
+                                
                                 game.run()
-                            case 2:
+                            case 2:  # Exit
                                 pygame.quit()
                                 sys.exit()
