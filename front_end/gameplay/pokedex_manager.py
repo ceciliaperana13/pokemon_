@@ -256,3 +256,40 @@ class Pokedex:
                 pokemon['stats'] = {}
             pokemon['stats']['found'] = True
         print("✓ Tous les Pokémon débloqués")
+    
+    def charger_donnees_sauvegarde(self, pokedex_sauvegarde: List[Dict]):
+        """
+        Met à jour l'état du Pokédex à partir des données d'une sauvegarde
+        
+        Args:
+            pokedex_sauvegarde: Liste des Pokémon provenant du fichier de sauvegarde
+        """
+        if not pokedex_sauvegarde:
+            return
+
+        # On parcourt les données sauvegardées pour mettre à jour le Pokédex actuel
+        for pokemon_save in pokedex_sauvegarde:
+            p_id = pokemon_save.get('id')
+            p_trouve = pokemon_save.get('stats', {}).get('found', False)
+            
+            # On cherche le Pokémon correspondant dans notre liste principale
+            pokemon_actuel = self.obtenir_pokemon_par_id(p_id)
+            if pokemon_actuel:
+                if 'stats' not in pokemon_actuel:
+                    pokemon_actuel['stats'] = {}
+                pokemon_actuel['stats']['found'] = p_trouve
+                
+        print(f"✓ État du Pokédex mis à jour depuis la sauvegarde")
+    
+    def obtenir_donnees_sauvegarde(self) -> List[Dict]:
+        """
+        Prépare les données du Pokédex pour la sauvegarde.
+        On ne sauvegarde que l'essentiel : l'ID et le statut 'found'.
+        """
+        return [
+            {
+                "id": p.get("id"),
+                "stats": {"found": p.get("stats", {}).get("found", False)}
+            }
+            for p in self.pokemon_data
+        ]

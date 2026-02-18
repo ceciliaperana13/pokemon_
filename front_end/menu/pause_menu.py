@@ -15,7 +15,7 @@ class PauseMenu:
         """
         self.screen = screen
         self.font = pygame.font.Font(None, 50)  # Set the font for menu text
-        self.options = ["Continue", "Save Game", "Load Game", "Change Pokemon", "Exit"]  # Menu options
+        self.options = ["Continue", "Change Player", "Change Pokemon", "Exit"]  # Menu options
         self.selected_index = 0  # Index of the currently selected option
         self.running = True  # Controls the menu loop
         self.player = player
@@ -26,35 +26,6 @@ class PauseMenu:
             self.pokemons = get_all_pokemons_from_pokedex(self.player)
         else:
             self.pokemons = pokemon_list
-
-    def save_game(self):
-        """🆕 Sauvegarde la partie avec le Pokédex"""
-        print("💾 Sauvegarde de la partie en cours...")
-        
-        try:
-            # Préparer les données à sauvegarder
-            save_data = {
-                "player_name": self.player,
-                "pokemon": self.pokemon,
-                # 🔥 IMPORTANT : Sauvegarder les données du Pokédex
-                "player_pokedex": self.pokedex.obtenir_donnees_sauvegarde()
-            }
-            
-            # Appeler la fonction de sauvegarde
-            save_player_data(self.player, save_data)
-            
-            print(f"✅ Partie sauvegardée avec succès pour {self.player}")
-            print(f"   - Pokémon trouvés : {self.pokedex.nombre_pokemon_trouves()}")
-            
-            # Message visuel
-            font_size = self.screen.height // 15
-            self.util.draw_text("✓ Game Saved!", REGULAR_FONT, font_size, self.screen,
-                              (self.screen.width//2, self.screen.height // 10*8), (0, 255, 0))
-            pygame.display.flip()
-            pygame.time.wait(1000)
-            
-        except Exception as e:
-            print(f"❌ Erreur lors de la sauvegarde : {e}")
 
     def load_game(self):
         """🆕 Charge une autre sauvegarde"""
@@ -125,11 +96,7 @@ class PauseMenu:
                                 sounds.stop_background_music()
                                 sounds.play_map_music()
                                 return self.player, self.pokemon
-                            
-                            case 1:  # Save Game
-                                self.save_game()
-                            
-                            case 2:  # Load Game
+                            case 1:  # Load Game
                                 result = self.load_game()
                                 if result == "loaded":
                                     # Retourner avec le nouveau joueur et Pokémon
@@ -137,7 +104,7 @@ class PauseMenu:
                                     sounds.play_map_music()
                                     return self.player, self.pokemon
                             
-                            case 3:  # Change Pokemon
+                            case 2:  # Change Pokemon
                                 self.pokemon = ChangePokemon(self.player, self.screen).display()
                                 import front_end.gameplay.game as gameplay
                                 game = gameplay.Game(self.screen, self.player, self.pokemon, self.pokedex)
@@ -146,7 +113,7 @@ class PauseMenu:
                                 sounds.play_map_music()
                                 game.run()
                             
-                            case 4:  # Exit
+                            case 3:  # Exit
                                 pygame.quit()
                                 sys.exit()
                     
