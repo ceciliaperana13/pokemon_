@@ -86,7 +86,7 @@ class Game:
                 non_resolus.append(f"{nom} (original: {orig})")
 
         if nouveaux:
-            print(f"✨ {nouveaux} Pokémon ajouté(s) au Pokédex depuis l'équipe.")
+            print(f" {nouveaux} Pokémon ajouté(s) au Pokédex depuis l'équipe.")
         if non_resolus:
             print(f"⚠ Pokémon non résolus (absents de POKEMON_NAME_TO_ID) : {non_resolus}")
 
@@ -121,9 +121,9 @@ class Game:
 
         return None
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Boucle principale
-    # ══════════════════════════════════════════════════════════════════════════
+   
 
     def run(self):
         while self.running:
@@ -139,9 +139,9 @@ class Game:
                     self.pokedex_ui.dessiner(self.pygame_surface)
             self.screen.update()
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Gestion des entrées
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def handle_input(self):
         for event in pygame.event.get():
@@ -182,37 +182,42 @@ class Game:
                 if not self.pokedex_ouvert:
                     self.keylistener.remove_key(event.key)
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Menu pause
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def open_pause_menu(self):
-        print("⏸️  Menu pause ouvert")
+        print("⏸  Menu pause ouvert")
         pause_menu = PauseMenu(self.player_name, self.pokemon, self.screen, self.pokedex)
-        result_player, result_pokemon = pause_menu.display()
+        result_player, result_pokemon, result_pokedex = pause_menu.display()
         if result_player is None and result_pokemon is None:
-            print("🔙 Retour au menu principal...")
+            print(" Retour au menu principal...")
             self.running = False
         else:
             if result_player:
                 self.player_name = result_player
             if result_pokemon:
                 self.pokemon = result_pokemon
-                self._enregistrer_equipe_dans_pokedex()
+            if result_pokedex is not None:
+                #  Remplace le Pokédex (peut être vierge si changement de save)
+                self.pokedex = result_pokedex
+                self.pokedex_ui.pokedex = self.pokedex  # Sync l'UI
+            # Réenregistre l'équipe dans le Pokédex (vierge ou non)
+            self._enregistrer_equipe_dans_pokedex()
             print("▶️  Reprise du jeu")
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Pokédex
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def ouvrir_pokedex(self):
         self.pokedex_ouvert = True
-        print("📱 Pokédex ouvert")
+        print(" Pokédex ouvert")
 
     def fermer_pokedex(self):
         self.pokedex_ouvert = False
         self.pokedex.deselectionner_pokemon()
-        print("📱 Pokédex fermé")
+        print(" Pokédex fermé")
 
     def decouvrir_pokemon(self, pokemon_id: int) -> bool:
         """
@@ -227,9 +232,9 @@ class Game:
             print(f"✨ {nom} découvert et ajouté au Pokédex !")
         return est_nouveau
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Utilitaire : trouver la surface pygame
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _find_pygame_surface(self):
         if isinstance(self.screen, pygame.Surface):
@@ -241,12 +246,12 @@ class Game:
                 return obj
         surface = pygame.display.get_surface()
         if surface:
-            print("✓ Surface trouvée via pygame.display.get_surface()")
+            print(" Surface trouvée via pygame.display.get_surface()")
             return surface
         if hasattr(self.screen, '__dict__'):
             for key, value in self.screen.__dict__.items():
                 if isinstance(value, pygame.Surface):
-                    print(f"✓ Surface trouvée via self.screen.{key}")
+                    print(f" Surface trouvée via self.screen.{key}")
                     return value
         print("⚠ Impossible de trouver la surface pygame!")
         return None
