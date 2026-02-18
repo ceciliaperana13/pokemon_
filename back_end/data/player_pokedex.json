@@ -1138,5 +1138,37 @@
                 "state": "domesticated"
             }
         }
+    },
+    "lolo": {
+        "bag": {
+            "potions": 10,
+            "pokeball": 15
+        },
+        "pokemons": {
+            "Jean-Luc": {
+                "name": "Charmander",
+                "original_name": "Charmander",
+                "pet_name": "Jean-Luc",
+                "hp_max": 38,
+                "hp": 38,
+                "xp": 174,
+                "strength": 41,
+                "defense": 21,
+                "type": [
+                    "fire"
+                ],
+                "level": 5,
+                "speed": 17,
+                "stage": 1,
+                "ev": {
+                    "hp": 0,
+                    "strength": 0,
+                    "defense": 0,
+                    "speed": 0,
+                    "xp": 0
+                },
+                "state": "domesticated"
+            }
+        }
     }
 }

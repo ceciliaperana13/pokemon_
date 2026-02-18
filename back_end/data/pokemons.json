@@ -416,30 +416,6 @@
         "state": "wild"
     },
     {
-        "name": "Caterpie",
-        "original_name": "Caterpie",
-        "pet_name": "Jean-Eric 1771320591.9381092",
-        "hp_max": 39,
-        "hp": 39,
-        "xp": 112,
-        "strength": 19,
-        "defense": 28,
-        "type": [
-            "bug"
-        ],
-        "level": 4,
-        "speed": 26,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Sandshrew",
         "original_name": "Sandshrew",
         "pet_name": "Jean-Robert 1771320591.9381166",
@@ -1073,31 +1049,6 @@
         "state": "wild"
     },
     {
-        "name": "Omanyte",
-        "original_name": "Omanyte",
-        "pet_name": "Jean-Georges 1771320591.938307",
-        "hp_max": 57,
-        "hp": 57,
-        "xp": 797,
-        "strength": 51,
-        "defense": 30,
-        "type": [
-            "rock",
-            "water"
-        ],
-        "level": 9,
-        "speed": 45,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Ponyta",
         "original_name": "Ponyta",
         "pet_name": "Jean-Andr\u00e9 1771320591.938314",
@@ -1433,6 +1384,55 @@
             "defense": 1,
             "speed": 3,
             "xp": 3
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Omanyte",
+        "original_name": "Omanyte",
+        "pet_name": "Jean-Georges 1771320591.938307",
+        "hp_max": 57,
+        "hp": 57,
+        "xp": 797,
+        "strength": 51,
+        "defense": 30,
+        "type": [
+            "rock",
+            "water"
+        ],
+        "level": 9,
+        "speed": 45,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Caterpie",
+        "original_name": "Caterpie",
+        "pet_name": "Jean-Eric 1771320591.9381092",
+        "hp_max": 39,
+        "hp": 39,
+        "xp": 112,
+        "strength": 19,
+        "defense": 28,
+        "type": [
+            "bug"
+        ],
+        "level": 4,
+        "speed": 26,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
         },
         "state": "wild"
     }
