@@ -57,16 +57,16 @@ def save_bag_to_pokedex(player, bag):
 
 
 # ========================================
-# 🆕 FONCTIONS DE SAUVEGARDE DU POKÉDEX DÉCOUVERT
+#  FONCTIONS DE SAUVEGARDE DU POKÉDEX DÉCOUVERT
 # ========================================
 
 def save_player_data(player_name, data):
     try:
-        # 🟢 CORRECTION : "back_end/..." au lieu de "/back_end/..."
+        
         json_path = "back_end/data/player_pokedex.json"
         
         if not os.path.exists(json_path):
-            print(f"❌ Erreur : Le fichier {json_path} est introuvable.")
+            print(f" Erreur : Le fichier {json_path} est introuvable.")
             return False
 
         with open(json_path, 'r', encoding='utf-8') as f:
@@ -82,11 +82,11 @@ def save_player_data(player_name, data):
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(all_data, f, indent=4, ensure_ascii=False)
         
-        print(f"✅ Pokédex sauvegardé pour {player_name}")
+        print(f" Pokédex sauvegardé pour {player_name}")
         return True
         
     except Exception as e:
-        print(f"❌ Erreur lors de la sauvegarde : {e}")
+        print(f" Erreur lors de la sauvegarde : {e}")
         return False
 
 def load_player_data(player_name):

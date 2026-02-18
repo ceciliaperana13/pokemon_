@@ -464,30 +464,6 @@
         "state": "wild"
     },
     {
-        "name": "Squirtle",
-        "original_name": "Squirtle",
-        "pet_name": "Jean-Thibault 1771320591.938133",
-        "hp_max": 43,
-        "hp": 43,
-        "xp": 353,
-        "strength": 23,
-        "defense": 29,
-        "type": [
-            "water"
-        ],
-        "level": 7,
-        "speed": 31,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Ekans",
         "original_name": "Ekans",
         "pet_name": "Jean-Adeline 1771320591.9381435",
@@ -1073,30 +1049,6 @@
         "state": "wild"
     },
     {
-        "name": "Poliwag",
-        "original_name": "Poliwag",
-        "pet_name": "Jean-Henri 1771320591.938321",
-        "hp_max": 30,
-        "hp": 30,
-        "xp": 56,
-        "strength": 21,
-        "defense": 23,
-        "type": [
-            "water"
-        ],
-        "level": 3,
-        "speed": 34,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Nidoran",
         "original_name": "Nidoran",
         "pet_name": "Jean-Marcel 1771320591.938329",
@@ -1426,6 +1378,54 @@
         ],
         "level": 4,
         "speed": 26,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Poliwag",
+        "original_name": "Poliwag",
+        "pet_name": "Jean-Henri 1771320591.938321",
+        "hp_max": 30,
+        "hp": 30,
+        "xp": 56,
+        "strength": 21,
+        "defense": 23,
+        "type": [
+            "water"
+        ],
+        "level": 3,
+        "speed": 34,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Squirtle",
+        "original_name": "Squirtle",
+        "pet_name": "Jean-Thibault 1771320591.938133",
+        "hp_max": 43,
+        "hp": 43,
+        "xp": 353,
+        "strength": 23,
+        "defense": 29,
+        "type": [
+            "water"
+        ],
+        "level": 7,
+        "speed": 31,
         "stage": 1,
         "ev": {
             "hp": 0,

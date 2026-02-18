@@ -49,8 +49,7 @@ def get_random_wild_pokemon():
     if not pokemons or len(pokemons) <= 4 :
         other_pokemons = generate_pokemons_dict()
         pokemons = pokemons + other_pokemons
-        # with open(WORLD_POKEMON_PATH, "w", encoding="UTF-8") as file:
-        #     json.dump(final_list, file)
+        
 
     a_pokemon = random.choice(pokemons)
     pokemons.pop(pokemons.index(a_pokemon))
