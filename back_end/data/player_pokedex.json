@@ -801,24 +801,24 @@
                 "name": "Electrode",
                 "original_name": "Voltorb",
                 "pet_name": "Jean-Thibault 1740524070.677543",
-                "hp_max": 313,
-                "hp": 313,
-                "xp": 4656,
-                "strength": 319,
-                "defense": 257,
+                "hp_max": 316,
+                "hp": 316,
+                "xp": 4680,
+                "strength": 320,
+                "defense": 258,
                 "type": [
                     "electric",
                     "grass"
                 ],
                 "level": 17,
-                "speed": 291,
+                "speed": 296,
                 "stage": 2,
                 "ev": {
                     "hp": 0,
                     "strength": 1,
                     "defense": 2,
                     "speed": 0,
-                    "xp": 3
+                    "xp": 1
                 },
                 "state": "domesticated"
             },

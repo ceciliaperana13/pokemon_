@@ -11,13 +11,19 @@ class Pokedex:
         self.pokemon_selectionne: Optional[Dict] = None
         self.charger_donnees()
 
+    # ─────────────────────────── Persistence ───────────────────────────
 
     def charger_donnees(self):
-        """Charge les données depuis le fichier JSON."""
+        """Charge les données depuis le fichier JSON.
+        Remet tous les found à False pour repartir d'un état vierge.
+        """
         try:
             with open(self.json_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.pokemon_data = data.get('pokemon', [])
+            # Forcer tous les found à False — la progression est gérée en mémoire
+            for p in self.pokemon_data:
+                p.setdefault('stats', {})['found'] = False
             print(f"✓ Pokédex chargé : {len(self.pokemon_data)} Pokémon")
         except FileNotFoundError:
             print(f"⚠ Fichier {self.json_path} non trouvé")
@@ -34,8 +40,7 @@ class Pokedex:
             print("✓ Pokédex sauvegardé")
         except Exception as e:
             print(f"⚠ Erreur de sauvegarde : {e}")
-     #changement a venir ici le chargement de sauvegarde dois ce faire a partir player_pokedex.json
-     
+
     def charger_donnees_sauvegarde(self, pokedex_sauvegarde: List[Dict]):
         """Met à jour l'état du Pokédex à partir d'une sauvegarde."""
         for pokemon_save in pokedex_sauvegarde or []:

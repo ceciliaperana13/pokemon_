@@ -7,156 +7,6 @@ from .pokedexButton import PokedexButton
 from front_end.menu.pause_menu import PauseMenu
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  Table de correspondance : nom anglais (save) → ID Pokédex (pokedex.json FR)
-#  Couvre le nom actuel ET le nom original (avant évolution)
-# ══════════════════════════════════════════════════════════════════════════════
-POKEMON_NAME_TO_ID = {
-    # Starters & évolutions
-    "bulbasaur": 1,   "ivysaur": 2,     "venusaur": 3,
-    "charmander": 4,  "charmeleon": 5,  "charizard": 6,
-    "squirtle": 7,    "wartortle": 8,   "blastoise": 9,
-    # Insectes
-    "caterpie": 10,   "metapod": 11,    "butterfree": 12,
-    "weedle": 13,     "kakuna": 14,     "beedrill": 15,
-    # Oiseaux
-    "pidgey": 16,     "pidgeotto": 17,  "pidgeot": 18,
-    # Rongeurs
-    "rattata": 19,    "raticate": 20,
-    # Rapaces
-    "spearow": 21,    "fearow": 22,
-    # Serpents
-    "ekans": 23,      "arbok": 24,
-    # Électriques
-    "pikachu": 25,    "raichu": 26,
-    # Taupes
-    "sandshrew": 27,  "sandslash": 28,
-    # Nidoran
-    "nidoran": 29,    "nidorino": 30,   "nidoking": 31,
-    # Fées
-    "clefairy": 32,   "clefable": 33,
-    # Renards
-    "vulpix": 34,     "ninetales": 35,
-    # Ballons
-    "jigglypuff": 36, "wigglytuff": 37,
-    # Chauves-souris
-    "zubat": 38,      "golbat": 39,
-    # Plantes/Poison
-    "oddish": 40,     "gloom": 41,      "vileplume": 42,
-    "paras": 43,      "parasect": 44,
-    "venonat": 45,    "venomoth": 46,
-    # Taupes fouisseuses
-    "diglett": 47,    "dugtrio": 48,
-    # Chats
-    "meowth": 49,     "persian": 50,
-    # Canards
-    "psyduck": 51,    "golduck": 52,
-    # Singes
-    "mankey": 53,     "primeape": 54,
-    # Chiens de feu
-    "growlithe": 55,  "arcanine": 56,
-    # Têtards
-    "poliwag": 57,    "poliwhirl": 58,  "poliwrath": 59,
-    # Psy
-    "abra": 60,       "kadabra": 61,    "alakazam": 62,
-    # Combat
-    "machop": 63,     "machoke": 64,    "machamp": 65,
-    # Plantes grimpantes
-    "bellsprout": 66, "weepinbell": 67, "victreebel": 68,
-    # Méduses
-    "tentacool": 69,  "tentacruel": 70,
-    # Rochers
-    "geodude": 71,    "graveler": 72,   "golem": 73,
-    # Chevaux
-    "ponyta": 74,     "rapidash": 75,
-    # Ramoloss
-    "slowpoke": 76,   "slowbro": 77,
-    # Magnéti
-    "magnemite": 78,  "magneton": 79,
-    # Canard poireau
-    "farfetch'd": 80, "farfetchd": 80,
-    # Doduo
-    "doduo": 81,      "dodrio": 82,
-    # Phoques
-    "seel": 83,       "dewgong": 84,
-    # Boue
-    "grimer": 85,     "muk": 86,
-    # Coquillages
-    "shellder": 87,   "cloyster": 88,
-    # Fantômes
-    "gastly": 89,     "haunter": 90,    "gengar": 91,
-    # Onix
-    "onix": 92,
-    # Endormeurs
-    "drowzee": 93,    "hypno": 94,
-    # Crabes
-    "krabby": 95,     "kingler": 96,
-    # Voltorbe
-    "voltorb": 97,    "electrode": 98,
-    # Nœux-nœux
-    "exeggcute": 99,  "exeggutor": 100,
-    # Ossatueur
-    "cubone": 101,    "marowak": 102,
-    # Combat 2
-    "hitmonlee": 103, "hitmonchan": 104,
-    # Excelangue
-    "lickitung": 105,
-    # Smog
-    "koffing": 106,   "weezing": 107,
-    # Rhinocorne
-    "rhyhorn": 108,   "rhydon": 109,
-    # Leveinard
-    "chansey": 110,
-    # Saquedeneu
-    "tangela": 111,
-    # Kangourex
-    "kangaskhan": 112,
-    # Hippocampes
-    "horsea": 113,    "seadra": 114,
-    # Poissons rouges
-    "goldeen": 115,   "seaking": 116,
-    # Étoiles de mer
-    "staryu": 117,    "starmie": 118,
-    # M. Mime
-    "mr. mime": 119,  "mr mime": 119,   "mrmime": 119,
-    # Insécateur
-    "scyther": 120,
-    # Lippoutou
-    "jynx": 121,
-    # Élektek
-    "electabuzz": 122,
-    # Magmar
-    "magmar": 123,
-    # Scarabrute
-    "pinsir": 124,
-    # Tauros
-    "tauros": 125,
-    # Magicarpe / Léviator
-    "magikarp": 126,  "gyarados": 127,
-    # Lokhlass
-    "lapras": 128,
-    # Métamorph
-    "ditto": 129,
-    # Évoli & évolutions
-    "eevee": 130,     "vaporeon": 131,  "jolteon": 132,  "flareon": 133,
-    # Porygon
-    "porygon": 134,
-    # Fossiles
-    "omanyte": 135,   "omastar": 136,
-    "kabuto": 137,    "kabutops": 138,
-    # Ptéra
-    "aerodactyl": 139,
-    # Ronflex
-    "snorlax": 140,
-    # Légendaires oiseaux
-    "articuno": 141,  "zapdos": 142,    "moltres": 143,
-    # Dragons
-    "dratini": 144,   "dragonair": 145, "dragonite": 146,
-    # Légendaires psy
-    "mewtwo": 147,    "mew": 148,
-}
-
-
 class Game:
     def __init__(self, screen, player_name, pokemon, pokedex):
         self.running = True
@@ -240,11 +90,11 @@ class Game:
         if non_resolus:
             print(f"⚠ Pokémon non résolus (absents de POKEMON_NAME_TO_ID) : {non_resolus}")
 
-    @staticmethod
-    def _resoudre_id_depuis_save(poke) -> int | None:
+    def _resoudre_id_depuis_save(self, poke) -> int | None:
         """
         Fonctionne avec un dict (save brute) OU un objet Pokemon instancié.
-        Ordre : id direct → original_name → name
+        Priorité : name (forme actuelle) → original_name (forme de base).
+        Un seul ID retourné par Pokémon, pas de doublons.
         """
         def get_attr(key):
             if isinstance(poke, dict):
@@ -254,13 +104,20 @@ class Game:
         # 1. ID direct
         pid = get_attr('id')
         if pid:
-            return int(pid)
+            try:
+                return int(pid)
+            except (ValueError, TypeError):
+                pass
 
-        # 2. original_name puis name
-        for champ in ('original_name', 'name'):
-            valeur = get_attr(champ).strip().lower()
-            if valeur in POKEMON_NAME_TO_ID:
-                return POKEMON_NAME_TO_ID[valeur]
+        # 2. Cherche par name d'abord (forme actuelle = évoluée),
+        #    puis original_name en fallback (forme de base)
+        tous = {p.get('name', '').lower(): p.get('id') 
+                for p in self.pokedex.obtenir_tous_les_pokemon()}
+
+        for champ in ('name', 'original_name'):
+            nom = get_attr(champ).strip().lower()
+            if nom and nom in tous:
+                return tous[nom]
 
         return None
 

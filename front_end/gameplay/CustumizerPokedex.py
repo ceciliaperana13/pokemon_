@@ -58,8 +58,10 @@ class CustomizerPokedex(PokedexUIBase):
 
         # Titre + compteur
         screen.blit(self.font_titre.render("POKÉDEX", True, blanc), (250, 35))
+        trouves  = self.pokedex.nombre_pokemon_trouves()
+        total    = self.pokedex.nombre_pokemon()
         compteur = self.font_petit.render(
-            f"{self.pokedex.nombre_pokemon()} Pokémon enregistrés", True, (255, 200, 200)
+            f"{trouves} / {total} Pokémon découverts", True, (255, 200, 200)
         )
         screen.blit(compteur, (250, 70))
 
