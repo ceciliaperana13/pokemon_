@@ -7,13 +7,19 @@ from ..models.bag import Bag
 from ..generate_pokemon.create_pokemon import level_from_stage
 from ..models.pokemon import Pokemon
 
-# back to front
+# --- Back-to-Front (Data Retrieval) ---
+
 def get_player_names():
+    """Retrieves all registered player names from the Pokedex JSON file."""
     with open(PLAYER_POKEDEX, "r", encoding="UTF-8") as file:
         player_keys_dictionary = json.load(file)
     return player_keys_dictionary.keys()
 
 def does_player_exist(player):
+    """
+    Checks if a player name is already taken.
+    Initializes an empty Pokedex file if it doesn't exist.
+    """
     if not os.path.exists(PLAYER_POKEDEX):
         with open(PLAYER_POKEDEX, "w", encoding="UTF-8") as file:
             json.dump({}, file)
@@ -24,12 +30,17 @@ def does_player_exist(player):
     return player in player_keys_dictionary
 
 
-# front to back
-def create_player(player, pokemon):
+# --- Front-to-Back (Data Storage) ---
 
+def create_player(player, pokemon):
+    """
+    Registers a new player with a default inventory and their first Pokemon.
+    Saves the profile to the Pokedex database.
+    """
     with open(PLAYER_POKEDEX, "r", encoding="UTF-8") as file:
         players_dictionary = json.load(file)
 
+    # Only create if the name is unique
     if player not in players_dictionary.keys():
         player_bag = Bag()
         players_dictionary[player] = {
@@ -37,61 +48,63 @@ def create_player(player, pokemon):
             "pokemons" : {}
             }
     else:
-        return
+        return # Abort if player exists
             
     with open(PLAYER_POKEDEX, "w", encoding="UTF-8") as file:
         json.dump(players_dictionary, file, indent=4)
     
+    # Save the associated starter and the new bag
     save_pokemon_to_pokedex(player, pokemon)
     save_bag_to_pokedex(player, player_bag)
 
 
 def create_specific_starter(name, first_stage_name, type_list, stage):
     """
-    Crée un Pokémon starter spécifique avec les paramètres donnés.
+    Factory function to create a standardized Level 5 starter Pokemon.
+    Calculates randomized base stats.
     """
-    level = 5  # Niveau de départ fixe
+    level = 5  # Fixed starting level
     
-    # Stats de base pour un starter niveau 5
+    # Calculate base stats with a random variance
     hp = random.randrange(10, 31) + level * 3
     strength = random.randrange(2, 31) + level * 3
     speed = random.randrange(2, 31) + level * 3
     defense_point = random.randrange(2, 21) + level * 3
     
-    # Créer le Pokémon
+    # Instantiate the Pokemon object
     my_pokemon = Pokemon(name, first_stage_name, hp, hp, strength, defense_point, type_list, level, speed, stage)
     
-    # Définir l'XP
+    # Set experience points appropriate for Level 5
     xp = random.randrange(my_pokemon.get_level()**3, (my_pokemon.get_level()+1)**3)
     my_pokemon.set_xp(xp)
     
     return my_pokemon
 
 
-# Compteur global pour les starters
+# Global counter to cycle through choices in the UI
 _starter_index = 0
 
 def get_starter_pokemon():
     """
-    Retourne un des 3 starters classiques à chaque appel.
-    Cycle entre Bulbizarre, Salamèche et Carapuce.
+    Returns one of the 3 classic starters (Bulbasaur, Charmander, Squirtle).
+    Cycles to the next one on each call, useful for a 'Next' button in the UI.
     """
     global _starter_index
     
-    # Définir les 3 starters classiques
+    # The classic Generation 1 trio
     starters = [
         {"name": "Bulbasaur", "first_stage_name": "Bulbasaur", "type_list": ["grass", "poison"], "stage": 1},
         {"name": "Charmander", "first_stage_name": "Charmander", "type_list": ["fire"], "stage": 1},
         {"name": "Squirtle", "first_stage_name": "Squirtle", "type_list": ["water"], "stage": 1}
     ]
     
-    # Récupérer le starter actuel
+    # Select data based on index
     starter_data = starters[_starter_index % 3]
     
-    # Incrémenter l'index pour le prochain appel
+    # Increment for the next selection
     _starter_index += 1
     
-    # Créer le Pokémon starter
+    # Generate the actual Pokemon object
     my_pokemon = create_specific_starter(
         starter_data["name"],
         starter_data["first_stage_name"],
@@ -99,6 +112,6 @@ def get_starter_pokemon():
         starter_data["stage"]
     )
     
-    print(f"✅ Starter généré: {my_pokemon.name} (Type: {', '.join(my_pokemon.type)})")
+    print(f"✅ Starter generated: {my_pokemon.name} (Type: {', '.join(my_pokemon.type)})")
     
     return my_pokemon

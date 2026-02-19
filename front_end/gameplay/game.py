@@ -42,9 +42,9 @@ class Game:
         # ── Enregistrer automatiquement les Pokémon de l'équipe chargée ─────
         self._enregistrer_equipe_dans_pokedex()
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Enregistrement de l'équipe au chargement
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _enregistrer_equipe_dans_pokedex(self):
         """
