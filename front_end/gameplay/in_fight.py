@@ -26,7 +26,14 @@ class InFight():
         self.selected_index = 0  # Index of the currently selected option
         self.running = True  # Controls the menu loop
         self.player = player.player_name
-        self.pokemon = pokemon     
+
+        # If pokemon is a list, use the first one with HP > 0
+        if isinstance(pokemon, list):
+            active = [p for p in pokemon if p.get_hp() > 0]
+            self.pokemon = active[0] if active else pokemon[0]
+        else:
+            self.pokemon = pokemon
+
         self.bag = get_bag_from_pokedex(self.player)
         self.fight = Fight(self.pokemon, self.pokemon_enemy)
         self.util = UtilTool()
@@ -129,7 +136,7 @@ class InFight():
                             self.selected_index = (self.selected_index - 1) % len(self.options)
                         elif event.key == pygame.K_RETURN:  # Select an option
                             match self.selected_index:
-                                case 0:  # Start a new game
+                                case 0:  # Attack
                                     if win:
                                         self.selected_index = 4
                                     elif self.pokemon.get_hp() > 0:
@@ -151,7 +158,7 @@ class InFight():
                                     else:
                                         win = True
                                         
-                                case 1: #bag
+                                case 1:  # Bag
                                     if win:
                                         self.selected_index = 4
                                     else:
@@ -191,7 +198,7 @@ class InFight():
                                                             player_turn = True
                                                 case "Back":
                                                     player_turn = True
-                                case 2: #team
+                                case 2:  # Team
                                     if win:
                                         self.selected_index = 4
                                     else:
@@ -200,11 +207,10 @@ class InFight():
                                         pokemon_hp_max = self.pokemon.get_hp_max()
                                         name = self.pokemon.name
                                         level = self.pokemon.get_level()
-                                case 3: #info
-                                    
+                                case 3:  # Info
                                     InfoMenu(self.screen, self.pokemon, self.pokemon_enemy).display()
                                     player_turn = True  
-                                case 4: #exit or flee
+                                case 4:  # Exit or Flee
                                     if win:
                                         if another_option == "Success":
                                             if len(self.pokemon_enemy.pet_name.split()) == 1:
@@ -225,7 +231,6 @@ class InFight():
                                                 failed_flee_time = pygame.time.get_ticks()
                                                 self.message_pop_up(self.fight.fightinfo.flee_message)
                                                 pygame.display.update()
-                                                
                                             return self.fleeing
                                         else:
                                             now_time = pygame.time.get_ticks()
@@ -236,7 +241,7 @@ class InFight():
                                                 pygame.display.update()       
                 elif not player_turn and not win:
                     pygame.time.wait(800)
-                    if self.pokemon.get_hp() > 0 :
+                    if self.pokemon.get_hp() > 0:
                         self.fight.bot_attack()
                         message_attack = self.fight.fightinfo.set_who_attack_message(self.pokemon_enemy)
                         message_damage = self.fight.fightinfo.get_damage_message()
@@ -263,12 +268,12 @@ class InFight():
 
     def save_all_to_pokedex(self):
         self.reset_hp()
-        save_pokemon_to_pokedex(self.player,self.pokemon)
+        save_pokemon_to_pokedex(self.player, self.pokemon)
         save_bag_to_pokedex(self.player, self.bag)
         save_pokemon_to_pokedex(self.player, self.pokemon_enemy)
     
     def save(self):
         self.reset_hp()
-        save_pokemon_to_pokedex(self.player,self.pokemon)
+        save_pokemon_to_pokedex(self.player, self.pokemon)
         save_bag_to_pokedex(self.player, self.bag)
         save_wild_pokemon(self.pokemon_enemy)
