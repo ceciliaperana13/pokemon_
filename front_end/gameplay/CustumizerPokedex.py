@@ -24,9 +24,9 @@ class CustomizerPokedex(PokedexUIBase):
         self.taille_carte      = 180
         self.marge             = 25
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Point d'entrée principal
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def dessiner(self, screen):
         """Dessine l'interface complète du Pokédex."""
@@ -36,9 +36,9 @@ class CustomizerPokedex(PokedexUIBase):
         if self.pokedex.obtenir_pokemon_selectionne():
             self._dessiner_details(screen)
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  En-tête
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _dessiner_header(self, screen):
         rouge  = self.couleurs['rouge_pokemon']
@@ -65,9 +65,9 @@ class CustomizerPokedex(PokedexUIBase):
         )
         screen.blit(compteur, (250, 70))
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Grille de cartes
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _dessiner_grille(self, screen):
         zone_y      = 120
@@ -85,9 +85,9 @@ class CustomizerPokedex(PokedexUIBase):
 
             self._dessiner_carte_pokemon(screen, pokemon, x, y, i)
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Carte individuelle
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _dessiner_carte_pokemon(self, screen, pokemon: dict, x: int, y: int, index: int):
         pokemon_sel = self.pokedex.obtenir_pokemon_selectionne()
@@ -129,7 +129,7 @@ class CustomizerPokedex(PokedexUIBase):
         cy = y + 100
 
         if est_possede:
-            # ── Pokémon possédé : sprite + nom + types ──────────────────────
+            # ── Pokémon possédé 
             self.dessiner_sprite(screen, pokemon, cx, cy, 70)
 
             nom_texte = self.font_nom.render(pokemon.get('name', 'Inconnu'), True, self.couleurs['noir'])
@@ -138,15 +138,15 @@ class CustomizerPokedex(PokedexUIBase):
             self._dessiner_badges_types(screen, pokemon.get('type', []),
                                         x + 20, y + 175, self.taille_carte - 40)
         else:
-            # ── Pokémon non possédé : Pokéball + point d'interrogation ──────
+            # ── Pokémon non possédé 
             self.dessiner_pokeball_non_possede(screen, cx, cy, rayon=28)
 
             point_interro = self.font_nom.render("???", True, self.couleurs['gris'])
             screen.blit(point_interro, point_interro.get_rect(center=(cx, y + 155)))
 
-    # ══════════════════════════════════════════════════════════════════════════
-    #  Panneau de détails (droite)
-    # ══════════════════════════════════════════════════════════════════════════
+    
+    #  Panneau de détails 
+    
 
     def _dessiner_details(self, screen):
         pokemon = self.pokedex.obtenir_pokemon_selectionne()
@@ -206,7 +206,7 @@ class CustomizerPokedex(PokedexUIBase):
             self._dessiner_stats(screen, pokemon.get('stats', {}), panel_x, y)
 
         else:
-            # ── Pokémon non possédé ──────────────────────────────────────────
+            # ── Pokémon non possédé 
             self.dessiner_pokeball_non_possede(screen,
                                                panel_x + panel_l // 2,
                                                panel_y + panel_h // 2 - 60,
@@ -223,9 +223,9 @@ class CustomizerPokedex(PokedexUIBase):
         # Bouton fermer
         self._dessiner_bouton_fermer(screen, panel_x, panel_y, panel_l, panel_h)
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Helpers de dessin
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def _dessiner_badges_types(self, screen, types, x: int, y: int,
                                largeur_badge: int, hauteur_badge: int = 28,
@@ -280,9 +280,9 @@ class CustomizerPokedex(PokedexUIBase):
         txt = self.font_info.render("FERMER", True, self.couleurs['blanc'])
         screen.blit(txt, txt.get_rect(center=bouton_rect.center))
 
-    # ══════════════════════════════════════════════════════════════════════════
+    
     #  Événements souris
-    # ══════════════════════════════════════════════════════════════════════════
+    
 
     def est_clique(self, pos):
         """Gère les clics (bouton fermer ou sélection d'une carte)."""
