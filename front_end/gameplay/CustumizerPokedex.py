@@ -216,14 +216,28 @@ class CustomizerPokedex(PokedexUIBase):
                           badge_w: int, badge_h: int = 28, return_y: bool = False):
         if isinstance(types, str):
             types = [types]
+
+        gap = 8
+        count = len(types)
+        font = pygame.font.Font(None, 20)
+
+        # Calculate the required width for each badge based on text length
+        widths = []
         for t in types:
+            txt_w = font.size(t.upper())[0]
+            widths.append(max(txt_w + 20, 55))  # min 55px, padding of 20px
+
+        cur_x = x
+        for i, t in enumerate(types):
             t_norm = t.capitalize()
-            rect = pygame.Rect(x, y, badge_w, badge_h)
+            w = widths[i]
+            rect = pygame.Rect(cur_x, y, w, badge_h)
             pygame.draw.rect(screen, self.get_type_color(t_norm), rect, border_radius=badge_h // 2)
-            txt = self.font_info.render(t_norm.upper(), True, self.colors['white'])
+            txt = font.render(t_norm.upper(), True, self.colors['white'])
             screen.blit(txt, txt.get_rect(center=rect.center))
-            y += badge_h + 5
-        return y if return_y else None
+            cur_x += w + gap
+
+        return (y + badge_h + 5) if return_y else None
 
     def _draw_stats(self, screen, stats: dict, panel_x: int, y: int):
         mapping = {'hp': 'HP', 'attack': 'ATK', 'defense': 'DEF', 'speed': 'SPD'}
