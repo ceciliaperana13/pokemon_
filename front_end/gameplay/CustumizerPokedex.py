@@ -52,7 +52,7 @@ class CustomizerPokedex(PokedexUIBase):
         pygame.draw.rect(screen, dark, (0, 95, self.width, 5))
 
         # Left decorative Pokeball
-        self.draw_unowned_pokeball(screen, 80, 50, radius=35)
+        self.draw_not_owned_pokeball(screen, 80, 50, radius=35)
 
         # Status LED lights (Classic Pokedex aesthetic)
         for i, c in enumerate([dark, (255, 150, 150), (255, 100, 100)]):
@@ -60,8 +60,8 @@ class CustomizerPokedex(PokedexUIBase):
 
         # Title and counter rendering
         screen.blit(self.font_title.render("POKÉDEX", True, white), (250, 35))
-        found = self.pokedex.get_found_count()
-        total = self.pokedex.get_total_count()
+        found = self.pokedex.found_count()
+        total = self.pokedex.total_count()
         counter = self.font_small.render(
             f"{found} / {total} Pokémon discovered", True, (255, 200, 200)
         )
@@ -102,9 +102,9 @@ class CustomizerPokedex(PokedexUIBase):
 
         # Determine card style based on state (selected, hovered, or normal)
         if is_selected:
-            bg, border, thickness = self.colors['selected_card'], self.colors['pokemon_red'], 4
+            bg, border, thickness = self.colors['card_selected'], self.colors['pokemon_red'], 4
         elif self.hover_index == index:
-            bg, border, thickness = self.colors['hover_card'], self.colors['pokemon_red'], 3
+            bg, border, thickness = self.colors['card_hover'], self.colors['pokemon_red'], 3
         else:
             bg, border, thickness = self.colors['card'], self.colors['light_gray'], 2
 
@@ -145,7 +145,7 @@ class CustomizerPokedex(PokedexUIBase):
                                    x + 20, y + 175, self.card_size - 40)
         else:
             # Render Unowned Pokemon: Placeholder icon and question marks
-            self.draw_unowned_pokeball(screen, cx, cy, radius=28)
+            self.draw_not_owned_pokeball(screen, cx, cy, radius=28)
 
             q_mark = self.font_name.render("???", True, self.colors['gray'])
             screen.blit(q_mark, q_mark.get_rect(center=(cx, y + 155)))
@@ -201,7 +201,7 @@ class CustomizerPokedex(PokedexUIBase):
             self._draw_stats(screen, pokemon.get('stats', {}), panel_x, y)
         else:
             # View for Undiscovered Pokemon
-            self.draw_unowned_pokeball(screen, panel_x + panel_w // 2, panel_y + panel_h // 2 - 60, radius=55)
+            self.draw_not_owned_pokeball(screen, panel_x + panel_w // 2, panel_y + panel_h // 2 - 60, radius=55)
             msg1 = self.font_name.render("??? Unknown ???", True, self.colors['gray'])
             msg2 = self.font_small.render("Discover this Pokemon to", True, self.colors['gray'])
             msg3 = self.font_small.render("reveal its information!", True, self.colors['gray'])
@@ -222,7 +222,7 @@ class CustomizerPokedex(PokedexUIBase):
         for t in types:
             t_norm = t.capitalize()
             rect = pygame.Rect(x, y, badge_w, badge_h)
-            pygame.draw.rect(screen, self.type_color(t_norm), rect, border_radius=badge_h // 2)
+            pygame.draw.rect(screen, self.get_type_color(t_norm), rect, border_radius=badge_h // 2)
             txt = self.font_info.render(t_norm.upper(), True, self.colors['white'])
             screen.blit(txt, txt.get_rect(center=rect.center))
             y += badge_h + 5
@@ -244,7 +244,7 @@ class CustomizerPokedex(PokedexUIBase):
             pct = min(val / 200, 1.0)
             fill_w = int(bar_w * pct)
             if fill_w > 0:
-                pygame.draw.rect(screen, self.stat_color(pct), (bar_x, y, fill_w, bar_h), border_radius=8)
+                pygame.draw.rect(screen, self.get_stat_color(pct), (bar_x, y, fill_w, bar_h), border_radius=8)
             # Border
             pygame.draw.rect(screen, self.colors['gray'], (bar_x, y, bar_w, bar_h), 2, border_radius=8)
             # Numeric Label

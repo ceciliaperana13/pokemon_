@@ -33,7 +33,7 @@ class Game:
         self.pokedex_ui = CustomizerPokedex(self.pokedex, screen_width, screen_height)
         self.pokedex_button = PokedexButton(
             screen_width - 130, screen_height - 130,
-            image_path="assets/logo/pokedex.png", taille=100
+            image_path="assets/logo/pokedex.png", size=100
         )
         self.pokedex_open = False
 
@@ -42,9 +42,9 @@ class Game:
         # ── Automatically register the loaded team's Pokémon ─────
         self._register_team_in_pokedex()
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Team registration on load
-    
+    # ─────────────────────────────────────────────────────────────
 
     def _register_team_in_pokedex(self):
         """
@@ -120,9 +120,9 @@ class Game:
 
         return None
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Main loop
-    
+    # ─────────────────────────────────────────────────────────────
 
     def run(self):
         while self.running:
@@ -138,9 +138,9 @@ class Game:
                     self.pokedex_ui.draw(self.pygame_surface)
             self.screen.update()
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Input handling
-    
+    # ─────────────────────────────────────────────────────────────
 
     def handle_input(self):
         for event in pygame.event.get():
@@ -152,7 +152,7 @@ class Game:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if self.pokedex_open:
-                        self.pokedex_ui.on_click(event.pos)
+                        self.pokedex_ui.check_click(event.pos)
                     elif self.pokedex_button.check_click(event.pos):
                         self.open_pokedex()
                 elif event.button == 4 and self.pokedex_open:
@@ -181,9 +181,9 @@ class Game:
                 if not self.pokedex_open:
                     self.keylistener.remove_key(event.key)
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Pause menu
-    
+    # ─────────────────────────────────────────────────────────────
 
     def open_pause_menu(self):
         print("⏸  Pause menu opened")
@@ -205,9 +205,9 @@ class Game:
             self._register_team_in_pokedex()
             print("▶️  Resuming game")
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Pokédex
-    
+    # ─────────────────────────────────────────────────────────────
 
     def open_pokedex(self):
         self.pokedex_open = True
@@ -231,9 +231,9 @@ class Game:
             print(f"✨ {name} discovered and added to the Pokédex!")
         return is_new
 
-    
+    # ─────────────────────────────────────────────────────────────
     #  Utility: find the pygame surface
-    
+    # ─────────────────────────────────────────────────────────────
 
     def _find_pygame_surface(self):
         if isinstance(self.screen, pygame.Surface):
