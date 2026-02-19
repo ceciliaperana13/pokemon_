@@ -1314,30 +1314,6 @@
         "state": "wild"
     },
     {
-        "name": "Diglett",
-        "original_name": "Diglett",
-        "pet_name": "Jean-S\u00e9bastien 1771320591.9380956",
-        "hp_max": 28,
-        "hp": 28,
-        "xp": 12,
-        "strength": 10,
-        "defense": 12,
-        "type": [
-            "ground"
-        ],
-        "level": 2,
-        "speed": 23,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Bellsprout",
         "original_name": "Bellsprout",
         "pet_name": "Jean-Baptiste 1771320591.9379513",
@@ -1377,6 +1353,30 @@
         ],
         "level": 7,
         "speed": 43,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Diglett",
+        "original_name": "Diglett",
+        "pet_name": "Jean-S\u00e9bastien 1771320591.9380956",
+        "hp_max": 28,
+        "hp": 28,
+        "xp": 12,
+        "strength": 10,
+        "defense": 12,
+        "type": [
+            "ground"
+        ],
+        "level": 2,
+        "speed": 23,
         "stage": 1,
         "ev": {
             "hp": 0,

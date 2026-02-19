@@ -1,4 +1,4 @@
-import pygame
+import pygame, sys
 from .keylistener import KeyListener
 from .map import Map
 from .player import Player
@@ -19,7 +19,6 @@ class Game:
         self.player_name = player_name
         self.pokedex = pokedex
 
-        # Screen dimensions
         if hasattr(self.screen, 'get_width') and hasattr(self.screen, 'get_height'):
             screen_width = self.screen.get_width()
             screen_height = self.screen.get_height()
@@ -38,13 +37,7 @@ class Game:
         self.pokedex_open = False
 
         print(f"✓ Pokédex interface initialized ({screen_width}x{screen_height})")
-
-        # ── Automatically register the loaded team's Pokémon ─────
         self._register_team_in_pokedex()
-
-    # ─────────────────────────────────────────────────────────────
-    #  Team registration on load
-    # ─────────────────────────────────────────────────────────────
 
     def _register_team_in_pokedex(self):
         if not self.pokemon:
@@ -63,7 +56,6 @@ class Game:
 
         for poke in pokemon_to_process:
             pokemon_id = self._resolve_id_from_save(poke)
-
             if pokemon_id:
                 if self.discover_pokemon(pokemon_id):
                     new_discoveries += 1
@@ -108,7 +100,6 @@ class Game:
         while self.running:
             self.handle_input()
 
-            
             if not self.running:
                 break
 
@@ -130,9 +121,9 @@ class Game:
     def handle_input(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                # Ne pas appeler pygame.quit() ici — menu.py s'en charge
-                self.running = False
-                return
+                
+                pygame.quit()
+                sys.exit()
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
