@@ -5,161 +5,168 @@ from .pokedexUIbase import PokedexUIBase
 
 class PokedexButton(PokedexUIBase):
     """
-    Bouton pour ouvrir/fermer le Pokédex.
-    Hérite de PokedexUIBase pour les couleurs et la Pokéball de fallback.
+    Button used to open/close the Pokédex.
+    Inherits from PokedexUIBase for shared colors and fallback Pokéball drawing.
     """
 
     def __init__(self, x: int, y: int,
                  image_path: str = "assets/logo/pokedex.png",
-                 taille: int = 100):
+                 size: int = 100):
         super().__init__()
 
-        self.x, self.y   = x, y
-        self.taille       = taille
-        self.survol       = False
-        self.est_clique   = False
-        self.temps_animation = 0
+        self.x, self.y = x, y
+        self.size = size
+        self.hovered = False
+        self.is_clicked = False
+        self.animation_time = 0
         self.pulse_amplitude = 5
 
-        # ── Chargement de l'image ─────────────────────────────────────────
-        self.image_originale = self._charger_image(image_path)
+        # ── Image Loading ─────────────────────────────────────────────────────
+        self.original_image = self._load_image(image_path)
 
-        self.image_normale = None
-        self.image_survol  = None
-        self.image_clique  = None
+        self.normal_image = None
+        self.hover_image  = None
+        self.clicked_image = None
 
-        if self.image_originale:
-            self._preparer_variantes()
+        if self.original_image:
+            self._prepare_variants()
 
-        # Rectangle de collision
-        self.rect = pygame.Rect(x, y, taille, taille)
+        # Collision Rectangle
+        self.rect = pygame.Rect(x, y, size, size)
 
-        # Son optionnel
-        self.son_clic = None
+        # Optional Sound
+        self.click_sound = None
         try:
-            chemin_son = "assets/sounds/pokedex_open.wav"
-            if os.path.exists(chemin_son):
-                self.son_clic = pygame.mixer.Sound(chemin_son)
+            sound_path = "assets/sounds/pokedex_open.wav"
+            if os.path.exists(sound_path):
+                self.click_sound = pygame.mixer.Sound(sound_path)
         except Exception:
             pass
 
-    # ── Initialisation ────────────────────────────────────────────────────────
+    # ── Initialization ────────────────────────────────────────────────────────
 
     @staticmethod
-    def _charger_image(image_path: str):
-        """Essaie plusieurs chemins et retourne la Surface ou None."""
-        candidats = [
+    def _load_image(image_path: str):
+        """Tries several paths and returns the Surface or None."""
+        candidates = [
             image_path,
             "assets/logo/pokedex.png",
             "assets/logo/pokedex.jpg",
             "assets/logo/Pokedex.png",
             "assets/logo/POKEDEX.png",
         ]
-        for chemin in candidats:
-            if os.path.exists(chemin):
+        for path in candidates:
+            if os.path.exists(path):
                 try:
-                    img = pygame.image.load(chemin).convert_alpha()
-                    print(f"✓ Bouton Pokédex chargé : {chemin}")
+                    img = pygame.image.load(path).convert_alpha()
+                    print(f"✓ Pokédex Button loaded: {path}")
                     return img
                 except pygame.error as e:
-                    print(f"⚠ Erreur {chemin}: {e}")
-        print("⚠ Image du bouton non trouvée, utilisation du bouton par défaut")
+                    print(f"⚠ Error {path}: {e}")
+        print("⚠ Button image not found, using default fallback")
         return None
 
-    def _preparer_variantes(self):
-        """Crée les versions normale, survol et cliquée de l'image."""
-        t = self.taille
-        self.image_normale = pygame.transform.smoothscale(self.image_originale, (t, t))
+    def _prepare_variants(self):
+        """Creates normal, hover, and clicked versions of the button image."""
+        s = self.size
+        self.normal_image = pygame.transform.smoothscale(self.original_image, (s, s))
 
-        # Survol : +10 %, légèrement plus lumineuse
-        ts = int(t * 1.1)
-        survol = pygame.transform.smoothscale(self.image_originale, (ts, ts)).copy()
-        overlay = pygame.Surface((ts, ts))
+        # Hover state: +10% size and slightly brighter
+        hover_size = int(s * 1.1)
+        hover_img = pygame.transform.smoothscale(self.original_image, (hover_size, hover_size)).copy()
+        overlay = pygame.Surface((hover_size, hover_size))
         overlay.fill((50, 50, 50))
-        survol.blit(overlay, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
-        self.image_survol = survol
+        hover_img.blit(overlay, (0, 0), special_flags=pygame.BLEND_RGB_ADD)
+        self.hover_image = hover_img
 
-        # Cliqué : -5 %
-        tc = int(t * 0.95)
-        self.image_clique = pygame.transform.smoothscale(self.image_originale, (tc, tc))
+        # Clicked state: -5% size
+        clicked_size = int(s * 0.95)
+        self.clicked_image = pygame.transform.smoothscale(self.original_image, (clicked_size, clicked_size))
 
-    # ── Mise à jour ───────────────────────────────────────────────────────────
+    # ── Logic Updates ─────────────────────────────────────────────────────────
 
     def update(self, dt: int = 1):
-        self.temps_animation += dt
+        """Updates animation timers."""
+        self.animation_time += dt
 
-    # ── Événements souris ─────────────────────────────────────────────────────
+    # ── Input Handling ────────────────────────────────────────────────────────
 
-    def verifier_survol(self, pos) -> bool:
-        self.survol = self.rect.collidepoint(pos)
-        return self.survol
+    def check_hover(self, pos) -> bool:
+        """Checks if the mouse is hovering over the button."""
+        self.hovered = self.rect.collidepoint(pos)
+        return self.hovered
 
-    def verifier_clic(self, pos) -> bool:
+    def check_click(self, pos) -> bool:
+        """Checks if the button was clicked and plays feedback sound."""
         if self.rect.collidepoint(pos):
-            self.est_clique = True
-            if self.son_clic:
-                self.son_clic.play()
+            self.is_clicked = True
+            if self.click_sound:
+                self.click_sound.play()
             return True
         return False
 
-    # ── Dessin ────────────────────────────────────────────────────────────────
+    # ── Rendering ─────────────────────────────────────────────────────────────
 
-    def dessiner(self, screen):
-        if self.image_normale:
-            self._dessiner_avec_image(screen)
+    def draw(self, screen):
+        """Main draw call; chooses between image or fallback vector drawing."""
+        if self.normal_image:
+            self._draw_with_image(screen)
         else:
-            self._dessiner_fallback(screen)
-        self.est_clique = False
+            self._draw_fallback(screen)
+        # Reset click state after drawing one frame
+        self.is_clicked = False
 
-    def _dessiner_avec_image(self, screen):
-        if self.est_clique and self.image_clique:
-            image   = self.image_clique
-            ox = (self.taille - image.get_width())  // 2
-            oy = (self.taille - image.get_height()) // 2 + 2
-        elif self.survol and self.image_survol:
-            image   = self.image_survol
-            ox = (self.taille - image.get_width())  // 2
-            oy = (self.taille - image.get_height()) // 2
-            # Pulsation verticale
-            pulse = abs((self.temps_animation % 60) - 30) / 30.0
-            oy   -= int(pulse * self.pulse_amplitude)
+    def _draw_with_image(self, screen):
+        """Renders the button using the prepared sprites with animation effects."""
+        if self.is_clicked and self.clicked_image:
+            image = self.clicked_image
+            offset_x = (self.size - image.get_width()) // 2
+            offset_y = (self.size - image.get_height()) // 2 + 2
+        elif self.hovered and self.hover_image:
+            image = self.hover_image
+            offset_x = (self.size - image.get_width()) // 2
+            offset_y = (self.size - image.get_height()) // 2
+            # Floating/Pulsing effect while hovering
+            pulse = abs((self.animation_time % 60) - 30) / 30.0
+            offset_y -= int(pulse * self.pulse_amplitude)
         else:
-            image, ox, oy = self.image_normale, 0, 0
+            image, offset_x, offset_y = self.normal_image, 0, 0
 
-        # Ombre
-        if not self.est_clique:
-            ombre = pygame.Surface((self.taille + 10, self.taille + 10))
-            ombre.set_alpha(100)
-            ombre.fill((0, 0, 0))
-            screen.blit(ombre, (self.x - 5, self.y + 5))
+        # Draw Shadow (not when clicked for a 'pressed' effect)
+        if not self.is_clicked:
+            shadow = pygame.Surface((self.size + 10, self.size + 10))
+            shadow.set_alpha(100)
+            shadow.fill((0, 0, 0))
+            screen.blit(shadow, (self.x - 5, self.y + 5))
 
-        screen.blit(image, (self.x + ox, self.y + oy))
+        screen.blit(image, (self.x + offset_x, self.y + offset_y))
 
-        # Halo de survol
-        if self.survol:
-            halo = pygame.Surface((self.taille, self.taille), pygame.SRCALPHA)
+        # Hover Glow Effect
+        if self.hovered:
+            halo = pygame.Surface((self.size, self.size), pygame.SRCALPHA)
             pygame.draw.circle(halo, (255, 255, 255, 30),
-                               (self.taille // 2, self.taille // 2), self.taille // 2)
+                               (self.size // 2, self.size // 2), self.size // 2)
             screen.blit(halo, (self.x, self.y))
 
-    def _dessiner_fallback(self, screen):
-        """Pokéball vectorielle si aucune image n'est disponible."""
-        if self.est_clique:
-            rayon, couleur = self.taille // 2 - 2, (180, 20, 20)
-        elif self.survol:
-            rayon, couleur = self.taille // 2 + 3, (255, 50, 50)
+    def _draw_fallback(self, screen):
+        """Renders a vector-based Pokéball if the button image file is missing."""
+        if self.is_clicked:
+            radius, color = self.size // 2 - 2, (180, 20, 20)
+        elif self.hovered:
+            radius, color = self.size // 2 + 3, (255, 50, 50)
         else:
-            rayon, couleur = self.taille // 2, (220, 30, 30)
+            radius, color = self.size // 2, (220, 30, 30)
 
-        cx = self.x + self.taille // 2
-        cy = self.y + self.taille // 2
+        center_x = self.x + self.size // 2
+        center_y = self.y + self.size // 2
 
-        # Ombre
-        pygame.draw.circle(screen, (0, 0, 0), (cx + 3, cy + 3), rayon)
-        # Corps principal — réutilise la méthode héritée
-        self.dessiner_pokeball_non_possede(screen, cx, cy, rayon)
+        # Draw background shadow circle
+        pygame.draw.circle(screen, (0, 0, 0), (center_x + 3, center_y + 3), radius)
+        
+        # Use the inherited drawing method for the Pokéball base
+        self.draw_not_owned_pokeball(screen, center_x, center_y, radius)
 
-        # Lettre "P" centrale
-        font = pygame.font.Font(None, int(self.taille * 0.5))
-        txt  = font.render("P", True, (255, 255, 255))
-        screen.blit(txt, txt.get_rect(center=(cx, cy)))
+        # Draw a central "P" for Pokedex
+        font = pygame.font.Font(None, int(self.size * 0.5))
+        text = font.render("P", True, (255, 255, 255))
+        screen.blit(text, text.get_rect(center=(center_x, center_y)))

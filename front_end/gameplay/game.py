@@ -19,89 +19,88 @@ class Game:
         self.player_name = player_name
         self.pokedex = pokedex
 
-        # Dimensions de l'écran
+        # Screen dimensions
         if hasattr(self.screen, 'get_width') and hasattr(self.screen, 'get_height'):
-            largeur_ecran = self.screen.get_width()
-            hauteur_ecran = self.screen.get_height()
+            screen_width = self.screen.get_width()
+            screen_height = self.screen.get_height()
         elif hasattr(self.screen, 'width') and hasattr(self.screen, 'height'):
-            largeur_ecran = self.screen.width
-            hauteur_ecran = self.screen.height
+            screen_width = self.screen.width
+            screen_height = self.screen.height
         else:
-            largeur_ecran, hauteur_ecran = 1200, 800
+            screen_width, screen_height = 1200, 800
 
         self.pygame_surface = self._find_pygame_surface()
-        self.pokedex_ui = CustomizerPokedex(self.pokedex, largeur_ecran, hauteur_ecran)
-        self.bouton_pokedex = PokedexButton(
-            largeur_ecran - 130, hauteur_ecran - 130,
+        self.pokedex_ui = CustomizerPokedex(self.pokedex, screen_width, screen_height)
+        self.pokedex_button = PokedexButton(
+            screen_width - 130, screen_height - 130,
             image_path="assets/logo/pokedex.png", taille=100
         )
-        self.pokedex_ouvert = False
+        self.pokedex_open = False
 
-        print(f"✓ Interface Pokédex initialisée ({largeur_ecran}x{hauteur_ecran})")
+        print(f"✓ Pokédex interface initialized ({screen_width}x{screen_height})")
 
-        # ── Enregistrer automatiquement les Pokémon de l'équipe chargée ─────
-        self._enregistrer_equipe_dans_pokedex()
+        # ── Automatically register the loaded team's Pokémon ─────
+        self._register_team_in_pokedex()
 
     
-    #  Enregistrement de l'équipe au chargement
+    #  Team registration on load
     
 
-    def _enregistrer_equipe_dans_pokedex(self):
+    def _register_team_in_pokedex(self):
         """
-        Parcourt self.pokemon et marque chaque Pokémon comme découvert.
+        Iterates over self.pokemon and marks each Pokémon as discovered.
 
-        Format attendu de la save :
+        Expected save format:
             {
                 "Jean-Marie": {"name": "Sandslash", "original_name": "Sandshrew", ...},
                 "Jean-Luc":   {"name": "Raichu",    "original_name": "Pikachu",   ...},
                 ...
             }
-        Fonctionne aussi si self.pokemon est une liste de dicts.
+        Also works if self.pokemon is a list of dicts.
         """
         if not self.pokemon:
-            print("⚠ Aucun Pokémon dans l'équipe chargée.")
+            print("⚠ No Pokémon in the loaded team.")
             return
 
-        # Normaliser en liste de dicts
+        # Normalize to a list of dicts
         if isinstance(self.pokemon, dict):
-            # Valeurs du dict (les dicts de chaque Pokémon)
-            pokemons_a_traiter = list(self.pokemon.values())
+            pokemon_to_process = list(self.pokemon.values())
         elif isinstance(self.pokemon, list):
-            pokemons_a_traiter = self.pokemon
+            pokemon_to_process = self.pokemon
         else:
-            pokemons_a_traiter = [self.pokemon]
+            pokemon_to_process = [self.pokemon]
 
-        nouveaux = 0
-        non_resolus = []
+        new_discoveries = 0
+        unresolved = []
 
-        for poke in pokemons_a_traiter:
-            pokemon_id = self._resoudre_id_depuis_save(poke)
+        for poke in pokemon_to_process:
+            pokemon_id = self._resolve_id_from_save(poke)
 
             if pokemon_id:
-                if self.decouvrir_pokemon(pokemon_id):
-                    nouveaux += 1
+                if self.discover_pokemon(pokemon_id):
+                    new_discoveries += 1
             else:
-                nom = poke.get('name', '?') if isinstance(poke, dict) else getattr(poke, 'name', '?')
-                orig = poke.get('original_name', '?') if isinstance(poke, dict) else getattr(poke, 'original_name', '?')
-                non_resolus.append(f"{nom} (original: {orig})")
+                name = poke.get('name', '?') if isinstance(poke, dict) else getattr(poke, 'name', '?')
+                original = poke.get('original_name', '?') if isinstance(poke, dict) else getattr(poke, 'original_name', '?')
+                unresolved.append(f"{name} (original: {original})")
 
-        if nouveaux:
-            print(f" {nouveaux} Pokémon ajouté(s) au Pokédex depuis l'équipe.")
-        if non_resolus:
-            print(f"⚠ Pokémon non résolus (absents de POKEMON_NAME_TO_ID) : {non_resolus}")
+        if new_discoveries:
+            print(f" {new_discoveries} Pokémon added to the Pokédex from the team.")
+        if unresolved:
+            print(f"⚠ Unresolved Pokémon (missing from POKEMON_NAME_TO_ID): {unresolved}")
 
-    def _resoudre_id_depuis_save(self, poke) -> int | None:
+    def _resolve_id_from_save(self, poke) -> int | None:
         """
-        Fonctionne avec un dict (save brute) OU un objet Pokemon instancié.
-        Priorité : name (forme actuelle) → original_name (forme de base).
-        Un seul ID retourné par Pokémon, pas de doublons.
+        Works with either a dict (raw save) OR an instantiated Pokemon object.
+        Priority: name (current form) → original_name (base form).
+        Returns a single ID per Pokémon, no duplicates.
         """
         def get_attr(key):
             if isinstance(poke, dict):
                 return poke.get(key, '')
             return str(getattr(poke, key, ''))
 
-        # 1. ID direct
+        # 1. Direct ID
         pid = get_attr('id')
         if pid:
             try:
@@ -109,38 +108,38 @@ class Game:
             except (ValueError, TypeError):
                 pass
 
-        # 2. Cherche par name d'abord (forme actuelle = évoluée),
-        #    puis original_name en fallback (forme de base)
-        tous = {p.get('name', '').lower(): p.get('id') 
-                for p in self.pokedex.obtenir_tous_les_pokemon()}
+        # 2. Look up by name first (current/evolved form),
+        #    then fall back to original_name (base form)
+        all_pokemon = {p.get('name', '').lower(): p.get('id')
+                       for p in self.pokedex.get_all_pokemon()}
 
-        for champ in ('name', 'original_name'):
-            nom = get_attr(champ).strip().lower()
-            if nom and nom in tous:
-                return tous[nom]
+        for field in ('name', 'original_name'):
+            name = get_attr(field).strip().lower()
+            if name and name in all_pokemon:
+                return all_pokemon[name]
 
         return None
 
     
-    #  Boucle principale
-   
+    #  Main loop
+    
 
     def run(self):
         while self.running:
             self.handle_input()
-            if not self.pokedex_ouvert:
+            if not self.pokedex_open:
                 self.map.update()
                 self.player.update()
-                self.bouton_pokedex.update()
+                self.pokedex_button.update()
                 if self.pygame_surface:
-                    self.bouton_pokedex.dessiner(self.pygame_surface)
+                    self.pokedex_button.draw(self.pygame_surface)
             else:
                 if self.pygame_surface:
-                    self.pokedex_ui.dessiner(self.pygame_surface)
+                    self.pokedex_ui.draw(self.pygame_surface)
             self.screen.update()
 
     
-    #  Gestion des entrées
+    #  Input handling
     
 
     def handle_input(self):
@@ -152,46 +151,46 @@ class Game:
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if self.pokedex_ouvert:
-                        self.pokedex_ui.est_clique(event.pos)
-                    elif self.bouton_pokedex.verifier_clic(event.pos):
-                        self.ouvrir_pokedex()
-                elif event.button == 4 and self.pokedex_ouvert:
-                    self.pokedex_ui.defiler(-1)
-                elif event.button == 5 and self.pokedex_ouvert:
-                    self.pokedex_ui.defiler(1)
+                    if self.pokedex_open:
+                        self.pokedex_ui.on_click(event.pos)
+                    elif self.pokedex_button.check_click(event.pos):
+                        self.open_pokedex()
+                elif event.button == 4 and self.pokedex_open:
+                    self.pokedex_ui.scroll(-1)
+                elif event.button == 5 and self.pokedex_open:
+                    self.pokedex_ui.scroll(1)
 
             elif event.type == pygame.MOUSEMOTION:
-                if self.pokedex_ouvert:
-                    self.pokedex_ui.verifier_survol(event.pos)
+                if self.pokedex_open:
+                    self.pokedex_ui.check_hover(event.pos)
                 else:
-                    self.bouton_pokedex.verifier_survol(event.pos)
+                    self.pokedex_button.check_hover(event.pos)
 
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
-                    self.fermer_pokedex() if self.pokedex_ouvert else self.ouvrir_pokedex()
+                    self.close_pokedex() if self.pokedex_open else self.open_pokedex()
                 elif event.key == pygame.K_ESCAPE:
-                    if self.pokedex_ouvert:
-                        self.fermer_pokedex()
+                    if self.pokedex_open:
+                        self.close_pokedex()
                     else:
                         self.open_pause_menu()
-                elif not self.pokedex_ouvert:
+                elif not self.pokedex_open:
                     self.keylistener.add_key(event.key)
 
             elif event.type == pygame.KEYUP:
-                if not self.pokedex_ouvert:
+                if not self.pokedex_open:
                     self.keylistener.remove_key(event.key)
 
     
-    #  Menu pause
+    #  Pause menu
     
 
     def open_pause_menu(self):
-        print("⏸  Menu pause ouvert")
+        print("⏸  Pause menu opened")
         pause_menu = PauseMenu(self.player_name, self.pokemon, self.screen, self.pokedex)
         result_player, result_pokemon, result_pokedex = pause_menu.display()
         if result_player is None and result_pokemon is None:
-            print(" Retour au menu principal...")
+            print(" Returning to main menu...")
             self.running = False
         else:
             if result_player:
@@ -199,41 +198,41 @@ class Game:
             if result_pokemon:
                 self.pokemon = result_pokemon
             if result_pokedex is not None:
-                #  Remplace le Pokédex (peut être vierge si changement de save)
+                #  Replace the Pokédex (may be empty if save was changed)
                 self.pokedex = result_pokedex
-                self.pokedex_ui.pokedex = self.pokedex  # Sync l'UI
-            # Réenregistre l'équipe dans le Pokédex (vierge ou non)
-            self._enregistrer_equipe_dans_pokedex()
-            print("▶️  Reprise du jeu")
+                self.pokedex_ui.pokedex = self.pokedex  # Sync the UI
+            # Re-register the team in the Pokédex (empty or not)
+            self._register_team_in_pokedex()
+            print("▶️  Resuming game")
 
     
     #  Pokédex
     
 
-    def ouvrir_pokedex(self):
-        self.pokedex_ouvert = True
-        print(" Pokédex ouvert")
+    def open_pokedex(self):
+        self.pokedex_open = True
+        print(" Pokédex opened")
 
-    def fermer_pokedex(self):
-        self.pokedex_ouvert = False
-        self.pokedex.deselectionner_pokemon()
-        print(" Pokédex fermé")
+    def close_pokedex(self):
+        self.pokedex_open = False
+        self.pokedex.deselect_pokemon()
+        print(" Pokédex closed")
 
-    def decouvrir_pokemon(self, pokemon_id: int) -> bool:
+    def discover_pokemon(self, pokemon_id: int) -> bool:
         """
-        Marque un Pokémon comme découvert dans le Pokédex.
-        À appeler lors d'une rencontre, d'une capture, ou au chargement.
-        Retourne True si c'est une nouvelle découverte.
+        Marks a Pokémon as discovered in the Pokédex.
+        Should be called on encounter, capture, or at load time.
+        Returns True if this is a new discovery.
         """
-        est_nouveau = self.pokedex.marquer_comme_trouve(pokemon_id)
-        if est_nouveau:
-            p = self.pokedex.obtenir_pokemon_par_id(pokemon_id)
-            nom = p.get('name', str(pokemon_id)) if p else str(pokemon_id)
-            print(f"✨ {nom} découvert et ajouté au Pokédex !")
-        return est_nouveau
+        is_new = self.pokedex.mark_as_found(pokemon_id)
+        if is_new:
+            p = self.pokedex.get_pokemon_by_id(pokemon_id)
+            name = p.get('name', str(pokemon_id)) if p else str(pokemon_id)
+            print(f"✨ {name} discovered and added to the Pokédex!")
+        return is_new
 
     
-    #  Utilitaire : trouver la surface pygame
+    #  Utility: find the pygame surface
     
 
     def _find_pygame_surface(self):
@@ -242,16 +241,16 @@ class Game:
         for attr in ('screen', 'surface', 'display', '_surface', '_screen'):
             obj = getattr(self.screen, attr, None)
             if isinstance(obj, pygame.Surface):
-                print(f"✓ Surface trouvée via self.screen.{attr}")
+                print(f"✓ Surface found via self.screen.{attr}")
                 return obj
         surface = pygame.display.get_surface()
         if surface:
-            print(" Surface trouvée via pygame.display.get_surface()")
+            print(" Surface found via pygame.display.get_surface()")
             return surface
         if hasattr(self.screen, '__dict__'):
             for key, value in self.screen.__dict__.items():
                 if isinstance(value, pygame.Surface):
-                    print(f" Surface trouvée via self.screen.{key}")
+                    print(f" Surface found via self.screen.{key}")
                     return value
-        print("⚠ Impossible de trouver la surface pygame!")
+        print("⚠ Unable to find the pygame surface!")
         return None

@@ -75,11 +75,10 @@ class Map:
         # Update the current map after switching
         self.current_map = switch
 
-                # Gestion du changement de musique
-        # Arrêter la musique actuelle
+              
         sounds.stop_map_music()
 
-        # Déterminer la musique à jouer en fonction du nom de la map
+        # Music
         if switch.name.startswith("house_"):
             sounds.play_maison_music()
         elif switch.name.startswith("pokeshop"):
@@ -91,7 +90,7 @@ class Map:
         elif switch.name.startswith("inter_"):
             sounds.play_labo_music()
         else:
-            sounds.play_map_music()  # Par défaut, jouer la musique de la map
+            sounds.play_map_music()  # music map
 
 
     def add_player(self, player) -> None:
@@ -105,16 +104,16 @@ class Map:
     def update(self) -> None:
         if self.player:
             if self.player.change_map and self.player.step >= 8:
-                # Si le joueur quitte une maison (ou entre dans 
+                
 
                
                 # if self.player.change_map == self.map_world:  # 
 
-                    # Effectue le changement de carte
+                    # change map
                     self.switch_map(self.player.change_map)
                 
 
-                    self.player.change_map = None  # Réinitialise le changement de carte
+                    self.player.change_map = None  
 
 
 

@@ -3,153 +3,173 @@ from typing import Dict, List, Optional
 
 
 class Pokedex:
-    """Classe pour gérer les données du Pokédex depuis pokedex.json"""
+    """Class to manage Pokedex data loaded from a JSON file."""
 
     def __init__(self, json_path: str = "back_end/data/pokedex.json"):
         self.json_path = json_path
         self.pokemon_data: List[Dict] = []
-        self.pokemon_selectionne: Optional[Dict] = None
-        self.charger_donnees()
+        self.selected_pokemon: Optional[Dict] = None
+        self.load_data()
 
     # ─────────────────────────── Persistence ───────────────────────────
 
-    def charger_donnees(self):
-        """Charge les données depuis le fichier JSON.
-        Remet tous les found à False pour repartir d'un état vierge.
+    def load_data(self):
+        """
+        Loads data from the JSON file.
+        Initializes the 'found' status to False for all entries to start fresh in memory.
         """
         try:
             with open(self.json_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.pokemon_data = data.get('pokemon', [])
-            # Forcer tous les found à False — la progression est gérée en mémoire
+            
+            # Force all 'found' statuses to False — progression is managed in runtime memory
             for p in self.pokemon_data:
                 p.setdefault('stats', {})['found'] = False
-            print(f"✓ Pokédex chargé : {len(self.pokemon_data)} Pokémon")
+            print(f"✓ Pokedex loaded: {len(self.pokemon_data)} Pokémon")
         except FileNotFoundError:
-            print(f"⚠ Fichier {self.json_path} non trouvé")
+            print(f"⚠ File {self.json_path} not found")
             self.pokemon_data = []
         except json.JSONDecodeError as e:
-            print(f"⚠ Erreur de lecture JSON : {e}")
+            print(f"⚠ JSON read error: {e}")
             self.pokemon_data = []
 
-    def sauvegarder_donnees(self):
-        """Sauvegarde les données dans le fichier JSON."""
+    def save_data(self):
+        """Saves current memory state back to the JSON file."""
         try:
             with open(self.json_path, 'w', encoding='utf-8') as f:
                 json.dump({'pokemon': self.pokemon_data}, f, indent=4, ensure_ascii=False)
-            print("✓ Pokédex sauvegardé")
+            print("✓ Pokedex saved to disk")
         except Exception as e:
-            print(f"⚠ Erreur de sauvegarde : {e}")
+            print(f"⚠ Save error: {e}")
 
-    def charger_donnees_sauvegarde(self, pokedex_sauvegarde: List[Dict]):
-        """Met à jour l'état du Pokédex à partir d'une sauvegarde."""
-        for pokemon_save in pokedex_sauvegarde or []:
-            pokemon = self.obtenir_pokemon_par_id(pokemon_save.get('id'))
+    def load_save_state(self, saved_pokedex: List[Dict]):
+        """Updates the Pokedex state using data from a save file."""
+        for pokemon_save in saved_pokedex or []:
+            pokemon = self.get_pokemon_by_id(pokemon_save.get('id'))
             if pokemon:
                 pokemon.setdefault('stats', {})['found'] = (
                     pokemon_save.get('stats', {}).get('found', False)
                 )
-        print("✓ État du Pokédex mis à jour depuis la sauvegarde")
+        print("✓ Pokedex state updated from save file")
 
-    def obtenir_donnees_sauvegarde(self) -> List[Dict]:
-        """Prépare les données minimales pour la sauvegarde."""
+    def get_save_data(self) -> List[Dict]:
+        """Prepares a minimal data list for saving progression."""
         return [
             {"id": p.get("id"), "stats": {"found": p.get("stats", {}).get("found", False)}}
             for p in self.pokemon_data
         ]
 
-    # ─────────────────────────── Accesseurs ────────────────────────────
+    # ─────────────────────────── Accessors ────────────────────────────
 
-    def obtenir_tous_les_pokemon(self) -> List[Dict]:
+    def get_all_pokemon(self) -> List[Dict]:
+        """Returns the full list of Pokémon data."""
         return self.pokemon_data
 
-    def obtenir_pokemon_par_id(self, pokemon_id: int) -> Optional[Dict]:
+    def get_pokemon_by_id(self, pokemon_id: int) -> Optional[Dict]:
+        """Finds a Pokémon by its unique ID."""
         return next((p for p in self.pokemon_data if p.get('id') == pokemon_id), None)
 
-    def obtenir_pokemon_par_nom(self, nom: str) -> Optional[Dict]:
-        nom_lower = nom.lower()
-        return next((p for p in self.pokemon_data if p.get('name', '').lower() == nom_lower), None)
+    def get_pokemon_by_name(self, name: str) -> Optional[Dict]:
+        """Finds a Pokémon by its name (case-insensitive)."""
+        name_lower = name.lower()
+        return next((p for p in self.pokemon_data if p.get('name', '').lower() == name_lower), None)
 
-    def obtenir_pokemon_par_type(self, type_pokemon: str) -> List[Dict]:
-        type_lower = type_pokemon.lower()
+    def get_pokemon_by_type(self, pokemon_type: str) -> List[Dict]:
+        """Returns a list of Pokémon matching a specific type."""
+        type_lower = pokemon_type.lower()
         return [
             p for p in self.pokemon_data
-            if type_lower in [t.lower() for t in self._normaliser_types(p.get('type', []))]
+            if type_lower in [t.lower() for t in self._normalize_types(p.get('type', []))]
         ]
 
-    def obtenir_pokemon_trouves(self) -> List[Dict]:
+    def get_found_pokemon(self) -> List[Dict]:
+        """Returns all Pokémon marked as discovered."""
         return [p for p in self.pokemon_data if p.get('stats', {}).get('found', False)]
 
-    def obtenir_pokemon_non_trouves(self) -> List[Dict]:
+    def get_unfound_pokemon(self) -> List[Dict]:
+        """Returns all Pokémon that haven't been discovered yet."""
         return [p for p in self.pokemon_data if not p.get('stats', {}).get('found', False)]
 
-    # ─────────────────────────── Sélection ─────────────────────────────
+    # ─────────────────────────── Selection ─────────────────────────────
 
-    def selectionner_pokemon(self, pokemon: Dict):
-        self.pokemon_selectionne = pokemon
+    def select_pokemon(self, pokemon: Dict):
+        """Sets the currently active Pokémon in the UI."""
+        self.selected_pokemon = pokemon
 
-    def deselectionner_pokemon(self):
-        self.pokemon_selectionne = None
+    def deselect_pokemon(self):
+        """Clears the current selection."""
+        self.selected_pokemon = None
 
-    def obtenir_pokemon_selectionne(self) -> Optional[Dict]:
-        return self.pokemon_selectionne
+    def get_selected_pokemon(self) -> Optional[Dict]:
+        """Returns the currently active Pokémon."""
+        return self.selected_pokemon
 
     # ─────────────────────────── Progression ───────────────────────────
 
-    def est_trouve(self, pokemon_id: int) -> bool:
-        pokemon = self.obtenir_pokemon_par_id(pokemon_id)
+    def is_found(self, pokemon_id: int) -> bool:
+        """Checks if a specific Pokémon ID has been discovered."""
+        pokemon = self.get_pokemon_by_id(pokemon_id)
         return bool(pokemon and pokemon.get('stats', {}).get('found', False))
 
-    def marquer_comme_trouve(self, pokemon_id: int) -> bool:
-        """Marque un Pokémon comme trouvé. Retourne True si c'est une nouveauté."""
-        pokemon = self.obtenir_pokemon_par_id(pokemon_id)
+    def mark_as_found(self, pokemon_id: int) -> bool:
+        """Marks a Pokémon as found. Returns True if it was previously undiscovered."""
+        pokemon = self.get_pokemon_by_id(pokemon_id)
         if not pokemon:
             return False
         pokemon.setdefault('stats', {})
-        nouvelle_decouverte = not pokemon['stats'].get('found', False)
+        is_new_discovery = not pokemon['stats'].get('found', False)
         pokemon['stats']['found'] = True
-        return nouvelle_decouverte
+        return is_new_discovery
 
-    def reinitialiser_progression(self):
+    def reset_progression(self):
+        """Resets all Pokémon discovery statuses to False."""
         for p in self.pokemon_data:
             p.setdefault('stats', {})['found'] = False
-        print("✓ Progression réinitialisée")
+        print("✓ Progression reset")
 
-    def debloquer_tous(self):
+    def unlock_all(self):
+        """Cheat/Debug: Marks every Pokémon in the data as found."""
         for p in self.pokemon_data:
             p.setdefault('stats', {})['found'] = True
-        print("✓ Tous les Pokémon débloqués")
+        print("✓ All Pokémon unlocked")
 
-    # ─────────────────────────── Statistiques ──────────────────────────
+    # ─────────────────────────── Statistics ──────────────────────────
 
-    def nombre_pokemon(self) -> int:
+    def total_count(self) -> int:
+        """Returns the total number of Pokémon in the database."""
         return len(self.pokemon_data)
 
-    def nombre_pokemon_trouves(self) -> int:
-        return len(self.obtenir_pokemon_trouves())
+    def found_count(self) -> int:
+        """Returns the count of discovered Pokémon."""
+        return len(self.get_found_pokemon())
 
-    def pourcentage_completion(self) -> float:
-        total = self.nombre_pokemon()
-        return (self.nombre_pokemon_trouves() / total * 100) if total else 0.0
+    def completion_percentage(self) -> float:
+        """Calculates the percentage of the Pokedex completed."""
+        total = self.total_count()
+        return (self.found_count() / total * 100) if total else 0.0
 
-    def obtenir_statistiques(self) -> Dict:
-        trouves = self.obtenir_pokemon_trouves()
-        types_count: Dict[str, int] = {}
-        for p in trouves:
-            for t in self._normaliser_types(p.get('type', [])):
+    def get_statistics(self) -> Dict:
+        """Compiles a comprehensive report of Pokedex progress."""
+        found_list = self.get_found_pokemon()
+        type_distribution: Dict[str, int] = {}
+        
+        for p in found_list:
+            for t in self._normalize_types(p.get('type', [])):
                 t_cap = t.capitalize()
-                types_count[t_cap] = types_count.get(t_cap, 0) + 1
+                type_distribution[t_cap] = type_distribution.get(t_cap, 0) + 1
+                
         return {
-            'total': self.nombre_pokemon(),
-            'trouves': len(trouves),
-            'non_trouves': self.nombre_pokemon() - len(trouves),
-            'pourcentage': self.pourcentage_completion(),
-            'types_distribution': types_count,
+            'total': self.total_count(),
+            'found': len(found_list),
+            'missing': self.total_count() - len(found_list),
+            'percentage': self.completion_percentage(),
+            'type_distribution': type_distribution,
         }
 
-    # ─────────────────────────── Utilitaires ───────────────────────────
+    # ─────────────────────────── Utilities ───────────────────────────
 
     @staticmethod
-    def _normaliser_types(types) -> List[str]:
-        """Normalise types en liste de strings, qu'il s'agisse d'une str ou d'une list."""
+    def _normalize_types(types) -> List[str]:
+        """Ensures types are returned as a list of strings, whether input is a string or list."""
         return [types] if isinstance(types, str) else list(types)
