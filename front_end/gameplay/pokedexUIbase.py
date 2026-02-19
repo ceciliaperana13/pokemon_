@@ -21,6 +21,7 @@ COLORS = {
 }
 
 TYPE_COLORS = {
+    # English names
     'Fire':     (255,  68,  34),
     'Water':    ( 52, 152, 219),
     'Grass':    ( 46, 204, 113),
@@ -39,6 +40,22 @@ TYPE_COLORS = {
     'Dragon':   (116, 125, 140),
     'Dark':     ( 44,  62,  80),
     'Fairy':    (253, 121, 168),
+    # French names (from pokedex.json)
+    'Feu':      (255,  68,  34),   # Fire
+    'Eau':      ( 52, 152, 219),   # Water
+    'Plante':   ( 46, 204, 113),   # Grass
+    'Electrik': (241, 196,  15),   # Electric
+    'Psy':      (155,  89, 182),   # Psychic
+    'Combat':   (192,  57,  43),   # Fighting
+    'Vol':      (133, 193, 233),   # Flying
+    'Sol':      (211,  84,   0),   # Ground
+    'Roche':    (120,  81,  45),   # Rock
+    'Insecte':  (166, 187,   0),   # Bug
+    'Spectre':  ( 52,  73,  94),   # Ghost
+    'Acier':    (120, 144, 156),   # Steel
+    'Glace':    (174, 214, 241),   # Ice
+    'Tenebres': ( 44,  62,  80),   # Dark
+    'Fée':      (253, 121, 168),   # Fairy
 }
 
 
@@ -77,8 +94,7 @@ class PokedexUIBase:
         if pokemon_id in self.sprites_cache:
             return self.sprites_cache[pokemon_id]
 
-        # Try multiple path formats for compatibility
-        base_path = pokemon.get('spritePokedex') or f"assets/imagePokedex/Spr_1b_{pokemon_id:03d}.png"
+        base_path = pokemon.get('spritePokedex') or pokemon.get('sprite') or f"assets/imagePokedex/Spr_1b_{pokemon_id:03d}.png"
         paths = [
             base_path,
             f"assets/imagePokedex/Spr_1b_{pokemon_id:03d}.png",
@@ -130,24 +146,17 @@ class PokedexUIBase:
     def _draw_pokeball(self, screen, x: int, y: int, radius: int,
                         top_color, bottom_color, alpha: int = 255):
         """Generic Pokéball drawing logic at (x, y)."""
-        # Create a surface with transparency support
         surf = pygame.Surface((radius * 2 + 4, radius * 2 + 4), pygame.SRCALPHA)
         cx = cy = radius + 2
 
-        # Top half (Red/Gray circle)
         pygame.draw.circle(surf, (*top_color, alpha), (cx, cy), radius)
-        # Bottom half (White rectangle covering the lower half of the circle)
         pygame.draw.rect(surf, (*bottom_color, alpha),
                          (0, cy, radius * 2 + 4, radius + 4))
-        # White middle stripe to clean up the cut
         pygame.draw.rect(surf, (255, 255, 255, alpha),
                          (0, cy - 3, radius * 2 + 4, 6))
-        # Outer border
         pygame.draw.circle(surf, (60, 60, 60, alpha), (cx, cy), radius, 2)
-        # Horizontal middle line
         pygame.draw.line(surf, (60, 60, 60, alpha),
                          (0, cy), (radius * 2 + 4, cy), 2)
-        # Central button
         pygame.draw.circle(surf, (255, 255, 255, alpha), (cx, cy), radius // 4 + 2)
         pygame.draw.circle(surf, (60, 60, 60, alpha), (cx, cy), radius // 4 + 2, 2)
 
@@ -162,7 +171,7 @@ class PokedexUIBase:
     def get_stat_color(self, percentage: float):
         """Returns Red/Orange/Green based on the stat value (0.0 to 1.0)."""
         if percentage < 0.33:
-            return (255, 150, 150) # Weak
+            return (255, 150, 150)  # Weak
         if percentage < 0.66:
-            return (255, 200, 100) # Average
-        return (100, 220, 100)     # Strong
+            return (255, 200, 100)  # Average
+        return (100, 220, 100)      # Strong
