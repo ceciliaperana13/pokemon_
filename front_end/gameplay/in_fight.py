@@ -12,26 +12,23 @@ from back_end.controller import save_pokemon_to_pokedex, get_random_wild_pokemon
 
 class InFight():
     def __init__(self, screen, player, pokemon):
-        """
-        Initialize the menu with the screen, font, options, and selected index.
-        """
         self.screen = screen
         self.pokemon_enemy = get_random_wild_pokemon()
-
         self.background = BATTLE_BACKGROUND
-      
-        self.font = pygame.font.Font(None, 50)  # Set the font for menu text
-        self.options = ["Attack", "Bag", "Team", "Info", "Flee"]  # Menu options
+        self.font = pygame.font.Font(None, 50)
+        self.options = ["Attack", "Bag", "Team", "Info", "Flee"]
         self.bag_option = ["Potions", "Pokeball", "Back"]
-        self.selected_index = 0  # Index of the currently selected option
-        self.running = True  # Controls the menu loop
+        self.selected_index = 0
+        self.running = True
         self.player = player.player_name
 
-        # If pokemon is a list, use the first one with HP > 0
+        # ← Stocker la team complète
         if isinstance(pokemon, list):
+            self.team = pokemon
             active = [p for p in pokemon if p.get_hp() > 0]
             self.pokemon = active[0] if active else pokemon[0]
         else:
+            self.team = [pokemon]
             self.pokemon = pokemon
 
         self.bag = get_bag_from_pokedex(self.player)
@@ -41,9 +38,6 @@ class InFight():
         self.healthbar = HealthDisplay()
 
     def display(self):
-        """
-        Main menu loop that displays options and handles user input.
-        """
         battle_floor = self.util.load_image(BATTLE_FLOOR)
         battle_floor2 = pygame.transform.flip(battle_floor, True, False)
         
@@ -60,12 +54,11 @@ class InFight():
         name = self.pokemon.name
         winner = ""
         pokemon_hp_max = self.pokemon.get_hp_max()
-        pokemon_enemy_hp_max= self.pokemon_enemy.get_hp_max()
+        pokemon_enemy_hp_max = self.pokemon_enemy.get_hp_max()
       
         my_pokemon_x = int(self.screen.width // 10 * 0.5)
-        my_pokemon_y = int(self.screen.height // 10 )
-
-        pokemon_enemy_x = int(self.screen.width // 10 * 7.5 )               
+        my_pokemon_y = int(self.screen.height // 10)
+        pokemon_enemy_x = int(self.screen.width // 10 * 7.5)               
         pokemon_enemy_y = int(self.screen.height // 10)
 
         player_turn = False
@@ -75,7 +68,6 @@ class InFight():
         while self.running: 
             pokemon = self.util.load_image(self.pokemon.get_back_image())
             
-            #DISPLAY
             self.screen.update()
             if not win:
                 time_count += speed
@@ -85,7 +77,6 @@ class InFight():
           
             self.healthbar.draw_health_bar(my_pokemon_x, my_pokemon_y, self.pokemon, pokemon_hp_max,\
                                            self.screen, (self.screen.width // 16 * 2.5, self.screen.height // 20 * 2))
-
             self.healthbar.draw_health_bar(pokemon_enemy_x, pokemon_enemy_y,\
                                             self.pokemon_enemy, pokemon_enemy_hp_max,\
                                             self.screen,\
@@ -93,10 +84,9 @@ class InFight():
             
             self.util.draw_option_screen(self.screen)
 
-            # Draw menu options
             for i, option in enumerate(self.options):
-                color = LIGHT_GREEN if i == self.selected_index else DARK_GREEN  # Highlight selected option
-                self.util.draw_text(option, REGULAR_FONT, self.screen.width //30, self.screen,\
+                color = LIGHT_GREEN if i == self.selected_index else DARK_GREEN
+                self.util.draw_text(option, REGULAR_FONT, self.screen.width // 30, self.screen,\
                                     (self.screen.width//2 + i * 120, self.screen.height//8*7), color)
 
             if win:
@@ -119,22 +109,20 @@ class InFight():
                 message_attack = None
                 message_damage = None
                 
-            pygame.display.flip()  # Refresh the screen
+            pygame.display.flip()
 
-            # Handle user input
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:  # If user closes the window
+                if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
                     
                 if player_turn:
                     if event.type == pygame.KEYDOWN:
-
-                        if event.key == pygame.K_RIGHT or event.key == pygame.K_DOWN:  # Navigate down
+                        if event.key == pygame.K_RIGHT or event.key == pygame.K_DOWN:
                             self.selected_index = (self.selected_index + 1) % len(self.options)
-                        elif event.key == pygame.K_LEFT or event.key == pygame.K_UP:  # Navigate up
+                        elif event.key == pygame.K_LEFT or event.key == pygame.K_UP:
                             self.selected_index = (self.selected_index - 1) % len(self.options)
-                        elif event.key == pygame.K_RETURN:  # Select an option
+                        elif event.key == pygame.K_RETURN:
                             match self.selected_index:
                                 case 0:  # Attack
                                     if win:
@@ -198,18 +186,25 @@ class InFight():
                                                             player_turn = True
                                                 case "Back":
                                                     player_turn = True
+
                                 case 2:  # Team
                                     if win:
                                         self.selected_index = 4
                                     else:
-                                        self.pokemon = ChangePokemonInFight(self.player, self.pokemon, self.pokemon_enemy, self.screen).display()
+                                        
+                                        self.pokemon = ChangePokemonInFight(
+                                            self.player, self.pokemon, self.pokemon_enemy,
+                                            self.screen, pokemon_list=self.team
+                                        ).display()
                                         self.fight.set_first_pokemon(self.pokemon)
                                         pokemon_hp_max = self.pokemon.get_hp_max()
                                         name = self.pokemon.name
                                         level = self.pokemon.get_level()
+
                                 case 3:  # Info
                                     InfoMenu(self.screen, self.pokemon, self.pokemon_enemy).display()
                                     player_turn = True  
+
                                 case 4:  # Exit or Flee
                                     if win:
                                         if another_option == "Success":
@@ -238,7 +233,8 @@ class InFight():
                                             while failed_flee_time - now_time < 1000:
                                                 failed_flee_time = pygame.time.get_ticks()
                                                 self.message_pop_up(self.fight.fightinfo.flee_message)
-                                                pygame.display.update()       
+                                                pygame.display.update()
+
                 elif not player_turn and not win:
                     pygame.time.wait(800)
                     if self.pokemon.get_hp() > 0:

@@ -47,22 +47,10 @@ class Game:
     # ─────────────────────────────────────────────────────────────
 
     def _register_team_in_pokedex(self):
-        """
-        Iterates over self.pokemon and marks each Pokémon as discovered.
-
-        Expected save format:
-            {
-                "Jean-Marie": {"name": "Sandslash", "original_name": "Sandshrew", ...},
-                "Jean-Luc":   {"name": "Raichu",    "original_name": "Pikachu",   ...},
-                ...
-            }
-        Also works if self.pokemon is a list of dicts.
-        """
         if not self.pokemon:
             print("⚠ No Pokémon in the loaded team.")
             return
 
-        # Normalize to a list of dicts
         if isinstance(self.pokemon, dict):
             pokemon_to_process = list(self.pokemon.values())
         elif isinstance(self.pokemon, list):
@@ -90,17 +78,11 @@ class Game:
             print(f"⚠ Unresolved Pokémon (missing from POKEMON_NAME_TO_ID): {unresolved}")
 
     def _resolve_id_from_save(self, poke) -> int | None:
-        """
-        Works with either a dict (raw save) OR an instantiated Pokemon object.
-        Priority: name (current form) → original_name (base form).
-        Returns a single ID per Pokémon, no duplicates.
-        """
         def get_attr(key):
             if isinstance(poke, dict):
                 return poke.get(key, '')
             return str(getattr(poke, key, ''))
 
-        # 1. Direct ID
         pid = get_attr('id')
         if pid:
             try:
@@ -108,8 +90,6 @@ class Game:
             except (ValueError, TypeError):
                 pass
 
-        # 2. Look up by name first (current/evolved form),
-        #    then fall back to original_name (base form)
         all_pokemon = {p.get('name', '').lower(): p.get('id')
                        for p in self.pokedex.get_all_pokemon()}
 
@@ -127,6 +107,11 @@ class Game:
     def run(self):
         while self.running:
             self.handle_input()
+
+            
+            if not self.running:
+                break
+
             if not self.pokedex_open:
                 self.map.update()
                 self.player.update()
@@ -145,7 +130,7 @@ class Game:
     def handle_input(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                # Ne pas appeler pygame.quit() ici — menu.py s'en charge
                 self.running = False
                 return
 
@@ -198,10 +183,8 @@ class Game:
             if result_pokemon:
                 self.pokemon = result_pokemon
             if result_pokedex is not None:
-                #  Replace the Pokédex (may be empty if save was changed)
                 self.pokedex = result_pokedex
-                self.pokedex_ui.pokedex = self.pokedex  # Sync the UI
-            # Re-register the team in the Pokédex (empty or not)
+                self.pokedex_ui.pokedex = self.pokedex
             self._register_team_in_pokedex()
             print("▶️  Resuming game")
 
@@ -219,11 +202,6 @@ class Game:
         print(" Pokédex closed")
 
     def discover_pokemon(self, pokemon_id: int) -> bool:
-        """
-        Marks a Pokémon as discovered in the Pokédex.
-        Should be called on encounter, capture, or at load time.
-        Returns True if this is a new discovery.
-        """
         is_new = self.pokedex.mark_as_found(pokemon_id)
         if is_new:
             p = self.pokedex.get_pokemon_by_id(pokemon_id)

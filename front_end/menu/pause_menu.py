@@ -7,7 +7,6 @@ from front_end.sounds import Sounds
 from back_end.controller import get_all_pokemons_from_pokedex
 from front_end.gameplay.pokedex_manager import Pokedex
 
-# Initialize sound controller
 sounds = Sounds()
 
 class PauseMenu:
@@ -19,18 +18,23 @@ class PauseMenu:
         self.selected_index = 0
         self.running = True
         self.player = player
-        self.pokemon = pokemon
         self.pokedex = pokedex
         self.util = UtilTool()
+
+        # stock
+        if isinstance(pokemon, list):
+            self.pokemon = pokemon
+        else:
+            self.pokemon = [pokemon] if pokemon else []
+
         
-        # Load player's Pokémon collection if not provided
         if not pokemon_list:
-            self.pokemons = get_all_pokemons_from_pokedex(self.player)
+            self.pokemons = self.pokemon
         else:
             self.pokemons = pokemon_list
 
     def _new_pokedex(self):
-        """Creates a fresh Pokedex instance (all entries hidden/found=False)."""
+        """Creates a fresh Pokedex instance."""
         return Pokedex("back_end/data/pokedex.json")
 
     def load_game(self):
@@ -40,10 +44,9 @@ class PauseMenu:
         
         if new_player:
             self.player = new_player
-            # Fetch Pokémon belonging to the new player
             self.pokemon = get_all_pokemons_from_pokedex(new_player)
             self.pokemons = self.pokemon
-            self.pokedex = self._new_pokedex()  # Reset Pokedex for new player
+            self.pokedex = self._new_pokedex()
             self.running = False
             return "loaded"
         return None
@@ -58,12 +61,10 @@ class PauseMenu:
             self.screen.get_display().fill((0, 0, 0))
             self.screen.set_background_display(MAIN_MENU_BACKGROUND1)
 
-            # Draw Title
             font_size = self.screen.height // 10
             self.util.draw_text("Pause Menu", POKE_FONT, font_size, self.screen,
                                 (self.screen.width//2, self.screen.height // 10*2), LIGHT_GREEN)
 
-            # Draw Menu Options
             for i, option in enumerate(self.options):
                 color = LIGHT_GREEN if i == self.selected_index else (255, 255, 255)
                 self.util.draw_text(option, REGULAR_FONT, font_size - 14, self.screen,
@@ -77,13 +78,11 @@ class PauseMenu:
                     sys.exit()
 
                 if event.type == pygame.KEYDOWN:
-                    # Navigation
                     if event.key == pygame.K_DOWN or event.key == pygame.K_RIGHT:
                         self.selected_index = (self.selected_index + 1) % len(self.options)
                     elif event.key == pygame.K_UP or event.key == pygame.K_LEFT:
                         self.selected_index = (self.selected_index - 1) % len(self.options)
 
-                    # Option Selection
                     elif event.key == pygame.K_RETURN:
                         match self.selected_index:
                             case 0:  # Continue
@@ -99,22 +98,22 @@ class PauseMenu:
                                     return self.player, self.pokemon, self.pokedex
 
                             case 2:  # Change Active Pokémon
-                                self.pokemon = ChangePokemon(self.player, self.screen).display()
-                                # Re-initialize the game instance with the new active Pokémon
-                                import front_end.gameplay.game as gameplay
-                                game = gameplay.Game(
-                                    self.screen, self.player,
-                                    self.pokemon, self._new_pokedex()
-                                )
+                                # ← On passe self.pokemons (team en cours) sans recréer de Game
+                                new_pokemon = ChangePokemon(
+                                    self.player, self.screen,
+                                    pokemon_list=self.pokemons
+                                ).display()
+                                if new_pokemon:
+                                    self.pokemon = new_pokemon
+                                    self.pokemons = new_pokemon if isinstance(new_pokemon, list) else [new_pokemon]
                                 sounds.stop_background_music()
                                 sounds.play_map_music()
-                                game.run()
+                                return self.player, self.pokemon, self.pokedex
 
-                            case 3:  # Exit Game
-                                pygame.quit()
-                                sys.exit()
+                            case 3:  # Exit to main menu
+                                sounds.stop_background_music()
+                                return None, None, None
 
-                    # Close menu on Escape
                     elif event.key == pygame.K_ESCAPE:
                         sounds.stop_background_music()
                         sounds.play_map_music()
