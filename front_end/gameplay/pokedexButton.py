@@ -21,7 +21,7 @@ class PokedexButton(PokedexUIBase):
         self.animation_time = 0
         self.pulse_amplitude = 5
 
-        # ── Image Loading ─────────────────────────────────────────────────────
+        # ── Image Loading 
         self.original_image = self._load_image(image_path)
 
         self.normal_image = None
@@ -43,7 +43,7 @@ class PokedexButton(PokedexUIBase):
         except Exception:
             pass
 
-    # ── Initialization ────────────────────────────────────────────────────────
+    # ── Initialization 
 
     @staticmethod
     def _load_image(image_path: str):
@@ -83,13 +83,13 @@ class PokedexButton(PokedexUIBase):
         clicked_size = int(s * 0.95)
         self.clicked_image = pygame.transform.smoothscale(self.original_image, (clicked_size, clicked_size))
 
-    # ── Logic Updates ─────────────────────────────────────────────────────────
+    # ── Logic Updates 
 
     def update(self, dt: int = 1):
         """Updates animation timers."""
         self.animation_time += dt
 
-    # ── Input Handling ────────────────────────────────────────────────────────
+    # ── Input Handling 
 
     def check_hover(self, pos) -> bool:
         """Checks if the mouse is hovering over the button."""
@@ -105,7 +105,7 @@ class PokedexButton(PokedexUIBase):
             return True
         return False
 
-    # ── Rendering ─────────────────────────────────────────────────────────────
+    # ── Rendering 
 
     def draw(self, screen):
         """Main draw call; chooses between image or fallback vector drawing."""

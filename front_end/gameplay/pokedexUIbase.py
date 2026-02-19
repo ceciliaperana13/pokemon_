@@ -1,9 +1,9 @@
 import pygame
 import os
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  Color Constants and Types — Shared across all UI classes
-# ══════════════════════════════════════════════════════════════════════════════
+
+#  Color 
+
 
 COLORS = {
     'background':        (220, 220, 230),
@@ -59,9 +59,9 @@ TYPE_COLORS = {
 }
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  Base Class — Common tools for all visual components
-# ══════════════════════════════════════════════════════════════════════════════
+
+#  Base Class 
+
 
 class PokedexUIBase:
     """
@@ -83,7 +83,7 @@ class PokedexUIBase:
         self.font_info   = pygame.font.Font(None, 24)
         self.font_small  = pygame.font.Font(None, 20)
 
-    # ── Sprites ──────────────────────────────────────────────────────────────
+    # ── Sprites 
 
     def load_sprite(self, pokemon: dict):
         """
@@ -125,7 +125,7 @@ class PokedexUIBase:
         else:
             self._draw_pokeball_placeholder(screen, x, y)
 
-    # ── Pokéball placeholder / 'not owned' icon ──────────────────────────────
+    # ── Pokéball placeholder / 'not owned' icon 
 
     def _draw_pokeball_placeholder(self, screen, x: int, y: int, radius: int = 25):
         """Small grayed-out Pokéball (used when sprite is missing)."""
@@ -162,7 +162,7 @@ class PokedexUIBase:
 
         screen.blit(surf, surf.get_rect(center=(x, y)))
 
-    # ── Drawing Utilities ─────────────────────────────────────────────────────
+    # ── Drawing Utilities 
 
     def get_type_color(self, pokemon_type: str):
         """Returns the color associated with a Pokémon type (with fallback)."""

@@ -99,7 +99,7 @@ class Map:
                     sounds.stop_map_music()
                     sounds.play_combat_music()
                     self.in_battle = True
-                    # ← Passe la team complète du joueur
+                    # team
                     self.player.is_fleeing = self.start_battle()
                     this_battle_zone = battle_zone
                     if not self.player.is_fleeing:

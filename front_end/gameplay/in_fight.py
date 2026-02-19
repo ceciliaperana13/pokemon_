@@ -22,7 +22,7 @@ class InFight():
         self.running = True
         self.player = player.player_name
 
-        # ← Stocker la team complète
+        # stock
         if isinstance(pokemon, list):
             self.team = pokemon
             active = [p for p in pokemon if p.get_hp() > 0]

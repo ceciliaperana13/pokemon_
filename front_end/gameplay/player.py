@@ -20,7 +20,7 @@ class Player(Entity):
         self.is_fleeing = False
         self.speed = 1
 
-        # ← Stocker la team complète (liste ou pokémon unique)
+        # stock
         if isinstance(pokemon, list):
             self.active_pokemon = pokemon
         else:

@@ -11,7 +11,7 @@ class Pokedex:
         self.selected_pokemon: Optional[Dict] = None
         self.load_data()
 
-    # ─────────────────────────── Persistence ───────────────────────────
+    #  Persistence 
 
     def load_data(self):
         """
@@ -60,7 +60,7 @@ class Pokedex:
             for p in self.pokemon_data
         ]
 
-    # ─────────────────────────── Accessors ────────────────────────────
+    #  Accessors 
 
     def get_all_pokemon(self) -> List[Dict]:
         """Returns the full list of Pokémon data."""
@@ -91,7 +91,7 @@ class Pokedex:
         """Returns all Pokémon that haven't been discovered yet."""
         return [p for p in self.pokemon_data if not p.get('stats', {}).get('found', False)]
 
-    # ─────────────────────────── Selection ─────────────────────────────
+    #  Selection 
 
     def select_pokemon(self, pokemon: Dict):
         """Sets the currently active Pokémon in the UI."""
@@ -105,7 +105,7 @@ class Pokedex:
         """Returns the currently active Pokémon."""
         return self.selected_pokemon
 
-    # ─────────────────────────── Progression ───────────────────────────
+    #  Progression 
 
     def is_found(self, pokemon_id: int) -> bool:
         """Checks if a specific Pokémon ID has been discovered."""
@@ -134,7 +134,7 @@ class Pokedex:
             p.setdefault('stats', {})['found'] = True
         print("✓ All Pokémon unlocked")
 
-    # ─────────────────────────── Statistics ──────────────────────────
+    # Statistics 
 
     def total_count(self) -> int:
         """Returns the total number of Pokémon in the database."""
@@ -167,7 +167,7 @@ class Pokedex:
             'type_distribution': type_distribution,
         }
 
-    # ─────────────────────────── Utilities ───────────────────────────
+    #  Utilities 
 
     @staticmethod
     def _normalize_types(types) -> List[str]:
