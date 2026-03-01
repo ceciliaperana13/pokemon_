@@ -777,23 +777,23 @@
                 "name": "Ekans",
                 "original_name": "Ekans",
                 "pet_name": "Jean-H\u00e9l\u00e8ne 1740524070.677584",
-                "hp_max": 187,
-                "hp": 187,
-                "xp": 2611,
-                "strength": 192,
-                "defense": 171,
+                "hp_max": 199,
+                "hp": 199,
+                "xp": 2794,
+                "strength": 210,
+                "defense": 184,
                 "type": [
                     "poison"
                 ],
-                "level": 14,
-                "speed": 172,
+                "level": 15,
+                "speed": 185,
                 "stage": 1,
                 "ev": {
-                    "hp": 2,
-                    "strength": 2,
-                    "defense": 1,
-                    "speed": 1,
-                    "xp": 1
+                    "hp": 3,
+                    "strength": 1,
+                    "defense": 2,
+                    "speed": 3,
+                    "xp": 2
                 },
                 "state": "domesticated"
             },
@@ -971,24 +971,24 @@
                 "name": "Pidgey",
                 "original_name": "Pidgey",
                 "pet_name": "Jean-L\u00e9on 1740524070.6775925",
-                "hp_max": 38,
-                "hp": 38,
-                "xp": 219,
-                "strength": 38,
-                "defense": 28,
+                "hp_max": 54,
+                "hp": 54,
+                "xp": 284,
+                "strength": 49,
+                "defense": 43,
                 "type": [
                     "normal",
                     "flying"
                 ],
-                "level": 6,
-                "speed": 38,
+                "level": 7,
+                "speed": 46,
                 "stage": 1,
                 "ev": {
-                    "hp": 0,
-                    "strength": 0,
-                    "defense": 0,
-                    "speed": 0,
-                    "xp": 0
+                    "hp": 1,
+                    "strength": 2,
+                    "defense": 3,
+                    "speed": 1,
+                    "xp": 2
                 },
                 "state": "domesticated"
             }

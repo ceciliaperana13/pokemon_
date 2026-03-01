@@ -170,30 +170,6 @@
         "state": "wild"
     },
     {
-        "name": "Growlithe",
-        "original_name": "Growlithe",
-        "pet_name": "Jean-Fran\u00e7ois 1771320591.9380438",
-        "hp_max": 36,
-        "hp": 36,
-        "xp": 167,
-        "strength": 43,
-        "defense": 20,
-        "type": [
-            "fire"
-        ],
-        "level": 5,
-        "speed": 35,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Pidgey",
         "original_name": "Pidgey",
         "pet_name": "Jean-Claude 1771320591.938052",
@@ -233,31 +209,6 @@
         ],
         "level": 8,
         "speed": 52,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
-        "name": "Geodude",
-        "original_name": "Geodude",
-        "pet_name": "Jean-Marie 1771320591.938089",
-        "hp_max": 39,
-        "hp": 39,
-        "xp": 397,
-        "strength": 33,
-        "defense": 38,
-        "type": [
-            "rock",
-            "ground"
-        ],
-        "level": 7,
-        "speed": 36,
         "stage": 1,
         "ev": {
             "hp": 0,
@@ -1095,31 +1046,6 @@
         "state": "wild"
     },
     {
-        "name": "Paras",
-        "original_name": "Paras",
-        "pet_name": "Jean-Luc 1771320591.93808",
-        "hp_max": 37,
-        "hp": 37,
-        "xp": 50,
-        "strength": 22,
-        "defense": 22,
-        "type": [
-            "bug",
-            "grass"
-        ],
-        "level": 3,
-        "speed": 34,
-        "stage": 1,
-        "ev": {
-            "hp": 0,
-            "strength": 0,
-            "defense": 0,
-            "speed": 0,
-            "xp": 0
-        },
-        "state": "wild"
-    },
-    {
         "name": "Mankey",
         "original_name": "Mankey",
         "pet_name": "Jean-Vincent 1771320591.938265",
@@ -1377,6 +1303,80 @@
         ],
         "level": 2,
         "speed": 23,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Paras",
+        "original_name": "Paras",
+        "pet_name": "Jean-Luc 1771320591.93808",
+        "hp_max": 37,
+        "hp": 37,
+        "xp": 50,
+        "strength": 22,
+        "defense": 22,
+        "type": [
+            "bug",
+            "grass"
+        ],
+        "level": 3,
+        "speed": 34,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Growlithe",
+        "original_name": "Growlithe",
+        "pet_name": "Jean-Fran\u00e7ois 1771320591.9380438",
+        "hp_max": 36,
+        "hp": 36,
+        "xp": 167,
+        "strength": 43,
+        "defense": 20,
+        "type": [
+            "fire"
+        ],
+        "level": 5,
+        "speed": 35,
+        "stage": 1,
+        "ev": {
+            "hp": 0,
+            "strength": 0,
+            "defense": 0,
+            "speed": 0,
+            "xp": 0
+        },
+        "state": "wild"
+    },
+    {
+        "name": "Geodude",
+        "original_name": "Geodude",
+        "pet_name": "Jean-Marie 1771320591.938089",
+        "hp_max": 39,
+        "hp": 39,
+        "xp": 397,
+        "strength": 33,
+        "defense": 38,
+        "type": [
+            "rock",
+            "ground"
+        ],
+        "level": 7,
+        "speed": 36,
         "stage": 1,
         "ev": {
             "hp": 0,
