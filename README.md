@@ -108,3 +108,5 @@ BATTLE_FLOOR      # Image du sol en combat
 
 🐛 Bugs connus et corrections apportées
 ProblèmeFichier corrigéSolutionCrash display Surface quit à la fermeturegame.pypygame.quit() + sys.exit() dans le handler QUITTeam incorrecte en combat (toujours Pokémon 1)in_fight.py, player.py, map.pyPassage de self.team (liste complète) à ChangePokemonInFightFermeture via la croix relançait un menugame.pyRemplacement de self.running = False par sys.exit()Menu pause recréait une boucle Game imbriquéepause_menu.pySuppression du game.run() dans le case 2Nom du Pokémon absent de l'écran de victoireutil_tool.pyAjout de "{pokemon.name} is victorious!"
+
+
